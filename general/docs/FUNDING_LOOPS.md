@@ -1,10 +1,11 @@
 # Funding Loops
 
-This workflow keeps the analysis centered on one question: where does money appear to circulate between connected organizations, and which simple loops deserve a closer look?
+This workflow keeps the analysis centered on one question: where does money appear to circulate between connected organizations, and which loops deserve a closer look?
 
 ## What it uses
 
-- `cra.loops`, `cra.loop_participants`, and `cra.loop_edge_year_flows` as the core circular-flow signal
+- `cra.loops`, `cra.loop_participants`, and `cra.loop_edge_year_flows` as the default core circular-flow signal
+- `cra.loop_edges` for optional bounded cycle recomputation up to 15 hops
 - `cra.cra_financial_details` for revenue, total government funding, and dependency ratios
 - `cra.cra_directors` for shared-board overlap
 - `general.entity_golden_records` plus `general.vw_entity_funding` to carry CRA loop participants into FED and Alberta funding context
@@ -22,7 +23,7 @@ Running `npm run analyze:funding-loops` from `general/` writes three files under
 
 The ranking is intentionally simple and hackathon-friendly:
 
-- Favour short loops first: `A -> B -> A` is scored above `A -> B -> C -> A`
+- Favour short loops first: `A -> B -> A` is scored above longer cycles
 - Increase risk when loop participants depend heavily on government funding
 - Increase risk when two or more loop participants share board members
 - Increase risk when the same loop participants also show FED or Alberta funding exposure
@@ -40,8 +41,22 @@ npm run analyze:funding-loops
 Optional flags:
 
 ```bash
-node scripts/advanced/11-funding-loops.js --top 25 --network 12 --candidate-pool 250 --max-hops 3
+node scripts/advanced/11-funding-loops.js --top 25 --network 12 --candidate-pool 250 --max-hops 15
 ```
+
+Compute loops from graph edges (instead of pre-materialized `cra.loops`) when you need deeper cycles:
+
+```bash
+node scripts/advanced/11-funding-loops.js --max-hops 15 --recompute-loops --candidate-pool 500 --max-computed-cycles 6000
+```
+
+Generate a privacy-safe public report:
+
+```bash
+node scripts/advanced/11-funding-loops.js --public-report
+```
+
+Public report mode replaces organization names with pseudonyms (`ORG-00001` style), redacts direct identifiers, and buckets monetary values into ranges. Keep full-detail reports restricted to authorized analysts.
 
 ## Practical note
 

@@ -28,6 +28,9 @@ function parseArgs() {
     network: 12,
     candidatePool: 250,
     maxHops: 3,
+    publicReport: false,
+    recomputeLoops: false,
+    maxComputedCycles: 4000,
   };
 
   for (let i = 2; i < process.argv.length; i++) {
@@ -45,9 +48,18 @@ function parseArgs() {
     } else if (current === '--max-hops' && next) {
       args.maxHops = parseInt(next, 10) || args.maxHops;
       i++;
+    } else if (current === '--public-report') {
+      args.publicReport = true;
+    } else if (current === '--recompute-loops') {
+      args.recomputeLoops = true;
+    } else if (current === '--max-computed-cycles' && next) {
+      args.maxComputedCycles = parseInt(next, 10) || args.maxComputedCycles;
+      i++;
     }
   }
 
+  args.maxHops = Math.max(2, Math.min(15, args.maxHops));
+  args.maxComputedCycles = Math.max(200, args.maxComputedCycles);
   return args;
 }
 
@@ -70,7 +82,22 @@ function toNumber(value) {
 }
 
 function money(value) {
+  if (typeof value === 'string' && value.includes('$')) return value;
   return `$${Math.round(toNumber(value)).toLocaleString('en-CA')}`;
+}
+
+function moneyRange(value) {
+  const amount = toNumber(value);
+  if (amount <= 0) return '$0';
+  if (amount <= 100000) return '$0-$100k';
+  if (amount <= 250000) return '$100k-$250k';
+  if (amount <= 500000) return '$250k-$500k';
+  if (amount <= 1000000) return '$500k-$1M';
+  if (amount <= 5000000) return '$1M-$5M';
+  if (amount <= 10000000) return '$5M-$10M';
+  if (amount <= 50000000) return '$10M-$50M';
+  if (amount <= 100000000) return '$50M-$100M';
+  return '$100M+';
 }
 
 function pct(value) {
@@ -140,10 +167,105 @@ async function fetchCandidateLoops(client) {
   `;
 
   const res = await client.query(sql, [args.maxHops, args.candidatePool]);
-  return res.rows;
+  return res.rows.map((row) => ({ ...row, source: 'materialized' }));
 }
 
-async function fetchParticipants(client, loopIds) {
+function normalizeCycle(nodes) {
+  const forward = nodes.slice();
+  const backward = nodes.slice().reverse();
+  const rotations = [];
+  for (let i = 0; i < forward.length; i++) {
+    rotations.push(forward.slice(i).concat(forward.slice(0, i)).join('>'));
+    rotations.push(backward.slice(i).concat(backward.slice(0, i)).join('>'));
+  }
+  rotations.sort();
+  return rotations[0];
+}
+
+async function fetchComputedLoops(client) {
+  const edgeRes = await client.query(`
+    SELECT src, dst, COALESCE(total_amt, 0) AS total_amt, COALESCE(edge_count, 0) AS edge_count
+    FROM cra.loop_edges
+    WHERE src IS NOT NULL
+      AND dst IS NOT NULL
+      AND COALESCE(total_amt, 0) > 0
+  `);
+
+  const adjacency = new Map();
+  for (const row of edgeRes.rows) {
+    if (!adjacency.has(row.src)) adjacency.set(row.src, []);
+    adjacency.get(row.src).push({
+      src: row.src,
+      dst: row.dst,
+      total_amt: toNumber(row.total_amt),
+      edge_count: toNumber(row.edge_count),
+    });
+  }
+
+  const roots = Array.from(adjacency.keys()).sort();
+  const cycles = [];
+  const seen = new Set();
+  const maxCycles = Math.max(args.candidatePool * 8, args.maxComputedCycles);
+
+  function dfs(start, current, stackNodes, stackEdges, visited) {
+    if (cycles.length >= maxCycles) return;
+    const neighbors = adjacency.get(current) || [];
+    for (const edge of neighbors) {
+      if (edge.dst === start && stackNodes.length >= 2) {
+        const cycleNodes = stackNodes.slice();
+        if (cycleNodes.length <= args.maxHops) {
+          const key = normalizeCycle(cycleNodes);
+          if (!seen.has(key)) {
+            seen.add(key);
+            const loopEdges = stackEdges.concat([edge]).map((e, idx) => ({
+              hop_idx: idx + 1,
+              src: e.src,
+              dst: e.dst,
+              year_flow: e.total_amt,
+              gift_count: e.edge_count,
+            }));
+            cycles.push({
+              loop_id: 900000 + cycles.length + 1,
+              hops: cycleNodes.length,
+              path_bns: cycleNodes,
+              path_display: `${cycleNodes.join('→')}→${cycleNodes[0]}`,
+              bottleneck_amt: loopEdges.reduce((min, item) => Math.min(min, toNumber(item.year_flow)), Number.POSITIVE_INFINITY),
+              total_flow_amt: loopEdges.reduce((sum, item) => sum + toNumber(item.year_flow), 0),
+              min_year: null,
+              max_year: null,
+              same_year: false,
+              source: 'computed',
+              precomputedEdges: loopEdges,
+            });
+          }
+        }
+        continue;
+      }
+
+      if (visited.has(edge.dst) || stackNodes.length >= args.maxHops) continue;
+      visited.add(edge.dst);
+      stackNodes.push(edge.dst);
+      stackEdges.push(edge);
+      dfs(start, edge.dst, stackNodes, stackEdges, visited);
+      stackNodes.pop();
+      stackEdges.pop();
+      visited.delete(edge.dst);
+    }
+  }
+
+  for (const root of roots) {
+    if (cycles.length >= maxCycles) break;
+    const visited = new Set([root]);
+    dfs(root, root, [root], [], visited);
+  }
+
+  return cycles
+    .sort((a, b) => toNumber(b.bottleneck_amt) - toNumber(a.bottleneck_amt) || toNumber(b.total_flow_amt) - toNumber(a.total_flow_amt))
+    .slice(0, args.candidatePool);
+}
+
+async function fetchParticipantProfiles(client, bnRoots) {
+  if (!bnRoots.length) return [];
   const res = await client.query(`
     WITH latest_identification AS (
       SELECT DISTINCT ON (LEFT(bn, 9))
@@ -194,11 +316,8 @@ async function fetchParticipants(client, loopIds) {
       GROUP BY esl.entity_id
     )
     SELECT
-      lp.loop_id,
-      lp.position_in_loop,
-      lp.bn,
-      LEFT(lp.bn, 9) AS bn_root,
-      COALESCE(gr.canonical_name, li.legal_name, lp.bn) AS org_name,
+      roots.bn_root,
+      COALESCE(gr.canonical_name, li.legal_name, roots.bn_root) AS org_name,
       li.legal_name,
       li.designation,
       li.category,
@@ -214,18 +333,17 @@ async function fetchParticipants(client, loopIds) {
       END AS govt_dependency_pct,
       ar.has_inactive_status,
       ar.registry_statuses
-    FROM cra.loop_participants lp
+    FROM UNNEST($1::text[]) AS roots(bn_root)
     LEFT JOIN latest_identification li
-      ON li.bn_root = LEFT(lp.bn, 9)
+      ON li.bn_root = roots.bn_root
     LEFT JOIN latest_golden gr
-      ON gr.bn_root = LEFT(lp.bn, 9)
+      ON gr.bn_root = roots.bn_root
     LEFT JOIN charity_financials cf
-      ON cf.bn_root = LEFT(lp.bn, 9)
+      ON cf.bn_root = roots.bn_root
     LEFT JOIN ab_registry ar
       ON ar.entity_id = gr.id
-    WHERE lp.loop_id = ANY($1::int[])
-    ORDER BY lp.loop_id, lp.position_in_loop
-  `, [loopIds]);
+    ORDER BY roots.bn_root
+  `, [bnRoots]);
   return res.rows;
 }
 
@@ -613,7 +731,7 @@ function buildLoopObjects(loops, participantsByLoop, directorsByRoot, edgesByLoo
       ...row,
       dataset_sources: row.dataset_sources || [],
     }));
-    const edges = (edgesByLoop.get(loop.loop_id) || []).map((row) => ({ ...row }));
+    const edges = (loop.precomputedEdges || edgesByLoop.get(loop.loop_id) || []).map((row) => ({ ...row }));
     const directorSignal = computeSharedDirectorSignals(participants, directorsByRoot);
     const score = scoreLoop(loop, participants, edges, directorSignal);
 
@@ -672,7 +790,58 @@ function isTrueMultiOrgLoop(loop) {
 
 function buildNarrativeInsight(loop) {
   const orgs = loop.participants.map((participant) => participant.org_name).slice(0, 3);
-  return `We identified a cluster of organizations that exchanged funding, shared connections, received public funds, and showed extra risk signals around activity and concentration. Cluster #${loop.loop_id} links ${orgs.join(', ')} in a ${loop.hops}-hop loop with ${money(loop.total_edge_flow)} in circular flow and ${money(loop.cluster_total_funding)} in surrounding public-funding exposure. It scores ${loop.risk_score}/6 because ${loop.explanation}.`;
+  return `We identified a cluster of organizations that exchanged funding, shared connections, received public funds, and showed extra risk signals around activity and concentration. Cluster #${loop.loop_id} links ${orgs.join(', ')} in a ${loop.hops}-hop loop with ${money(loop.total_edge_flow)} in circular flow and ${money(loop.cluster_total_funding)} in surrounding public-funding exposure. It scores ${loop.risk_score}/6 because ${loop.explanation}. These are screening indicators for human review, not determinations of wrongdoing.`;
+}
+
+function anonymizeLoopsForPublic(loops) {
+  const aliasMap = new Map();
+  let aliasCounter = 1;
+
+  const toAlias = (key) => {
+    if (!aliasMap.has(key)) {
+      aliasMap.set(key, `ORG-${String(aliasCounter).padStart(5, '0')}`);
+      aliasCounter += 1;
+    }
+    return aliasMap.get(key);
+  };
+
+  return loops.map((loop) => {
+    const bnToAlias = new Map();
+    const participants = loop.participants.map((participant) => {
+      const stableKey = String(participant.entity_id || participant.bn_root || participant.bn || participant.org_name);
+      const alias = toAlias(stableKey);
+      bnToAlias.set(participant.bn, alias);
+      return {
+        ...participant,
+        org_name: alias,
+        legal_name: null,
+        bn: null,
+        bn_root: alias,
+        registry_statuses: participant.registry_statuses ? 'redacted' : null,
+      };
+    });
+
+    return {
+      ...loop,
+      participants,
+      path_bns: participants.map((participant) => participant.org_name),
+      path_display: participants.map((participant) => participant.org_name).join('→'),
+      shared_directors: [],
+      edges: loop.edges.map((edge) => ({
+        ...edge,
+        src: bnToAlias.get(edge.src) || 'ORG-UNKNOWN',
+        dst: bnToAlias.get(edge.dst) || 'ORG-UNKNOWN',
+        year_flow: moneyRange(edge.year_flow),
+      })),
+      total_edge_flow: moneyRange(loop.total_edge_flow),
+      cluster_total_funding: moneyRange(loop.cluster_total_funding),
+      cluster_govt_funding: moneyRange(loop.cluster_govt_funding),
+      fed_total_grants: moneyRange(loop.fed_total_grants),
+      ab_total_grants: moneyRange(loop.ab_total_grants),
+      ab_total_contracts: moneyRange(loop.ab_total_contracts),
+      ab_total_sole_source: moneyRange(loop.ab_total_sole_source),
+    };
+  });
 }
 
 function buildMarkdownReport(loops, insight) {
@@ -976,16 +1145,48 @@ async function main() {
 
   const client = await db.getClient();
   try {
-    const loops = await fetchCandidateLoops(client);
+    const loops = (args.maxHops > 6 || args.recomputeLoops)
+      ? await fetchComputedLoops(client)
+      : await fetchCandidateLoops(client);
     if (!loops.length) {
       throw new Error('No loop records found in cra.loops. Run the CRA loop analysis first.');
     }
 
     const loopIds = loops.map((row) => row.loop_id);
-    const participants = await fetchParticipants(client, loopIds);
-    const bnRoots = [...new Set(participants.map((row) => row.bn_root).filter(Boolean))];
+    const bnRoots = [...new Set(
+      loops.flatMap((loop) => (loop.path_bns || []).map((bn) => String(bn).slice(0, 9))).filter(Boolean)
+    )];
+    const participantProfiles = await fetchParticipantProfiles(client, bnRoots);
+    const profileByRoot = new Map(participantProfiles.map((row) => [row.bn_root, row]));
+    const participants = [];
+    for (const loop of loops) {
+      for (let index = 0; index < (loop.path_bns || []).length; index++) {
+        const bn = String(loop.path_bns[index]);
+        const bn_root = bn.slice(0, 9);
+        const profile = profileByRoot.get(bn_root) || {};
+        participants.push({
+          loop_id: loop.loop_id,
+          position_in_loop: index + 1,
+          bn,
+          bn_root,
+          org_name: profile.org_name || bn_root,
+          legal_name: profile.legal_name || null,
+          designation: profile.designation || null,
+          category: profile.category || null,
+          entity_id: profile.entity_id || null,
+          dataset_sources: profile.dataset_sources || [],
+          revenue: profile.revenue || 0,
+          govt_funding: profile.govt_funding || 0,
+          expenditures: profile.expenditures || 0,
+          govt_dependency_pct: profile.govt_dependency_pct || null,
+          has_inactive_status: profile.has_inactive_status || false,
+          registry_statuses: profile.registry_statuses || null,
+        });
+      }
+    }
     const directors = bnRoots.length ? await fetchDirectors(client, bnRoots) : [];
-    const edges = await fetchEdgeFlows(client, loopIds);
+    const hasComputed = loops.some((loop) => loop.source === 'computed');
+    const edges = hasComputed ? [] : await fetchEdgeFlows(client, loopIds);
 
     const participantsByLoop = buildLookup(participants, 'loop_id');
     const directorsByRoot = buildLookup(directors, 'bn_root');
@@ -1021,12 +1222,13 @@ async function main() {
       throw new Error('Loop ranking returned no rows after enrichment.');
     }
 
-    const insight = buildNarrativeInsight(rankedLoops[0]);
+    const finalLoops = args.publicReport ? anonymizeLoopsForPublic(rankedLoops) : rankedLoops;
+    const insight = buildNarrativeInsight(finalLoops[0]);
     const payload = {
       generated_at: new Date().toISOString(),
       topic: 'Funding Loops',
       methodology: {
-        base_signal: 'CRA charity-to-charity loops (2-hop and 3-hop)',
+        base_signal: `CRA charity-to-charity loops (2-hop through ${args.maxHops}-hop)`,
         supporting_signals: [
           'CRA government-funding dependency',
           'CRA shared directors',
@@ -1035,9 +1237,11 @@ async function main() {
           'AB grants, contracts, and sole-source',
           'AB non-profit registry status',
         ],
+        public_report_mode: args.publicReport,
+        loop_source: hasComputed ? 'computed-from-cra.loop_edges' : 'cra.loops',
       },
       insight,
-      loops: rankedLoops,
+      loops: finalLoops,
     };
 
     const jsonPath = path.join(REPORT_DIR, 'funding-loops-report.json');
@@ -1045,8 +1249,8 @@ async function main() {
     const htmlPath = path.join(REPORT_DIR, 'funding-loops-network.html');
 
     fs.writeFileSync(jsonPath, JSON.stringify(payload, null, 2));
-    fs.writeFileSync(mdPath, buildMarkdownReport(rankedLoops, insight));
-    fs.writeFileSync(htmlPath, buildHtmlReport(rankedLoops, insight));
+    fs.writeFileSync(mdPath, buildMarkdownReport(finalLoops, insight));
+    fs.writeFileSync(htmlPath, buildHtmlReport(finalLoops, insight));
 
     console.log(`Funding Loops report written:`);
     console.log(`  JSON: ${jsonPath}`);

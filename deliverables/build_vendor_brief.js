@@ -13,6 +13,11 @@ function money(value) {
   }).format(Number(value || 0));
 }
 
+function moneyOrRange(value) {
+  if (typeof value === "string" && value.startsWith("$")) return value;
+  return money(value);
+}
+
 function pct(value) {
   if (value == null || Number.isNaN(Number(value))) return "n/a";
   return `${Number(value).toFixed(1)}%`;
@@ -33,6 +38,26 @@ function escapeHtml(value) {
 
 function loadReport() {
   return JSON.parse(fs.readFileSync(REPORT_JSON, "utf8"));
+}
+
+/** Approximate CAD midpoint for public-report range labels (for aggregate KPIs only). */
+function fundingRangeMidpointCad(label) {
+  if (label == null || label === "") return 0;
+  if (typeof label === "number" && Number.isFinite(label)) return label;
+  const s = String(label).trim();
+  const map = {
+    $0: 0,
+    "$0-$100k": 50_000,
+    "$100k-$250k": 175_000,
+    "$250k-$500k": 375_000,
+    "$500k-$1M": 750_000,
+    "$1M-$5M": 3_000_000,
+    "$5M-$10M": 7_500_000,
+    "$10M-$50M": 30_000_000,
+    "$50M-$100M": 75_000_000,
+    "$100M+": 150_000_000,
+  };
+  return map[s] ?? 0;
 }
 
 function summarize(report) {
@@ -63,7 +88,13 @@ function summarize(report) {
   const threeHop = loops.filter((loop) => loop.hops === 3);
   const top5 = loops.slice(0, 5);
   const top10 = loops.slice(0, 10);
-  const exposure = loops.reduce((sum, loop) => sum + Number(loop.cluster_total_funding || 0), 0);
+  const exposure = loops.reduce((sum, loop) => {
+    const v = loop.cluster_total_funding;
+    if (typeof v === "number" && Number.isFinite(v)) return sum + v;
+    if (typeof v === "string" && v.startsWith("$")) return sum + fundingRangeMidpointCad(v);
+    return sum + Number(v || 0);
+  }, 0);
+  const maxHopsObserved = loops.length ? Math.max(...loops.map((loop) => Number(loop.hops || 0))) : 0;
 
   return {
     generatedAt: report.generated_at,
@@ -78,6 +109,7 @@ function summarize(report) {
       twoHopLoops: twoHop.length,
       threeHopLoops: threeHop.length,
       governmentFundingExposure: exposure,
+      maxHopsObserved,
     },
     signalCounts,
     top5,
@@ -92,20 +124,24 @@ function barChartSvg(topLoops) {
   const margin = { top: 40, right: 30, bottom: 120, left: 180 };
   const plotWidth = width - margin.left - margin.right;
   const plotHeight = height - margin.top - margin.bottom;
-  const maxValue = Math.max(...topLoops.map((loop) => Number(loop.cluster_total_funding || 0)));
+  const numericTotals = topLoops.map((loop) => fundingRangeMidpointCad(loop.cluster_total_funding));
+  const maxValue = Math.max(...numericTotals, 1);
   const barGap = 14;
   const barHeight = Math.floor((plotHeight - barGap * (topLoops.length - 1)) / topLoops.length);
 
   const rows = topLoops.map((loop, index) => {
     const y = margin.top + index * (barHeight + barGap);
-    const value = Number(loop.cluster_total_funding || 0);
+    const value = numericTotals[index];
     const barWidth = Math.max(6, Math.round((value / maxValue) * plotWidth));
     const fill = loop.risk_score >= 4 ? "#b91c1c" : "#0f766e";
     const label = `${loop.loop_id}  ${loop.participants.map((p) => p.org_name).join(" -> ")}`;
+    const valueLabel = typeof loop.cluster_total_funding === "string"
+      ? loop.cluster_total_funding
+      : money(value);
     return `
       <text x="${margin.left - 16}" y="${y + barHeight / 2 + 4}" text-anchor="end" font-size="13" fill="#1f2937">${escapeHtml(label.slice(0, 72))}</text>
       <rect x="${margin.left}" y="${y}" width="${barWidth}" height="${barHeight}" rx="8" fill="${fill}"></rect>
-      <text x="${margin.left + barWidth + 10}" y="${y + barHeight / 2 + 4}" font-size="13" fill="#0f172a">${escapeHtml(money(value))}</text>
+      <text x="${margin.left + barWidth + 10}" y="${y + barHeight / 2 + 4}" font-size="13" fill="#0f172a">${escapeHtml(valueLabel)}</text>
     `;
   }).join("");
 
@@ -180,7 +216,7 @@ function topLoopNetworkSvg(loop) {
     if (!src || !dst) return "";
     return `
       <line x1="${src.x}" y1="${src.y}" x2="${dst.x}" y2="${dst.y}" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"></line>
-      <text x="${(src.x + dst.x) / 2}" y="${(src.y + dst.y) / 2 - 6}" text-anchor="middle" font-size="12" fill="#475569">${escapeHtml(money(edge.year_flow))}</text>
+      <text x="${(src.x + dst.x) / 2}" y="${(src.y + dst.y) / 2 - 6}" text-anchor="middle" font-size="12" fill="#475569">${escapeHtml(moneyOrRange(edge.year_flow))}</text>
     `;
   }).join("");
 
@@ -250,8 +286,8 @@ function buildHtml(summary) {
       <td>${index + 1}</td>
       <td>#${loop.loop_id}</td>
       <td>${escapeHtml(loop.participants.map((p) => p.org_name).join(" -> "))}</td>
-      <td>${money(loop.total_edge_flow)}</td>
-      <td>${money(loop.cluster_total_funding)}</td>
+      <td>${escapeHtml(moneyOrRange(loop.total_edge_flow))}</td>
+      <td>${escapeHtml(moneyOrRange(loop.cluster_total_funding))}</td>
       <td>${loop.risk_score}/6</td>
       <td>${escapeHtml(loop.main_reason)}</td>
     </tr>
@@ -430,6 +466,7 @@ function buildHtml(summary) {
         <div class="pills">
           <span class="pill"><strong>${summary.counts.twoHopLoops}</strong> 2-hop loops</span>
           <span class="pill"><strong>${summary.counts.threeHopLoops}</strong> 3-hop loops</span>
+          <span class="pill"><strong>${summary.counts.maxHopsObserved}</strong> max hop depth observed</span>
           <span class="pill"><strong>${summary.counts.sameYearLoops}</strong> same-year loops</span>
           <span class="pill"><strong>${summary.signalCounts.connectedEntities}</strong> with shared-director links</span>
           <span class="pill"><strong>${summary.signalCounts.inactiveAfterFunding}</strong> with inactive-after-funding signal</span>
@@ -441,7 +478,7 @@ function buildHtml(summary) {
         <ul class="list">
           <li>Ingests messy CSV, Excel, JSONL, or linked files.</li>
           <li>Normalizes columns and resolves duplicate organizations.</li>
-          <li>Detects A → B → A and A → B → C → A circular flows.</li>
+          <li>Detects circular flows from 2-hop loops up to configurable deeper cycles (up to 15).</li>
           <li>Enriches each loop with shared directors, inactivity, government dependency, repetition, and concentration signals.</li>
           <li>Ranks risky clusters and explains them in plain language for analysts.</li>
         </ul>
