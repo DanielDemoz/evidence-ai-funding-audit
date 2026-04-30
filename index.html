@@ -88,6 +88,31 @@
     .step-num { flex-shrink: 0; width: 36px; height: 36px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
     .step-content { flex: 1; }
     .step-content h4 { margin-top: 4px; }
+    .overview-hero { text-align: center; max-width: 900px; margin: 0 auto 18px; }
+    .overview-hero p { color: var(--text-muted); font-size: 1.05rem; }
+    .overview-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 10px 0 16px; }
+    .btn-link {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .btn-link.primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .dashboard-frame {
+      width: 100%;
+      min-height: 760px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+    }
 
     /* Footer */
     footer { background: var(--primary); color: rgba(255,255,255,0.7); text-align: center; padding: 24px 0; font-size: 0.9rem; }
@@ -136,46 +161,31 @@
 
     <!-- ═══════ OVERVIEW ═══════ -->
     <section :class="{active: tab==='overview'}">
-      <h2>Project Overview</h2>
-      <p>This repository brings together four major Canadian government open data sources into a shared PostgreSQL database, with separate schemas to prevent collisions. Each dataset has its own pipeline for downloading, cleansing, importing, verifying, and analyzing data.</p>
+      <div class="overview-hero">
+        <h2>Funding Risk Results Overview</h2>
+        <p>
+          This page is designed for non-technical viewers. It highlights the key outcomes from the unified
+          Canadian government dataset (CRA + FED + AB + entity matching) in one interactive dashboard.
+        </p>
+      </div>
 
       <div class="stat-grid">
-        <div class="stat"><div class="number">~23M</div><div class="label">Total Records (all schemas)</div></div>
-        <div class="stat"><div class="number">4</div><div class="label">Datasets</div></div>
-        <div class="stat"><div class="number">4</div><div class="label">DB Schemas</div></div>
-        <div class="stat"><div class="number">6</div><div class="label">Matching Layers</div></div>
-      </div>
-      <p class="mini" style="margin-top:-8px">~12.2M raw source rows (CRA T3010 ~7.3M + FED ~1.28M + AB ~2.61M + CRA qualified-donee gift lines ~1.66M included in CRA total) plus ~1.42M CRA pre-computed analysis rows and ~10.5M in the <code>general</code> entity-resolution schema. Counts persisted in <code>.local-db/manifest.json</code>.</p>
-
-      <h3>Architecture</h3>
-      <pre>hackathon/
-├── CRA/        # CRA T3010 Charity Data         (cra schema,     ~7.3M raw + ~1.42M analysis)
-├── FED/        # Federal Grants &amp; Contributions  (fed schema,     ~1.28M rows)
-├── AB/         # Alberta Open Data               (ab schema,      ~2.61M rows)
-├── general/    # Cross-dataset entity resolution (general schema, ~10.5M rows, ~5.2M source links)
-├── .local-db/  # Local DB recreation kit (DDL + manifest; JSONL data ships out-of-band)
-├── index.html  # This page
-├── LICENSE     # MIT
-└── README.md</pre>
-
-      <div class="card highlight">
-        <h4>Shared Database, Isolated Schemas</h4>
-        <p>All four modules share the same PostgreSQL database on Render. Each uses its own schema (<code>cra</code>, <code>fed</code>, <code>ab</code>, <code>general</code>) so tables never collide. Cross-dataset queries use schema-qualified names like <code>cra.cra_identification</code> or <code>fed.grants_contributions</code>.</p>
+        <div class="stat"><div class="number">~23M</div><div class="label">Total Records</div></div>
+        <div class="stat"><div class="number">25</div><div class="label">Flagged Loop Clusters</div></div>
+        <div class="stat"><div class="number">5</div><div class="label">High-Risk Clusters</div></div>
+        <div class="stat"><div class="number">$7.0B+</div><div class="label">Funding Exposure</div></div>
       </div>
 
-      <h3>Datasets at a Glance</h3>
-      <table>
-        <thead><tr><th>Dataset</th><th>Schema</th><th>Records</th><th>Years</th><th>Key Focus</th></tr></thead>
-        <tbody>
-          <tr><td><strong>CRA T3010</strong></td><td><code>cra</code></td><td>~7.3M raw + ~1.42M analysis</td><td>2020-2024</td><td>Charity filings, circular gifting, risk scoring</td></tr>
-          <tr><td><strong>Federal Grants</strong></td><td><code>fed</code></td><td>~1.28M</td><td>Multi-year</td><td>Government transfers, amendments, vendor concentration</td></tr>
-          <tr><td><strong>Alberta Open Data</strong></td><td><code>ab</code></td><td>~2.61M</td><td>2014-2026</td><td>Grants, contracts, sole-source, non-profit registry</td></tr>
-          <tr><td><strong>General</strong></td><td><code>general</code></td><td>~10.5M</td><td>Current</td><td>Cross-dataset entity resolution (~851K golden records), ministries reference, Splink probabilistic matching</td></tr>
-        </tbody>
-      </table>
+      <div class="overview-actions">
+        <a class="btn-link primary" href="deliverables/vendor_brief/interactive-dashboard.html" target="_blank" rel="noopener noreferrer">Open Dashboard in Full Screen</a>
+        <button class="btn-link" @click="tab='reports'">See Method & Reports</button>
+      </div>
 
-      <h3>The Fuzzy Matching Challenge</h3>
-      <p>The defining challenge across these datasets is entity resolution. The same organization can appear under <strong>dozens of name variations</strong> across CRA, FED, and AB — including trade names, bilingual French-English pairs, typos, and the multiple Business Number suffix variants each registered entity gets (RR for the charity account, RC for corporate tax, RP for payroll). A typical mid-sized multi-dataset charity carries 10+ distinct name variants in the source data. The <code>general</code> module provides a multi-layer resolution engine with AI-assisted review.</p>
+      <iframe
+        class="dashboard-frame"
+        src="deliverables/vendor_brief/interactive-dashboard.html"
+        title="Funding Loops Interactive Dashboard">
+      </iframe>
     </section>
 
     <!-- ═══════ QUICK START ═══════ -->
