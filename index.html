@@ -3,45 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI For Accountability Hackathon</title>
+  <title>Evidence · Public funding risk scanner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
   <style>
     :root {
-      --primary: #1a365d;
-      --primary-light: #2b6cb0;
-      --accent: #e53e3e;
-      --accent-light: #fc8181;
-      --bg: #f7fafc;
+      --primary: #0d3b2c;
+      --primary-light: #1a5c45;
+      --accent: #c45c26;
+      --accent-light: #e8a87c;
+      --bg: #f4f1ec;
+      --surface: #fffcf7;
       --card: #ffffff;
-      --border: #e2e8f0;
-      --text: #2d3748;
-      --text-muted: #718096;
-      --code-bg: #1a202c;
-      --code-text: #e2e8f0;
-      --success: #38a169;
-      --warning: #d69e2e;
+      --border: #e0d8ce;
+      --text: #1c1917;
+      --text-muted: #57534e;
+      --code-bg: #292524;
+      --code-text: #fafaf9;
+      --success: #15803d;
+      --warning: #b45309;
       --tab-cra: #9b2c2c;
       --tab-fed: #2c5282;
       --tab-ab: #276749;
       --tab-general: #744210;
+      --font-sans: "DM Sans", system-ui, sans-serif;
+      --font-display: "Fraunces", Georgia, serif;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    body { font-family: var(--font-sans); background: var(--bg); color: var(--text); line-height: 1.6; font-size: 16px; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
-    /* Header */
-    header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; padding: 48px 0 36px; text-align: center; }
-    header h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
-    header .subtitle { font-size: 1.15rem; opacity: 0.85; max-width: 700px; margin: 0 auto; }
-    header .badge { display: inline-block; background: rgba(255,255,255,0.15); padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; margin-top: 16px; }
+    /* Site header */
+    .site-top {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .site-top-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 24px 32px;
+    }
+    .site-top h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.35rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      line-height: 1.15;
+      max-width: 18ch;
+    }
+    .site-top .lede {
+      margin-top: 14px;
+      max-width: 52ch;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.55;
+    }
+    .site-top .meta-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      align-items: center;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+    .site-top .meta-row span { color: var(--border); }
 
     /* Navigation */
-    .nav-bar { background: var(--card); border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .nav-bar { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 0 rgba(28,25,23,0.04); }
     .nav-tabs { display: flex; gap: 0; list-style: none; overflow-x: auto; }
     .nav-tabs li { flex-shrink: 0; }
-    .nav-tabs button { padding: 14px 22px; border: none; background: none; cursor: pointer; font-size: 0.95rem; font-weight: 500; color: var(--text-muted); border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap; }
-    .nav-tabs button:hover { color: var(--text); background: var(--bg); }
-    .nav-tabs button.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 600; }
+    .nav-tabs button { padding: 14px 18px; border: none; background: none; cursor: pointer; font-size: 0.875rem; font-weight: 500; color: var(--text-muted); border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s; white-space: nowrap; font-family: var(--font-sans); }
+    .nav-tabs button:hover { color: var(--text); background: transparent; }
+    .nav-tabs button.active { color: var(--primary); border-bottom-color: var(--accent); font-weight: 600; }
     .nav-tabs button.active[data-color="cra"] { color: var(--tab-cra); border-bottom-color: var(--tab-cra); }
     .nav-tabs button.active[data-color="fed"] { color: var(--tab-fed); border-bottom-color: var(--tab-fed); }
     .nav-tabs button.active[data-color="ab"] { color: var(--tab-ab); border-bottom-color: var(--tab-ab); }
@@ -51,8 +88,8 @@
     main { padding: 32px 0 64px; }
     section { display: none; }
     section.active { display: block; }
-    h2 { font-size: 1.6rem; margin-bottom: 16px; color: var(--primary); }
-    h3 { font-size: 1.2rem; margin: 24px 0 10px; color: var(--primary-light); }
+    h2 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 16px; color: var(--primary); font-weight: 600; }
+    h3 { font-family: var(--font-display); font-size: 1.15rem; margin: 24px 0 10px; color: var(--primary); font-weight: 600; }
     h4 { font-size: 1.05rem; margin: 18px 0 8px; }
     p { margin-bottom: 12px; }
 
@@ -88,35 +125,98 @@
     .step-num { flex-shrink: 0; width: 36px; height: 36px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
     .step-content { flex: 1; }
     .step-content h4 { margin-top: 4px; }
-    .overview-hero { text-align: center; max-width: 900px; margin: 0 auto 18px; }
-    .overview-hero p { color: var(--text-muted); font-size: 1.05rem; }
-    .overview-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 10px 0 16px; }
+    .overview-wrap { max-width: 920px; margin: 0 auto; }
+    .overview-intro { text-align: center; margin-bottom: 28px; }
+    .overview-intro p { color: var(--text-muted); font-size: 1.02rem; max-width: 54ch; margin: 0 auto; }
+    .ranking-panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 28px 24px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 24px rgba(28, 25, 23, 0.06);
+    }
+    .ranking-panel h2 { margin-top: 0; margin-bottom: 8px; text-align: left; font-size: 1.35rem; }
+    .ranking-panel .sub { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; max-width: 60ch; }
+    .rank-steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+    .rank-steps li {
+      position: relative;
+      padding: 14px 0 14px 44px;
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+    .rank-steps li:first-child { border-top: 0; padding-top: 0; }
+    .rank-steps li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 28px;
+      height: 28px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .rank-steps li:first-child::before { top: -2px; }
+    .rank-steps strong { color: var(--text); font-weight: 600; }
+    .rank-disclaimer {
+      margin-top: 18px;
+      padding: 14px 16px;
+      background: rgba(196, 92, 38, 0.08);
+      border-radius: 10px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      border-left: 3px solid var(--accent);
+    }
+    .overview-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 22px 0 20px; }
     .btn-link {
       display: inline-block;
       text-decoration: none;
-      padding: 10px 14px;
-      border-radius: 8px;
+      padding: 12px 20px;
+      border-radius: 10px;
       border: 1px solid var(--border);
-      background: #fff;
+      background: var(--card);
       color: var(--primary);
       font-weight: 600;
+      font-size: 0.9rem;
+      transition: border-color 0.15s, box-shadow 0.15s;
     }
+    .btn-link:hover { border-color: var(--text-muted); box-shadow: 0 2px 8px rgba(28,25,23,0.06); }
     .btn-link.primary {
       background: var(--primary);
-      color: #fff;
+      color: #fafaf9;
       border-color: var(--primary);
     }
+    .btn-link.primary:hover { background: var(--primary-light); border-color: var(--primary-light); }
     .dashboard-frame {
       width: 100%;
       min-height: 760px;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      background: #fff;
+      border-radius: 14px;
+      background: var(--card);
+      box-shadow: 0 4px 24px rgba(28, 25, 23, 0.05);
     }
+    .credits-strip {
+      text-align: center;
+      padding: 32px 24px 8px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .credits-strip .names { font-weight: 600; color: var(--text); }
+    .credits-strip .affil { margin-top: 6px; }
 
     /* Footer */
-    footer { background: var(--primary); color: rgba(255,255,255,0.7); text-align: center; padding: 24px 0; font-size: 0.9rem; }
-    footer a { color: rgba(255,255,255,0.9); }
+    footer { background: var(--text); color: rgba(255,255,255,0.72); text-align: center; padding: 28px 24px; font-size: 0.875rem; }
+    footer a { color: #fafaf9; text-decoration: underline; text-underline-offset: 3px; }
+    footer a:hover { color: #fff; }
 
     /* Collapsible */
     .collapsible-header { cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
@@ -124,7 +224,7 @@
     .collapsible-header.open::after { content: '\2212'; }
 
     @media (max-width: 768px) {
-      header h1 { font-size: 1.8rem; }
+      .site-top h1 { font-size: 1.65rem; }
       .stat-grid { grid-template-columns: 1fr 1fr; }
       .nav-tabs button { padding: 12px 14px; font-size: 0.88rem; }
     }
@@ -133,11 +233,19 @@
 <body>
 <div id="app">
 
-  <header>
-    <div class="container">
-      <h1>AI For Accountability </h1>
-      <p class="subtitle">Multi-dataset analysis platform for government transparency research. Bringing together CRA charity data, Federal grants, and Alberta open data with AI-powered entity resolution.</p>
-      <span class="badge">April 29, 2026 &middot; MIT License</span>
+  <header class="site-top">
+    <div class="site-top-inner">
+      <h1>Evidence</h1>
+      <p class="lede">Public funding and charity-network analysis in one place: CRA filings, federal grants, and Alberta open data, with cross-dataset entity matching for transparency research.</p>
+      <div class="meta-row">
+        <span>University of Ottawa</span>
+        <span aria-hidden="true">·</span>
+        <span>Ayesha Khalil, Kenneth Preston, Matthew Rocky</span>
+        <span aria-hidden="true">·</span>
+        <time datetime="2026-04-29">April 29, 2026</time>
+        <span aria-hidden="true">·</span>
+        <span>MIT License</span>
+      </div>
     </div>
   </header>
 
@@ -161,31 +269,65 @@
 
     <!-- ═══════ OVERVIEW ═══════ -->
     <section :class="{active: tab==='overview'}">
-      <div class="overview-hero">
-        <h2>Funding Risk Results Overview</h2>
-        <p>
-          This page is designed for non-technical viewers. It highlights the key outcomes from the unified
-          Canadian government dataset (CRA + FED + AB + entity matching) in one interactive dashboard.
-        </p>
-      </div>
+      <div class="overview-wrap">
+        <div class="overview-intro">
+          <h2>Funding risk overview</h2>
+          <p>
+            Snapshot of outcomes from the combined CRA, federal, Alberta, and matched-entity dataset.
+            Use the dashboard to filter loops, sort clusters, and inspect public-safe labels.
+          </p>
+        </div>
 
-      <div class="stat-grid">
-        <div class="stat"><div class="number">~23M</div><div class="label">Total Records</div></div>
-        <div class="stat"><div class="number">25</div><div class="label">Flagged Loop Clusters</div></div>
-        <div class="stat"><div class="number">5</div><div class="label">High-Risk Clusters</div></div>
-        <div class="stat"><div class="number">$7.0B+</div><div class="label">Funding Exposure</div></div>
-      </div>
+        <div class="ranking-panel">
+          <h2>How clusters are ranked</h2>
+          <p class="sub">
+            The table lists <strong>loop clusters</strong>: groups of charities linked by gift flows where funds can move in a cycle.
+            Ordering helps triage; it is not a finding of wrongdoing.
+          </p>
+          <ol class="rank-steps">
+            <li>
+              <strong>Risk score (up to 6).</strong> Each cluster gets a numeric score from weighted signals (flow size, network shape, and related factors). The dashboard shows it beside the
+              <strong>high / medium / low</strong> risk label.
+            </li>
+            <li>
+              <strong>Default sort.</strong> Rows load by <strong>risk score, highest first</strong>. Use <strong>Sort by</strong> to switch to
+              public funding exposure, total circular flow on edges, or loop id.
+            </li>
+            <li>
+              <strong>Public funding.</strong> When the public report includes a cluster funding total (sometimes a range), charts and exposure use a consistent midpoint for ranges.
+            </li>
+            <li>
+              <strong>Loop search depth.</strong> Cycles are detected in the gift graph up to the configured hop limit (the published run uses up to <strong>15 hops</strong>). Deeper search can surface additional clusters.
+            </li>
+          </ol>
+          <p class="rank-disclaimer">
+            Screening only. Always verify against primary sources and context before conclusions.
+          </p>
+        </div>
 
-      <div class="overview-actions">
-        <a class="btn-link primary" href="deliverables/vendor_brief/interactive-dashboard.html" target="_blank" rel="noopener noreferrer">Open Dashboard in Full Screen</a>
-        <button class="btn-link" @click="tab='reports'">See Method & Reports</button>
-      </div>
+        <div class="stat-grid">
+          <div class="stat"><div class="number">~23M</div><div class="label">Total records</div></div>
+          <div class="stat"><div class="number">25</div><div class="label">Flagged loop clusters</div></div>
+          <div class="stat"><div class="number">5</div><div class="label">High-risk clusters</div></div>
+          <div class="stat"><div class="number">$7.0B+</div><div class="label">Funding exposure</div></div>
+        </div>
 
-      <iframe
-        class="dashboard-frame"
-        src="deliverables/vendor_brief/interactive-dashboard.html"
-        title="Funding Loops Interactive Dashboard">
-      </iframe>
+        <div class="overview-actions">
+          <a class="btn-link primary" href="deliverables/vendor_brief/interactive-dashboard.html" target="_blank" rel="noopener noreferrer">Open dashboard full screen</a>
+          <button class="btn-link" type="button" @click="tab='reports'">Method &amp; reports</button>
+        </div>
+
+        <iframe
+          class="dashboard-frame"
+          src="deliverables/vendor_brief/interactive-dashboard.html"
+          title="Funding loops interactive dashboard">
+        </iframe>
+
+        <div class="credits-strip">
+          <p class="names">Ayesha Khalil · Kenneth Preston · Matthew Rocky</p>
+          <p class="affil">University of Ottawa</p>
+        </div>
+      </div>
     </section>
 
     <!-- ═══════ QUICK START ═══════ -->
@@ -916,17 +1058,20 @@ DB_CONNECTION_STRING=postgresql://user:pass@localhost/hackathon npm run import</
 
   <footer>
     <div class="container">
-      AI For Accountability Hackathon &middot; April 29, 2026 &middot;
-      <a href="LICENSE">MIT License</a> &middot;
-      <a href="README.md">README</a>
+      <p><strong>Ayesha Khalil</strong> · <strong>Kenneth Preston</strong> · <strong>Matthew Rocky</strong> — University of Ottawa</p>
+      <p style="margin-top: 10px;">
+        Evidence · April 29, 2026 ·
+        <a href="LICENSE">MIT License</a> ·
+        <a href="README.md">README</a>
+      </p>
     </div>
   </footer>
 
   <noscript>
-    <div style="padding: 40px; max-width: 800px; margin: 0 auto; font-family: sans-serif;">
-      <h1>AI For Accountability Hackathon</h1>
-      <p>This page requires JavaScript to display the interactive documentation.</p>
-      <p>Please enable JavaScript, or refer to the <a href="README.md">README.md</a> file for documentation.</p>
+    <div style="padding: 40px; max-width: 800px; margin: 0 auto; font-family: system-ui, sans-serif;">
+      <h1>Evidence · Public funding risk scanner</h1>
+      <p>This page needs JavaScript for the tabbed documentation.</p>
+      <p>Enable JavaScript, or open <a href="README.md">README.md</a>.</p>
     </div>
   </noscript>
 
