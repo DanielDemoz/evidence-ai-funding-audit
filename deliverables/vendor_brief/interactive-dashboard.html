@@ -248,8 +248,11 @@
     function fillHeader(data) {
       document.getElementById("insightText").textContent = data.insight || "No insight text found.";
       const dateText = data.generatedAt ? new Date(data.generatedAt).toLocaleString() : "Unknown time";
-      const pub = data.methodology && data.methodology.public_report_mode ? " | Public / pseudonymized report" : "";
-      document.getElementById("metaText").textContent = "Generated: " + dateText + " | Topic: " + (data.topic || "N/A") + pub;
+      const bits = [];
+      if (data.methodology && data.methodology.public_report_mode) bits.push("public / pseudonymized report");
+      if (data.methodology && data.methodology.public_anonymized) bits.push("organization names anonymized");
+      const extra = bits.length ? " | " + bits.join(" | ") : "";
+      document.getElementById("metaText").textContent = "Generated: " + dateText + " | Topic: " + (data.topic || "N/A") + extra;
     }
 
     function fillKpis(data) {

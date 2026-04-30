@@ -72,6 +72,14 @@ To re-filter an **existing** `deliverables/vendor_brief/data-summary.json` to th
 node deliverables/apply_hop_cap_to_summary.js
 ```
 
+For **public-facing** snapshots, replace legal organization names with category labels (e.g. `university 001`, `deaf org 002`), redact business numbers and director names, and rebuild the vendor HTML/MD:
+
+```bash
+node deliverables/anonymize_vendor_summary.js
+```
+
+Run this on a copy with real names only in trusted environments; commit anonymized output for GitHub Pages if required.
+
 ## Practical note
 
 The repo does not ship the shared `.env.public` credentials or the `.local-db/data/` bundle. The script is ready to run once either of these is available:
