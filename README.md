@@ -8,13 +8,13 @@ This repository unifies four major sources of Canadian government open data into
 
 All data is redistributed under the original publishers' open-government licences — Canada Revenue Agency T3010 filings, federal Grants & Contributions disclosures, and Alberta open data. See [ATTRIBUTIONS.md](ATTRIBUTIONS.md) for data sources and third-party library credits.
 
-## Public site (Evidence)
+## Public site (GitHub Pages)
 
-The root **`index.html`** is a tabbed documentation browser; the **Overview** tab embeds the interactive funding dashboard under `deliverables/vendor_brief/`. That public-facing view uses the **Evidence** title, ranking explainer, and credits suitable for GitHub Pages or static hosting on `main`.
+The root **`index.html`** is a tabbed documentation browser. The hero title there is **AI-Powered Public Funding & Charity Network Analytics Platform**; the **Overview** tab embeds the interactive dashboard from `deliverables/vendor_brief/interactive-dashboard.html`. The committed dashboard snapshot uses **anonymized organization labels** (category-style names, not legal charity names); see `deliverables/anonymize_vendor_summary.js`.
 
 **Contributors:** Daniel Demoz, Kenneth Preston, Matthew Rocky, Ayesha Khalil — University of Ottawa.
 
-After changing loop logic or refreshing data, regenerate the vendor pack with `node deliverables/build_vendor_brief.js` (requires `general/data/reports/funding-loops-report.json` from `npm run analyze:funding-loops` in `general/`). To re-apply only the hop cap to an existing `data-summary.json` without a DB, run `node deliverables/apply_hop_cap_to_summary.js`.
+**Publish checklist (public, anonymized bundle):** in `general/`, with DB credentials, run `npm run analyze:funding-loops` → from repo root `node deliverables/build_vendor_brief.js` → `node deliverables/anonymize_vendor_summary.js`. To re-apply only the hop cap to an existing `data-summary.json` without a database: `node deliverables/apply_hop_cap_to_summary.js`. For internal work, skip anonymization and avoid committing identifiable names to a public branch.
 
 ## Prerequisites
 
@@ -267,7 +267,7 @@ Cross-module unit and integration tests live in `tests/end-to-end.test.js` — t
 node --test tests/end-to-end.test.js
 ```
 
-Pure-function tests run instantly. DB-dependent tests require the modules' `.env` / `.env.public` files to be in place (they connect via the same pool configuration as the rest of the pipeline).
+Pure-function tests run instantly. DB-dependent tests require the modules' `.env` / `.env.public` files to be in place (they connect via the same pool configuration as the rest of the pipeline). Running this command in CI or before a release helps catch regressions early.
 
 ## License
 

@@ -1,7 +1,7 @@
 {
   "generatedAt": "2026-04-28T13:44:54.622Z",
   "topic": "Funding Loops",
-  "insight": "We identified a cluster of organizations that exchanged funding, shared connections, received public funds, and showed extra risk signals around activity and concentration. Cluster #141 links BOB RUMBALL CANADIAN CENTRE OF EXCELLENCE FOR THE DEAF, The Bob Rumball Camp of the Deaf in a 2-hop loop with $539,500 in circular flow and $89,257,445 in surrounding public-funding exposure. It scores 4/6 because entities are connected through shared directors; at least one organization is highly government-funded (max 80.3%).",
+  "insight": "We identified a cluster of organizations that exchanged funding, shared connections, received public funds, and showed extra risk signals around activity and concentration. Cluster #141 links deaf org 001, deaf org 002 in a 2-hop loop with $539,500 in circular flow and $89,257,445.15 in surrounding public-funding exposure. It scores 4/6 because entities are connected through shared directors; at least one organization is highly government-funded (max 80.3%). Organization labels are anonymized for public viewing. These are screening indicators for human review, not determinations of wrongdoing.",
   "methodology": {
     "base_signal": "CRA charity-to-charity loops (2-hop and 3-hop)",
     "supporting_signals": [
@@ -11,7 +11,9 @@
       "FED grants",
       "AB grants, contracts, and sole-source",
       "AB non-profit registry status"
-    ]
+    ],
+    "public_anonymized": true,
+    "anonymization": "Category-style labels (e.g. university 001, deaf org 002); BNs and director names redacted."
   },
   "counts": {
     "flaggedLoops": 20,
@@ -38,21 +40,21 @@
       "max_year": 2020,
       "same_year": true,
       "path_bns": [
-        "108073776RR0001",
-        "119067494RR0001"
+        "deaf org 001",
+        "deaf org 002"
       ],
-      "path_display": "108073776RR0001→119067494RR0001→108073776RR0001",
+      "path_display": "deaf org 001→deaf org 002→deaf org 001",
       "bottleneck_amt": 250000,
       "total_flow_amt": 539500,
       "participants": [
         {
-          "bn": "108073776RR0001",
-          "bn_root": "108073776",
-          "org_name": "BOB RUMBALL CANADIAN CENTRE OF EXCELLENCE FOR THE DEAF",
-          "legal_name": "BOB RUMBALL CANADIAN CENTRE OF EXCELLENCE FOR THE DEAF",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "deaf org 001",
+          "legal_name": null,
           "designation": "C",
           "category": "200",
-          "entity_id": 7518,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -72,13 +74,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "119067494RR0001",
-          "bn_root": "119067494",
-          "org_name": "The Bob Rumball Camp of the Deaf",
-          "legal_name": "The Bob Rumball Camp of the Deaf",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "deaf org 002",
+          "legal_name": null,
           "designation": "C",
           "category": "200",
-          "entity_id": 17018,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -101,15 +103,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "108073776RR0001",
-          "dst": "119067494RR0001",
+          "src": "deaf org 001",
+          "dst": "deaf org 002",
           "year_flow": 250000,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "119067494RR0001",
-          "dst": "108073776RR0001",
+          "src": "deaf org 002",
+          "dst": "deaf org 001",
           "year_flow": 289500,
           "gift_count": 1
         }
@@ -125,21 +127,21 @@
       "shared_director_pair_count": 1,
       "shared_directors": [
         {
-          "director_name": "ARTHUR  LAST",
+          "director_name": "Director 001",
           "bn_roots": [
             "108073776",
             "119067494"
           ]
         },
         {
-          "director_name": "LEROY  RAYMOND",
+          "director_name": "Director 002",
           "bn_roots": [
             "108073776",
             "119067494"
           ]
         },
         {
-          "director_name": "DEREK  RUMBALL",
+          "director_name": "Director 003",
           "bn_roots": [
             "108073776",
             "119067494"
@@ -172,21 +174,21 @@
       "max_year": 2021,
       "same_year": true,
       "path_bns": [
-        "130808363RR0001",
-        "816275895RR0001"
+        "faith org 001",
+        "faith org 002"
       ],
-      "path_display": "130808363RR0001→816275895RR0001→130808363RR0001",
+      "path_display": "faith org 001→faith org 002→faith org 001",
       "bottleneck_amt": 46010,
       "total_flow_amt": 279951,
       "participants": [
         {
-          "bn": "130808363RR0001",
-          "bn_root": "130808363",
-          "org_name": "MORE THAN A ROOF MENNONITE HOUSING SOCIETY",
-          "legal_name": "MORE THAN A ROOF MENNONITE HOUSING SOCIETY",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "faith org 001",
+          "legal_name": null,
           "designation": "C",
           "category": "1",
-          "entity_id": 27161,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -206,13 +208,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "816275895RR0001",
-          "bn_root": "816275895",
-          "org_name": "WEST END MENNONITE HOUSING SOCIETY",
-          "legal_name": "WEST END MENNONITE HOUSING SOCIETY",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "faith org 002",
+          "legal_name": null,
           "designation": "C",
           "category": "1",
-          "entity_id": 49944,
+          "entity_id": null,
           "dataset_sources": [
             "cra"
           ],
@@ -234,15 +236,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "130808363RR0001",
-          "dst": "816275895RR0001",
+          "src": "faith org 001",
+          "dst": "faith org 002",
           "year_flow": 46010,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "816275895RR0001",
-          "dst": "130808363RR0001",
+          "src": "faith org 002",
+          "dst": "faith org 001",
           "year_flow": 233941,
           "gift_count": 1
         }
@@ -258,63 +260,63 @@
       "shared_director_pair_count": 1,
       "shared_directors": [
         {
-          "director_name": "DAVID  HILLHOUSE",
+          "director_name": "Director 001",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "DEWEY J DEVRIES",
+          "director_name": "Director 002",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "MARIE-LOUISE  STOLZ",
+          "director_name": "Director 003",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "RACHEL  WIEBE",
+          "director_name": "Director 004",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "SPENCER  ANDRES",
+          "director_name": "Director 005",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "WILLY  REIMER",
+          "director_name": "Director 006",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "KARA  DOUGLAS",
+          "director_name": "Director 007",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "JASON  HEINRICH",
+          "director_name": "Director 008",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "ANDREW  MACRITCHIE",
+          "director_name": "Director 009",
           "bn_roots": [
             "130808363",
             "816275895"
@@ -347,21 +349,21 @@
       "max_year": 2022,
       "same_year": true,
       "path_bns": [
-        "106987399RR0001",
-        "702805524RR0001"
+        "corporate org 001",
+        "foundation 001"
       ],
-      "path_display": "106987399RR0001→702805524RR0001→106987399RR0001",
+      "path_display": "corporate org 001→foundation 001→corporate org 001",
       "bottleneck_amt": 16084,
       "total_flow_amt": 35084,
       "participants": [
         {
-          "bn": "106987399RR0001",
-          "bn_root": "106987399",
-          "org_name": "COSMOPOLITAN INDUSTRIES LTD.",
-          "legal_name": "COSMOPOLITAN INDUSTRIES LTD.",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "corporate org 001",
+          "legal_name": null,
           "designation": "C",
           "category": "160",
-          "entity_id": 2620,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -381,13 +383,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "702805524RR0001",
-          "bn_root": "702805524",
-          "org_name": "THE STENSRUD FAMILY TOP OF THE ROCK FOUNDATION INC.",
-          "legal_name": "THE STENSRUD FAMILY TOP OF THE ROCK FOUNDATION INC.",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 001",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 33922,
+          "entity_id": null,
           "dataset_sources": [
             "cra"
           ],
@@ -409,15 +411,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "106987399RR0001",
-          "dst": "702805524RR0001",
+          "src": "corporate org 001",
+          "dst": "foundation 001",
           "year_flow": 19000,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "702805524RR0001",
-          "dst": "106987399RR0001",
+          "src": "foundation 001",
+          "dst": "corporate org 001",
           "year_flow": 16084,
           "gift_count": 1
         }
@@ -433,21 +435,21 @@
       "shared_director_pair_count": 1,
       "shared_directors": [
         {
-          "director_name": "GREG  KUSE",
+          "director_name": "Director 001",
           "bn_roots": [
             "106987399",
             "702805524"
           ]
         },
         {
-          "director_name": "BRENT  REMPEL",
+          "director_name": "Director 002",
           "bn_roots": [
             "106987399",
             "702805524"
           ]
         },
         {
-          "director_name": "MICHAEL  STENSRUD",
+          "director_name": "Director 003",
           "bn_roots": [
             "106987399",
             "702805524"
@@ -480,21 +482,21 @@
       "max_year": 2022,
       "same_year": true,
       "path_bns": [
-        "801919739RR0001",
-        "801934134RR0001"
+        "corporate org 002",
+        "corporate org 003"
       ],
-      "path_display": "801919739RR0001→801934134RR0001→801919739RR0001",
+      "path_display": "corporate org 002→corporate org 003→corporate org 002",
       "bottleneck_amt": 24142,
       "total_flow_amt": 119354,
       "participants": [
         {
-          "bn": "801919739RR0001",
-          "bn_root": "801919739",
-          "org_name": "AKOMA HOLDINGS INCORPORATED",
-          "legal_name": "AKOMA HOLDINGS INCORPORATED",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "corporate org 002",
+          "legal_name": null,
           "designation": "C",
           "category": "210",
-          "entity_id": 46076,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -514,13 +516,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "801934134RR0001",
-          "bn_root": "801934134",
-          "org_name": "AKOMA FAMILY CENTRE INCORPORATED",
-          "legal_name": "AKOMA FAMILY CENTRE INCORPORATED",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "corporate org 003",
+          "legal_name": null,
           "designation": "C",
           "category": "160",
-          "entity_id": 46081,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -543,15 +545,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "801919739RR0001",
-          "dst": "801934134RR0001",
+          "src": "corporate org 002",
+          "dst": "corporate org 003",
           "year_flow": 24142,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "801934134RR0001",
-          "dst": "801919739RR0001",
+          "src": "corporate org 003",
+          "dst": "corporate org 002",
           "year_flow": 95212,
           "gift_count": 1
         }
@@ -567,56 +569,56 @@
       "shared_director_pair_count": 1,
       "shared_directors": [
         {
-          "director_name": "SPENCER  COLLEY",
+          "director_name": "Director 001",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "DAVID  HENDSBEE",
+          "director_name": "Director 002",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "KATHLEEN  MITCHELL",
+          "director_name": "Director 003",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "DOLLY  WILLIAMS",
+          "director_name": "Director 004",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "JASON  JACKSON",
+          "director_name": "Director 005",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "YVONNE  ATWELL",
+          "director_name": "Director 006",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "MARJORIE  JOHNSTONE",
+          "director_name": "Director 007",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "ANGELA  COLLEY",
+          "director_name": "Director 008",
           "bn_roots": [
             "801919739",
             "801934134"
@@ -649,21 +651,21 @@
       "max_year": 2021,
       "same_year": true,
       "path_bns": [
-        "119097962RR0001",
-        "865088439RR0001"
+        "arts org 001",
+        "foundation 002"
       ],
-      "path_display": "119097962RR0001→865088439RR0001→119097962RR0001",
+      "path_display": "arts org 001→foundation 002→arts org 001",
       "bottleneck_amt": 40000,
       "total_flow_amt": 309883,
       "participants": [
         {
-          "bn": "119097962RR0001",
-          "bn_root": "119097962",
-          "org_name": "Prairie Theatre Exchange Inc",
-          "legal_name": "PRAIRIE THEATRE EXCHANGE INC.",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "arts org 001",
+          "legal_name": null,
           "designation": "C",
           "category": "190",
-          "entity_id": 17729,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -683,13 +685,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "865088439RR0001",
-          "bn_root": "865088439",
-          "org_name": "PRAIRIE THEATRE EXCHANGE FOUNDATION TRUST",
-          "legal_name": "PRAIRIE THEATRE EXCHANGE FOUNDATION TRUST",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 002",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 65102,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -712,15 +714,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "119097962RR0001",
-          "dst": "865088439RR0001",
+          "src": "arts org 001",
+          "dst": "foundation 002",
           "year_flow": 269883,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "865088439RR0001",
-          "dst": "119097962RR0001",
+          "src": "foundation 002",
+          "dst": "arts org 001",
           "year_flow": 40000,
           "gift_count": 1
         }
@@ -736,7 +738,7 @@
       "shared_director_pair_count": 1,
       "shared_directors": [
         {
-          "director_name": "MELISSA  MCALISTER",
+          "director_name": "Director 001",
           "bn_roots": [
             "119097962",
             "865088439"
@@ -771,21 +773,21 @@
       "max_year": 2020,
       "same_year": true,
       "path_bns": [
-        "108073776RR0001",
-        "119067494RR0001"
+        "deaf org 001",
+        "deaf org 002"
       ],
-      "path_display": "108073776RR0001→119067494RR0001→108073776RR0001",
+      "path_display": "deaf org 001→deaf org 002→deaf org 001",
       "bottleneck_amt": 250000,
       "total_flow_amt": 539500,
       "participants": [
         {
-          "bn": "108073776RR0001",
-          "bn_root": "108073776",
-          "org_name": "BOB RUMBALL CANADIAN CENTRE OF EXCELLENCE FOR THE DEAF",
-          "legal_name": "BOB RUMBALL CANADIAN CENTRE OF EXCELLENCE FOR THE DEAF",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "deaf org 001",
+          "legal_name": null,
           "designation": "C",
           "category": "200",
-          "entity_id": 7518,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -805,13 +807,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "119067494RR0001",
-          "bn_root": "119067494",
-          "org_name": "The Bob Rumball Camp of the Deaf",
-          "legal_name": "The Bob Rumball Camp of the Deaf",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "deaf org 002",
+          "legal_name": null,
           "designation": "C",
           "category": "200",
-          "entity_id": 17018,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -834,15 +836,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "108073776RR0001",
-          "dst": "119067494RR0001",
+          "src": "deaf org 001",
+          "dst": "deaf org 002",
           "year_flow": 250000,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "119067494RR0001",
-          "dst": "108073776RR0001",
+          "src": "deaf org 002",
+          "dst": "deaf org 001",
           "year_flow": 289500,
           "gift_count": 1
         }
@@ -858,21 +860,21 @@
       "shared_director_pair_count": 1,
       "shared_directors": [
         {
-          "director_name": "ARTHUR  LAST",
+          "director_name": "Director 001",
           "bn_roots": [
             "108073776",
             "119067494"
           ]
         },
         {
-          "director_name": "LEROY  RAYMOND",
+          "director_name": "Director 002",
           "bn_roots": [
             "108073776",
             "119067494"
           ]
         },
         {
-          "director_name": "DEREK  RUMBALL",
+          "director_name": "Director 003",
           "bn_roots": [
             "108073776",
             "119067494"
@@ -905,21 +907,21 @@
       "max_year": 2021,
       "same_year": true,
       "path_bns": [
-        "130808363RR0001",
-        "816275895RR0001"
+        "faith org 001",
+        "faith org 002"
       ],
-      "path_display": "130808363RR0001→816275895RR0001→130808363RR0001",
+      "path_display": "faith org 001→faith org 002→faith org 001",
       "bottleneck_amt": 46010,
       "total_flow_amt": 279951,
       "participants": [
         {
-          "bn": "130808363RR0001",
-          "bn_root": "130808363",
-          "org_name": "MORE THAN A ROOF MENNONITE HOUSING SOCIETY",
-          "legal_name": "MORE THAN A ROOF MENNONITE HOUSING SOCIETY",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "faith org 001",
+          "legal_name": null,
           "designation": "C",
           "category": "1",
-          "entity_id": 27161,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -939,13 +941,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "816275895RR0001",
-          "bn_root": "816275895",
-          "org_name": "WEST END MENNONITE HOUSING SOCIETY",
-          "legal_name": "WEST END MENNONITE HOUSING SOCIETY",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "faith org 002",
+          "legal_name": null,
           "designation": "C",
           "category": "1",
-          "entity_id": 49944,
+          "entity_id": null,
           "dataset_sources": [
             "cra"
           ],
@@ -967,15 +969,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "130808363RR0001",
-          "dst": "816275895RR0001",
+          "src": "faith org 001",
+          "dst": "faith org 002",
           "year_flow": 46010,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "816275895RR0001",
-          "dst": "130808363RR0001",
+          "src": "faith org 002",
+          "dst": "faith org 001",
           "year_flow": 233941,
           "gift_count": 1
         }
@@ -991,63 +993,63 @@
       "shared_director_pair_count": 1,
       "shared_directors": [
         {
-          "director_name": "DAVID  HILLHOUSE",
+          "director_name": "Director 001",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "DEWEY J DEVRIES",
+          "director_name": "Director 002",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "MARIE-LOUISE  STOLZ",
+          "director_name": "Director 003",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "RACHEL  WIEBE",
+          "director_name": "Director 004",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "SPENCER  ANDRES",
+          "director_name": "Director 005",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "WILLY  REIMER",
+          "director_name": "Director 006",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "KARA  DOUGLAS",
+          "director_name": "Director 007",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "JASON  HEINRICH",
+          "director_name": "Director 008",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "ANDREW  MACRITCHIE",
+          "director_name": "Director 009",
           "bn_roots": [
             "130808363",
             "816275895"
@@ -1080,21 +1082,21 @@
       "max_year": 2022,
       "same_year": true,
       "path_bns": [
-        "106987399RR0001",
-        "702805524RR0001"
+        "corporate org 001",
+        "foundation 001"
       ],
-      "path_display": "106987399RR0001→702805524RR0001→106987399RR0001",
+      "path_display": "corporate org 001→foundation 001→corporate org 001",
       "bottleneck_amt": 16084,
       "total_flow_amt": 35084,
       "participants": [
         {
-          "bn": "106987399RR0001",
-          "bn_root": "106987399",
-          "org_name": "COSMOPOLITAN INDUSTRIES LTD.",
-          "legal_name": "COSMOPOLITAN INDUSTRIES LTD.",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "corporate org 001",
+          "legal_name": null,
           "designation": "C",
           "category": "160",
-          "entity_id": 2620,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -1114,13 +1116,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "702805524RR0001",
-          "bn_root": "702805524",
-          "org_name": "THE STENSRUD FAMILY TOP OF THE ROCK FOUNDATION INC.",
-          "legal_name": "THE STENSRUD FAMILY TOP OF THE ROCK FOUNDATION INC.",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 001",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 33922,
+          "entity_id": null,
           "dataset_sources": [
             "cra"
           ],
@@ -1142,15 +1144,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "106987399RR0001",
-          "dst": "702805524RR0001",
+          "src": "corporate org 001",
+          "dst": "foundation 001",
           "year_flow": 19000,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "702805524RR0001",
-          "dst": "106987399RR0001",
+          "src": "foundation 001",
+          "dst": "corporate org 001",
           "year_flow": 16084,
           "gift_count": 1
         }
@@ -1166,21 +1168,21 @@
       "shared_director_pair_count": 1,
       "shared_directors": [
         {
-          "director_name": "GREG  KUSE",
+          "director_name": "Director 001",
           "bn_roots": [
             "106987399",
             "702805524"
           ]
         },
         {
-          "director_name": "BRENT  REMPEL",
+          "director_name": "Director 002",
           "bn_roots": [
             "106987399",
             "702805524"
           ]
         },
         {
-          "director_name": "MICHAEL  STENSRUD",
+          "director_name": "Director 003",
           "bn_roots": [
             "106987399",
             "702805524"
@@ -1213,21 +1215,21 @@
       "max_year": 2022,
       "same_year": true,
       "path_bns": [
-        "801919739RR0001",
-        "801934134RR0001"
+        "corporate org 002",
+        "corporate org 003"
       ],
-      "path_display": "801919739RR0001→801934134RR0001→801919739RR0001",
+      "path_display": "corporate org 002→corporate org 003→corporate org 002",
       "bottleneck_amt": 24142,
       "total_flow_amt": 119354,
       "participants": [
         {
-          "bn": "801919739RR0001",
-          "bn_root": "801919739",
-          "org_name": "AKOMA HOLDINGS INCORPORATED",
-          "legal_name": "AKOMA HOLDINGS INCORPORATED",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "corporate org 002",
+          "legal_name": null,
           "designation": "C",
           "category": "210",
-          "entity_id": 46076,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -1247,13 +1249,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "801934134RR0001",
-          "bn_root": "801934134",
-          "org_name": "AKOMA FAMILY CENTRE INCORPORATED",
-          "legal_name": "AKOMA FAMILY CENTRE INCORPORATED",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "corporate org 003",
+          "legal_name": null,
           "designation": "C",
           "category": "160",
-          "entity_id": 46081,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -1276,15 +1278,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "801919739RR0001",
-          "dst": "801934134RR0001",
+          "src": "corporate org 002",
+          "dst": "corporate org 003",
           "year_flow": 24142,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "801934134RR0001",
-          "dst": "801919739RR0001",
+          "src": "corporate org 003",
+          "dst": "corporate org 002",
           "year_flow": 95212,
           "gift_count": 1
         }
@@ -1300,56 +1302,56 @@
       "shared_director_pair_count": 1,
       "shared_directors": [
         {
-          "director_name": "SPENCER  COLLEY",
+          "director_name": "Director 001",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "DAVID  HENDSBEE",
+          "director_name": "Director 002",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "KATHLEEN  MITCHELL",
+          "director_name": "Director 003",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "DOLLY  WILLIAMS",
+          "director_name": "Director 004",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "JASON  JACKSON",
+          "director_name": "Director 005",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "YVONNE  ATWELL",
+          "director_name": "Director 006",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "MARJORIE  JOHNSTONE",
+          "director_name": "Director 007",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "ANGELA  COLLEY",
+          "director_name": "Director 008",
           "bn_roots": [
             "801919739",
             "801934134"
@@ -1382,21 +1384,21 @@
       "max_year": 2021,
       "same_year": true,
       "path_bns": [
-        "119097962RR0001",
-        "865088439RR0001"
+        "arts org 001",
+        "foundation 002"
       ],
-      "path_display": "119097962RR0001→865088439RR0001→119097962RR0001",
+      "path_display": "arts org 001→foundation 002→arts org 001",
       "bottleneck_amt": 40000,
       "total_flow_amt": 309883,
       "participants": [
         {
-          "bn": "119097962RR0001",
-          "bn_root": "119097962",
-          "org_name": "Prairie Theatre Exchange Inc",
-          "legal_name": "PRAIRIE THEATRE EXCHANGE INC.",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "arts org 001",
+          "legal_name": null,
           "designation": "C",
           "category": "190",
-          "entity_id": 17729,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -1416,13 +1418,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "865088439RR0001",
-          "bn_root": "865088439",
-          "org_name": "PRAIRIE THEATRE EXCHANGE FOUNDATION TRUST",
-          "legal_name": "PRAIRIE THEATRE EXCHANGE FOUNDATION TRUST",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 002",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 65102,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -1445,15 +1447,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "119097962RR0001",
-          "dst": "865088439RR0001",
+          "src": "arts org 001",
+          "dst": "foundation 002",
           "year_flow": 269883,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "865088439RR0001",
-          "dst": "119097962RR0001",
+          "src": "foundation 002",
+          "dst": "arts org 001",
           "year_flow": 40000,
           "gift_count": 1
         }
@@ -1469,7 +1471,7 @@
       "shared_director_pair_count": 1,
       "shared_directors": [
         {
-          "director_name": "MELISSA  MCALISTER",
+          "director_name": "Director 001",
           "bn_roots": [
             "119097962",
             "865088439"
@@ -1502,21 +1504,21 @@
       "max_year": 2024,
       "same_year": false,
       "path_bns": [
-        "119279313RR0001",
-        "135309342RR0001"
+        "university 001",
+        "hospital org 001"
       ],
-      "path_display": "119279313RR0001→135309342RR0001→119279313RR0001",
+      "path_display": "university 001→hospital org 001→university 001",
       "bottleneck_amt": 58406,
       "total_flow_amt": 1088901,
       "participants": [
         {
-          "bn": "119279313RR0001",
-          "bn_root": "119279313",
-          "org_name": "University of Saskatchewan",
-          "legal_name": "UNIVERSITY OF SASKATCHEWAN",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "university 001",
+          "legal_name": null,
           "designation": "C",
           "category": "10",
-          "entity_id": 22654,
+          "entity_id": null,
           "dataset_sources": [
             "ab",
             "cra",
@@ -1537,13 +1539,13 @@
           "registry_statuses": "Active"
         },
         {
-          "bn": "135309342RR0001",
-          "bn_root": "135309342",
-          "org_name": "Jim Pattison Children's Hospital Foundation Inc",
-          "legal_name": "Jim Pattison Children's Hospital Foundation Inc.",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "hospital org 001",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 30817,
+          "entity_id": null,
           "dataset_sources": [
             "cra"
           ],
@@ -1565,15 +1567,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "119279313RR0001",
-          "dst": "135309342RR0001",
+          "src": "university 001",
+          "dst": "hospital org 001",
           "year_flow": 58406,
           "gift_count": 2
         },
         {
           "hop_idx": 2,
-          "src": "135309342RR0001",
-          "dst": "119279313RR0001",
+          "src": "hospital org 001",
+          "dst": "university 001",
           "year_flow": 1030495,
           "gift_count": 2
         }
@@ -1615,22 +1617,22 @@
       "max_year": 2022,
       "same_year": false,
       "path_bns": [
-        "136535226RR0001",
-        "868947797RR0001",
-        "892028242RR0001"
+        "organization 001",
+        "foundation 003",
+        "foundation 004"
       ],
-      "path_display": "136535226RR0001→868947797RR0001→892028242RR0001→136535226RR0001",
+      "path_display": "organization 001→foundation 003→foundation 004→organization 001",
       "bottleneck_amt": 62014,
       "total_flow_amt": 357014,
       "participants": [
         {
-          "bn": "136535226RR0001",
-          "bn_root": "136535226",
-          "org_name": "Community Foundations of Canada",
-          "legal_name": "COMMUNITY FOUNDATIONS OF CANADA",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 001",
+          "legal_name": null,
           "designation": "C",
           "category": "1",
-          "entity_id": 31294,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -1650,13 +1652,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "868947797RR0001",
-          "bn_root": "868947797",
-          "org_name": "MakeWay Foundation",
-          "legal_name": "MAKEWAY FOUNDATION",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 003",
+          "legal_name": null,
           "designation": "A",
           "category": "160",
-          "entity_id": 67181,
+          "entity_id": null,
           "dataset_sources": [
             "ab",
             "cra",
@@ -1677,13 +1679,13 @@
           "registry_statuses": "Active"
         },
         {
-          "bn": "892028242RR0001",
-          "bn_root": "892028242",
-          "org_name": "Vancity Community Foundation",
-          "legal_name": "VANCITY COMMUNITY FOUNDATION",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 004",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 81454,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -1706,22 +1708,22 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "136535226RR0001",
-          "dst": "868947797RR0001",
+          "src": "organization 001",
+          "dst": "foundation 003",
           "year_flow": 80000,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "868947797RR0001",
-          "dst": "892028242RR0001",
+          "src": "foundation 003",
+          "dst": "foundation 004",
           "year_flow": 62014,
           "gift_count": 1
         },
         {
           "hop_idx": 3,
-          "src": "892028242RR0001",
-          "dst": "136535226RR0001",
+          "src": "foundation 004",
+          "dst": "organization 001",
           "year_flow": 215000,
           "gift_count": 1
         }
@@ -1762,22 +1764,22 @@
       "max_year": 2022,
       "same_year": false,
       "path_bns": [
-        "136535226RR0001",
-        "868947797RR0001",
-        "895098515RR0001"
+        "organization 001",
+        "foundation 003",
+        "organization 002"
       ],
-      "path_display": "136535226RR0001→868947797RR0001→895098515RR0001→136535226RR0001",
+      "path_display": "organization 001→foundation 003→organization 002→organization 001",
       "bottleneck_amt": 15000,
       "total_flow_amt": 125000,
       "participants": [
         {
-          "bn": "136535226RR0001",
-          "bn_root": "136535226",
-          "org_name": "Community Foundations of Canada",
-          "legal_name": "COMMUNITY FOUNDATIONS OF CANADA",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 001",
+          "legal_name": null,
           "designation": "C",
           "category": "1",
-          "entity_id": 31294,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -1797,13 +1799,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "868947797RR0001",
-          "bn_root": "868947797",
-          "org_name": "MakeWay Foundation",
-          "legal_name": "MAKEWAY FOUNDATION",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 003",
+          "legal_name": null,
           "designation": "A",
           "category": "160",
-          "entity_id": 67181,
+          "entity_id": null,
           "dataset_sources": [
             "ab",
             "cra",
@@ -1824,13 +1826,13 @@
           "registry_statuses": "Active"
         },
         {
-          "bn": "895098515RR0001",
-          "bn_root": "895098515",
-          "org_name": "Environment Funders Canada / Philanthropie Canadienne pour l'environnement",
-          "legal_name": "Environment Funders Canada / Philanthropie Canadienne pour l'environnement",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 002",
+          "legal_name": null,
           "designation": "C",
           "category": "160",
-          "entity_id": 84627,
+          "entity_id": null,
           "dataset_sources": [
             "cra"
           ],
@@ -1852,22 +1854,22 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "136535226RR0001",
-          "dst": "868947797RR0001",
+          "src": "organization 001",
+          "dst": "foundation 003",
           "year_flow": 80000,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "868947797RR0001",
-          "dst": "895098515RR0001",
+          "src": "foundation 003",
+          "dst": "organization 002",
           "year_flow": 15000,
           "gift_count": 1
         },
         {
           "hop_idx": 3,
-          "src": "895098515RR0001",
-          "dst": "136535226RR0001",
+          "src": "organization 002",
+          "dst": "organization 001",
           "year_flow": 30000,
           "gift_count": 1
         }
@@ -1908,21 +1910,21 @@
       "max_year": 2024,
       "same_year": false,
       "path_bns": [
-        "108161266RR0001",
-        "725310676RR0001"
+        "organization 003",
+        "organization 004"
       ],
-      "path_display": "108161266RR0001→725310676RR0001→108161266RR0001",
+      "path_display": "organization 003→organization 004→organization 003",
       "bottleneck_amt": 311586,
       "total_flow_amt": 771086,
       "participants": [
         {
-          "bn": "108161266RR0001",
-          "bn_root": "108161266",
-          "org_name": "Institut national de la recherche scientifique",
-          "legal_name": "Institut National de la recherche scientifique",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 003",
+          "legal_name": null,
           "designation": "C",
           "category": "11",
-          "entity_id": 8082,
+          "entity_id": null,
           "dataset_sources": [
             "ab",
             "cra",
@@ -1943,13 +1945,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "725310676RR0001",
-          "bn_root": "725310676",
-          "org_name": "Fondation de l'INRS",
-          "legal_name": "Fondation de l'INRS",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 004",
+          "legal_name": null,
           "designation": "A",
           "category": "11",
-          "entity_id": 36182,
+          "entity_id": null,
           "dataset_sources": [
             "cra"
           ],
@@ -1971,15 +1973,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "108161266RR0001",
-          "dst": "725310676RR0001",
+          "src": "organization 003",
+          "dst": "organization 004",
           "year_flow": 459500,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "725310676RR0001",
-          "dst": "108161266RR0001",
+          "src": "organization 004",
+          "dst": "organization 003",
           "year_flow": 311586,
           "gift_count": 1
         }
@@ -2021,22 +2023,22 @@
       "max_year": 2021,
       "same_year": false,
       "path_bns": [
-        "129855607RR0001",
-        "896568417RR0001",
-        "892028242RR0001"
+        "foundation 005",
+        "organization 005",
+        "foundation 004"
       ],
-      "path_display": "129855607RR0001→896568417RR0001→892028242RR0001→129855607RR0001",
+      "path_display": "foundation 005→organization 005→foundation 004→foundation 005",
       "bottleneck_amt": 17796,
       "total_flow_amt": 81902,
       "participants": [
         {
-          "bn": "129855607RR0001",
-          "bn_root": "129855607",
-          "org_name": "Canadian Women's Foundation / Fondation Canadienne des Femmes",
-          "legal_name": "CANADIAN WOMEN'S FOUNDATION / FONDATION CANADIENNE DES FEMMES",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 005",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 25954,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -2056,13 +2058,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "896568417RR0001",
-          "bn_root": "896568417",
-          "org_name": "CANADAHELPS CANADON",
-          "legal_name": "CANADAHELPS CANADON",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 005",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 85290,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -2082,13 +2084,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "892028242RR0001",
-          "bn_root": "892028242",
-          "org_name": "Vancity Community Foundation",
-          "legal_name": "VANCITY COMMUNITY FOUNDATION",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 004",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 81454,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -2111,22 +2113,22 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "129855607RR0001",
-          "dst": "896568417RR0001",
+          "src": "foundation 005",
+          "dst": "organization 005",
           "year_flow": 25000,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "896568417RR0001",
-          "dst": "892028242RR0001",
+          "src": "organization 005",
+          "dst": "foundation 004",
           "year_flow": 17796,
           "gift_count": 2
         },
         {
           "hop_idx": 3,
-          "src": "892028242RR0001",
-          "dst": "129855607RR0001",
+          "src": "foundation 004",
+          "dst": "foundation 005",
           "year_flow": 39106,
           "gift_count": 1
         }
@@ -2169,21 +2171,21 @@
       "max_year": 2020,
       "same_year": true,
       "path_bns": [
-        "108073776RR0001",
-        "119067494RR0001"
+        "deaf org 001",
+        "deaf org 002"
       ],
-      "path_display": "108073776RR0001→119067494RR0001→108073776RR0001",
+      "path_display": "deaf org 001→deaf org 002→deaf org 001",
       "bottleneck_amt": 250000,
       "total_flow_amt": 539500,
       "participants": [
         {
-          "bn": "108073776RR0001",
-          "bn_root": "108073776",
-          "org_name": "BOB RUMBALL CANADIAN CENTRE OF EXCELLENCE FOR THE DEAF",
-          "legal_name": "BOB RUMBALL CANADIAN CENTRE OF EXCELLENCE FOR THE DEAF",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "deaf org 001",
+          "legal_name": null,
           "designation": "C",
           "category": "200",
-          "entity_id": 7518,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -2203,13 +2205,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "119067494RR0001",
-          "bn_root": "119067494",
-          "org_name": "The Bob Rumball Camp of the Deaf",
-          "legal_name": "The Bob Rumball Camp of the Deaf",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "deaf org 002",
+          "legal_name": null,
           "designation": "C",
           "category": "200",
-          "entity_id": 17018,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -2232,15 +2234,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "108073776RR0001",
-          "dst": "119067494RR0001",
+          "src": "deaf org 001",
+          "dst": "deaf org 002",
           "year_flow": 250000,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "119067494RR0001",
-          "dst": "108073776RR0001",
+          "src": "deaf org 002",
+          "dst": "deaf org 001",
           "year_flow": 289500,
           "gift_count": 1
         }
@@ -2256,21 +2258,21 @@
       "shared_director_pair_count": 1,
       "shared_directors": [
         {
-          "director_name": "ARTHUR  LAST",
+          "director_name": "Director 001",
           "bn_roots": [
             "108073776",
             "119067494"
           ]
         },
         {
-          "director_name": "LEROY  RAYMOND",
+          "director_name": "Director 002",
           "bn_roots": [
             "108073776",
             "119067494"
           ]
         },
         {
-          "director_name": "DEREK  RUMBALL",
+          "director_name": "Director 003",
           "bn_roots": [
             "108073776",
             "119067494"
@@ -2303,21 +2305,21 @@
       "max_year": 2021,
       "same_year": true,
       "path_bns": [
-        "130808363RR0001",
-        "816275895RR0001"
+        "faith org 001",
+        "faith org 002"
       ],
-      "path_display": "130808363RR0001→816275895RR0001→130808363RR0001",
+      "path_display": "faith org 001→faith org 002→faith org 001",
       "bottleneck_amt": 46010,
       "total_flow_amt": 279951,
       "participants": [
         {
-          "bn": "130808363RR0001",
-          "bn_root": "130808363",
-          "org_name": "MORE THAN A ROOF MENNONITE HOUSING SOCIETY",
-          "legal_name": "MORE THAN A ROOF MENNONITE HOUSING SOCIETY",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "faith org 001",
+          "legal_name": null,
           "designation": "C",
           "category": "1",
-          "entity_id": 27161,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -2337,13 +2339,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "816275895RR0001",
-          "bn_root": "816275895",
-          "org_name": "WEST END MENNONITE HOUSING SOCIETY",
-          "legal_name": "WEST END MENNONITE HOUSING SOCIETY",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "faith org 002",
+          "legal_name": null,
           "designation": "C",
           "category": "1",
-          "entity_id": 49944,
+          "entity_id": null,
           "dataset_sources": [
             "cra"
           ],
@@ -2365,15 +2367,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "130808363RR0001",
-          "dst": "816275895RR0001",
+          "src": "faith org 001",
+          "dst": "faith org 002",
           "year_flow": 46010,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "816275895RR0001",
-          "dst": "130808363RR0001",
+          "src": "faith org 002",
+          "dst": "faith org 001",
           "year_flow": 233941,
           "gift_count": 1
         }
@@ -2389,63 +2391,63 @@
       "shared_director_pair_count": 1,
       "shared_directors": [
         {
-          "director_name": "DAVID  HILLHOUSE",
+          "director_name": "Director 001",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "DEWEY J DEVRIES",
+          "director_name": "Director 002",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "MARIE-LOUISE  STOLZ",
+          "director_name": "Director 003",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "RACHEL  WIEBE",
+          "director_name": "Director 004",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "SPENCER  ANDRES",
+          "director_name": "Director 005",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "WILLY  REIMER",
+          "director_name": "Director 006",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "KARA  DOUGLAS",
+          "director_name": "Director 007",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "JASON  HEINRICH",
+          "director_name": "Director 008",
           "bn_roots": [
             "130808363",
             "816275895"
           ]
         },
         {
-          "director_name": "ANDREW  MACRITCHIE",
+          "director_name": "Director 009",
           "bn_roots": [
             "130808363",
             "816275895"
@@ -2478,21 +2480,21 @@
       "max_year": 2022,
       "same_year": true,
       "path_bns": [
-        "106987399RR0001",
-        "702805524RR0001"
+        "corporate org 001",
+        "foundation 001"
       ],
-      "path_display": "106987399RR0001→702805524RR0001→106987399RR0001",
+      "path_display": "corporate org 001→foundation 001→corporate org 001",
       "bottleneck_amt": 16084,
       "total_flow_amt": 35084,
       "participants": [
         {
-          "bn": "106987399RR0001",
-          "bn_root": "106987399",
-          "org_name": "COSMOPOLITAN INDUSTRIES LTD.",
-          "legal_name": "COSMOPOLITAN INDUSTRIES LTD.",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "corporate org 001",
+          "legal_name": null,
           "designation": "C",
           "category": "160",
-          "entity_id": 2620,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -2512,13 +2514,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "702805524RR0001",
-          "bn_root": "702805524",
-          "org_name": "THE STENSRUD FAMILY TOP OF THE ROCK FOUNDATION INC.",
-          "legal_name": "THE STENSRUD FAMILY TOP OF THE ROCK FOUNDATION INC.",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 001",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 33922,
+          "entity_id": null,
           "dataset_sources": [
             "cra"
           ],
@@ -2540,15 +2542,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "106987399RR0001",
-          "dst": "702805524RR0001",
+          "src": "corporate org 001",
+          "dst": "foundation 001",
           "year_flow": 19000,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "702805524RR0001",
-          "dst": "106987399RR0001",
+          "src": "foundation 001",
+          "dst": "corporate org 001",
           "year_flow": 16084,
           "gift_count": 1
         }
@@ -2564,21 +2566,21 @@
       "shared_director_pair_count": 1,
       "shared_directors": [
         {
-          "director_name": "GREG  KUSE",
+          "director_name": "Director 001",
           "bn_roots": [
             "106987399",
             "702805524"
           ]
         },
         {
-          "director_name": "BRENT  REMPEL",
+          "director_name": "Director 002",
           "bn_roots": [
             "106987399",
             "702805524"
           ]
         },
         {
-          "director_name": "MICHAEL  STENSRUD",
+          "director_name": "Director 003",
           "bn_roots": [
             "106987399",
             "702805524"
@@ -2611,21 +2613,21 @@
       "max_year": 2022,
       "same_year": true,
       "path_bns": [
-        "801919739RR0001",
-        "801934134RR0001"
+        "corporate org 002",
+        "corporate org 003"
       ],
-      "path_display": "801919739RR0001→801934134RR0001→801919739RR0001",
+      "path_display": "corporate org 002→corporate org 003→corporate org 002",
       "bottleneck_amt": 24142,
       "total_flow_amt": 119354,
       "participants": [
         {
-          "bn": "801919739RR0001",
-          "bn_root": "801919739",
-          "org_name": "AKOMA HOLDINGS INCORPORATED",
-          "legal_name": "AKOMA HOLDINGS INCORPORATED",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "corporate org 002",
+          "legal_name": null,
           "designation": "C",
           "category": "210",
-          "entity_id": 46076,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -2645,13 +2647,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "801934134RR0001",
-          "bn_root": "801934134",
-          "org_name": "AKOMA FAMILY CENTRE INCORPORATED",
-          "legal_name": "AKOMA FAMILY CENTRE INCORPORATED",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "corporate org 003",
+          "legal_name": null,
           "designation": "C",
           "category": "160",
-          "entity_id": 46081,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -2674,15 +2676,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "801919739RR0001",
-          "dst": "801934134RR0001",
+          "src": "corporate org 002",
+          "dst": "corporate org 003",
           "year_flow": 24142,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "801934134RR0001",
-          "dst": "801919739RR0001",
+          "src": "corporate org 003",
+          "dst": "corporate org 002",
           "year_flow": 95212,
           "gift_count": 1
         }
@@ -2698,56 +2700,56 @@
       "shared_director_pair_count": 1,
       "shared_directors": [
         {
-          "director_name": "SPENCER  COLLEY",
+          "director_name": "Director 001",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "DAVID  HENDSBEE",
+          "director_name": "Director 002",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "KATHLEEN  MITCHELL",
+          "director_name": "Director 003",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "DOLLY  WILLIAMS",
+          "director_name": "Director 004",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "JASON  JACKSON",
+          "director_name": "Director 005",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "YVONNE  ATWELL",
+          "director_name": "Director 006",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "MARJORIE  JOHNSTONE",
+          "director_name": "Director 007",
           "bn_roots": [
             "801919739",
             "801934134"
           ]
         },
         {
-          "director_name": "ANGELA  COLLEY",
+          "director_name": "Director 008",
           "bn_roots": [
             "801919739",
             "801934134"
@@ -2780,21 +2782,21 @@
       "max_year": 2021,
       "same_year": true,
       "path_bns": [
-        "119097962RR0001",
-        "865088439RR0001"
+        "arts org 001",
+        "foundation 002"
       ],
-      "path_display": "119097962RR0001→865088439RR0001→119097962RR0001",
+      "path_display": "arts org 001→foundation 002→arts org 001",
       "bottleneck_amt": 40000,
       "total_flow_amt": 309883,
       "participants": [
         {
-          "bn": "119097962RR0001",
-          "bn_root": "119097962",
-          "org_name": "Prairie Theatre Exchange Inc",
-          "legal_name": "PRAIRIE THEATRE EXCHANGE INC.",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "arts org 001",
+          "legal_name": null,
           "designation": "C",
           "category": "190",
-          "entity_id": 17729,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -2814,13 +2816,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "865088439RR0001",
-          "bn_root": "865088439",
-          "org_name": "PRAIRIE THEATRE EXCHANGE FOUNDATION TRUST",
-          "legal_name": "PRAIRIE THEATRE EXCHANGE FOUNDATION TRUST",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 002",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 65102,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -2843,15 +2845,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "119097962RR0001",
-          "dst": "865088439RR0001",
+          "src": "arts org 001",
+          "dst": "foundation 002",
           "year_flow": 269883,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "865088439RR0001",
-          "dst": "119097962RR0001",
+          "src": "foundation 002",
+          "dst": "arts org 001",
           "year_flow": 40000,
           "gift_count": 1
         }
@@ -2867,7 +2869,7 @@
       "shared_director_pair_count": 1,
       "shared_directors": [
         {
-          "director_name": "MELISSA  MCALISTER",
+          "director_name": "Director 001",
           "bn_roots": [
             "119097962",
             "865088439"
@@ -2900,21 +2902,21 @@
       "max_year": 2024,
       "same_year": false,
       "path_bns": [
-        "119279313RR0001",
-        "135309342RR0001"
+        "university 001",
+        "hospital org 001"
       ],
-      "path_display": "119279313RR0001→135309342RR0001→119279313RR0001",
+      "path_display": "university 001→hospital org 001→university 001",
       "bottleneck_amt": 58406,
       "total_flow_amt": 1088901,
       "participants": [
         {
-          "bn": "119279313RR0001",
-          "bn_root": "119279313",
-          "org_name": "University of Saskatchewan",
-          "legal_name": "UNIVERSITY OF SASKATCHEWAN",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "university 001",
+          "legal_name": null,
           "designation": "C",
           "category": "10",
-          "entity_id": 22654,
+          "entity_id": null,
           "dataset_sources": [
             "ab",
             "cra",
@@ -2935,13 +2937,13 @@
           "registry_statuses": "Active"
         },
         {
-          "bn": "135309342RR0001",
-          "bn_root": "135309342",
-          "org_name": "Jim Pattison Children's Hospital Foundation Inc",
-          "legal_name": "Jim Pattison Children's Hospital Foundation Inc.",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "hospital org 001",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 30817,
+          "entity_id": null,
           "dataset_sources": [
             "cra"
           ],
@@ -2963,15 +2965,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "119279313RR0001",
-          "dst": "135309342RR0001",
+          "src": "university 001",
+          "dst": "hospital org 001",
           "year_flow": 58406,
           "gift_count": 2
         },
         {
           "hop_idx": 2,
-          "src": "135309342RR0001",
-          "dst": "119279313RR0001",
+          "src": "hospital org 001",
+          "dst": "university 001",
           "year_flow": 1030495,
           "gift_count": 2
         }
@@ -3013,22 +3015,22 @@
       "max_year": 2022,
       "same_year": false,
       "path_bns": [
-        "136535226RR0001",
-        "868947797RR0001",
-        "892028242RR0001"
+        "organization 001",
+        "foundation 003",
+        "foundation 004"
       ],
-      "path_display": "136535226RR0001→868947797RR0001→892028242RR0001→136535226RR0001",
+      "path_display": "organization 001→foundation 003→foundation 004→organization 001",
       "bottleneck_amt": 62014,
       "total_flow_amt": 357014,
       "participants": [
         {
-          "bn": "136535226RR0001",
-          "bn_root": "136535226",
-          "org_name": "Community Foundations of Canada",
-          "legal_name": "COMMUNITY FOUNDATIONS OF CANADA",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 001",
+          "legal_name": null,
           "designation": "C",
           "category": "1",
-          "entity_id": 31294,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -3048,13 +3050,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "868947797RR0001",
-          "bn_root": "868947797",
-          "org_name": "MakeWay Foundation",
-          "legal_name": "MAKEWAY FOUNDATION",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 003",
+          "legal_name": null,
           "designation": "A",
           "category": "160",
-          "entity_id": 67181,
+          "entity_id": null,
           "dataset_sources": [
             "ab",
             "cra",
@@ -3075,13 +3077,13 @@
           "registry_statuses": "Active"
         },
         {
-          "bn": "892028242RR0001",
-          "bn_root": "892028242",
-          "org_name": "Vancity Community Foundation",
-          "legal_name": "VANCITY COMMUNITY FOUNDATION",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 004",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 81454,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -3104,22 +3106,22 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "136535226RR0001",
-          "dst": "868947797RR0001",
+          "src": "organization 001",
+          "dst": "foundation 003",
           "year_flow": 80000,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "868947797RR0001",
-          "dst": "892028242RR0001",
+          "src": "foundation 003",
+          "dst": "foundation 004",
           "year_flow": 62014,
           "gift_count": 1
         },
         {
           "hop_idx": 3,
-          "src": "892028242RR0001",
-          "dst": "136535226RR0001",
+          "src": "foundation 004",
+          "dst": "organization 001",
           "year_flow": 215000,
           "gift_count": 1
         }
@@ -3160,22 +3162,22 @@
       "max_year": 2022,
       "same_year": false,
       "path_bns": [
-        "136535226RR0001",
-        "868947797RR0001",
-        "895098515RR0001"
+        "organization 001",
+        "foundation 003",
+        "organization 002"
       ],
-      "path_display": "136535226RR0001→868947797RR0001→895098515RR0001→136535226RR0001",
+      "path_display": "organization 001→foundation 003→organization 002→organization 001",
       "bottleneck_amt": 15000,
       "total_flow_amt": 125000,
       "participants": [
         {
-          "bn": "136535226RR0001",
-          "bn_root": "136535226",
-          "org_name": "Community Foundations of Canada",
-          "legal_name": "COMMUNITY FOUNDATIONS OF CANADA",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 001",
+          "legal_name": null,
           "designation": "C",
           "category": "1",
-          "entity_id": 31294,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -3195,13 +3197,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "868947797RR0001",
-          "bn_root": "868947797",
-          "org_name": "MakeWay Foundation",
-          "legal_name": "MAKEWAY FOUNDATION",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 003",
+          "legal_name": null,
           "designation": "A",
           "category": "160",
-          "entity_id": 67181,
+          "entity_id": null,
           "dataset_sources": [
             "ab",
             "cra",
@@ -3222,13 +3224,13 @@
           "registry_statuses": "Active"
         },
         {
-          "bn": "895098515RR0001",
-          "bn_root": "895098515",
-          "org_name": "Environment Funders Canada / Philanthropie Canadienne pour l'environnement",
-          "legal_name": "Environment Funders Canada / Philanthropie Canadienne pour l'environnement",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 002",
+          "legal_name": null,
           "designation": "C",
           "category": "160",
-          "entity_id": 84627,
+          "entity_id": null,
           "dataset_sources": [
             "cra"
           ],
@@ -3250,22 +3252,22 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "136535226RR0001",
-          "dst": "868947797RR0001",
+          "src": "organization 001",
+          "dst": "foundation 003",
           "year_flow": 80000,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "868947797RR0001",
-          "dst": "895098515RR0001",
+          "src": "foundation 003",
+          "dst": "organization 002",
           "year_flow": 15000,
           "gift_count": 1
         },
         {
           "hop_idx": 3,
-          "src": "895098515RR0001",
-          "dst": "136535226RR0001",
+          "src": "organization 002",
+          "dst": "organization 001",
           "year_flow": 30000,
           "gift_count": 1
         }
@@ -3306,21 +3308,21 @@
       "max_year": 2024,
       "same_year": false,
       "path_bns": [
-        "108161266RR0001",
-        "725310676RR0001"
+        "organization 003",
+        "organization 004"
       ],
-      "path_display": "108161266RR0001→725310676RR0001→108161266RR0001",
+      "path_display": "organization 003→organization 004→organization 003",
       "bottleneck_amt": 311586,
       "total_flow_amt": 771086,
       "participants": [
         {
-          "bn": "108161266RR0001",
-          "bn_root": "108161266",
-          "org_name": "Institut national de la recherche scientifique",
-          "legal_name": "Institut National de la recherche scientifique",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 003",
+          "legal_name": null,
           "designation": "C",
           "category": "11",
-          "entity_id": 8082,
+          "entity_id": null,
           "dataset_sources": [
             "ab",
             "cra",
@@ -3341,13 +3343,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "725310676RR0001",
-          "bn_root": "725310676",
-          "org_name": "Fondation de l'INRS",
-          "legal_name": "Fondation de l'INRS",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 004",
+          "legal_name": null,
           "designation": "A",
           "category": "11",
-          "entity_id": 36182,
+          "entity_id": null,
           "dataset_sources": [
             "cra"
           ],
@@ -3369,15 +3371,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "108161266RR0001",
-          "dst": "725310676RR0001",
+          "src": "organization 003",
+          "dst": "organization 004",
           "year_flow": 459500,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "725310676RR0001",
-          "dst": "108161266RR0001",
+          "src": "organization 004",
+          "dst": "organization 003",
           "year_flow": 311586,
           "gift_count": 1
         }
@@ -3419,22 +3421,22 @@
       "max_year": 2021,
       "same_year": false,
       "path_bns": [
-        "129855607RR0001",
-        "896568417RR0001",
-        "892028242RR0001"
+        "foundation 005",
+        "organization 005",
+        "foundation 004"
       ],
-      "path_display": "129855607RR0001→896568417RR0001→892028242RR0001→129855607RR0001",
+      "path_display": "foundation 005→organization 005→foundation 004→foundation 005",
       "bottleneck_amt": 17796,
       "total_flow_amt": 81902,
       "participants": [
         {
-          "bn": "129855607RR0001",
-          "bn_root": "129855607",
-          "org_name": "Canadian Women's Foundation / Fondation Canadienne des Femmes",
-          "legal_name": "CANADIAN WOMEN'S FOUNDATION / FONDATION CANADIENNE DES FEMMES",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 005",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 25954,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -3454,13 +3456,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "896568417RR0001",
-          "bn_root": "896568417",
-          "org_name": "CANADAHELPS CANADON",
-          "legal_name": "CANADAHELPS CANADON",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 005",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 85290,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -3480,13 +3482,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "892028242RR0001",
-          "bn_root": "892028242",
-          "org_name": "Vancity Community Foundation",
-          "legal_name": "VANCITY COMMUNITY FOUNDATION",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 004",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 81454,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -3509,22 +3511,22 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "129855607RR0001",
-          "dst": "896568417RR0001",
+          "src": "foundation 005",
+          "dst": "organization 005",
           "year_flow": 25000,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "896568417RR0001",
-          "dst": "892028242RR0001",
+          "src": "organization 005",
+          "dst": "foundation 004",
           "year_flow": 17796,
           "gift_count": 2
         },
         {
           "hop_idx": 3,
-          "src": "892028242RR0001",
-          "dst": "129855607RR0001",
+          "src": "foundation 004",
+          "dst": "foundation 005",
           "year_flow": 39106,
           "gift_count": 1
         }
@@ -3565,22 +3567,22 @@
       "max_year": 2021,
       "same_year": false,
       "path_bns": [
-        "119278216RR0001",
-        "122437072RR0001",
-        "119281640RR0001"
+        "organization 006",
+        "foundation 006",
+        "foundation 007"
       ],
-      "path_display": "119278216RR0001→122437072RR0001→119281640RR0001→119278216RR0001",
+      "path_display": "organization 006→foundation 006→foundation 007→organization 006",
       "bottleneck_amt": 15500,
       "total_flow_amt": 860092,
       "participants": [
         {
-          "bn": "119278216RR0001",
-          "bn_root": "119278216",
-          "org_name": "United Way of Greater Toronto",
-          "legal_name": "UNITED WAY OF GREATER TORONTO",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 006",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 22616,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -3600,13 +3602,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "122437072RR0001",
-          "bn_root": "122437072",
-          "org_name": "The Edmonton Community Foundation",
-          "legal_name": "THE EDMONTON COMMUNITY FOUNDATION PRIV ACT",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 006",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 24256,
+          "entity_id": null,
           "dataset_sources": [
             "ab",
             "cra",
@@ -3627,13 +3629,13 @@
           "registry_statuses": "Active"
         },
         {
-          "bn": "119281640RR0001",
-          "bn_root": "119281640",
-          "org_name": "VANCOUVER FOUNDATION",
-          "legal_name": "VANCOUVER FOUNDATION",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 007",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 22729,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed",
@@ -3657,22 +3659,22 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "119278216RR0001",
-          "dst": "122437072RR0001",
+          "src": "organization 006",
+          "dst": "foundation 006",
           "year_flow": 15500,
           "gift_count": 2
         },
         {
           "hop_idx": 2,
-          "src": "122437072RR0001",
-          "dst": "119281640RR0001",
+          "src": "foundation 006",
+          "dst": "foundation 007",
           "year_flow": 20000,
           "gift_count": 1
         },
         {
           "hop_idx": 3,
-          "src": "119281640RR0001",
-          "dst": "119278216RR0001",
+          "src": "foundation 007",
+          "dst": "organization 006",
           "year_flow": 824592,
           "gift_count": 1
         }
@@ -3714,22 +3716,22 @@
       "max_year": 2021,
       "same_year": false,
       "path_bns": [
-        "819044769RR0001",
-        "866073133RR0001",
-        "827378977RR0001"
+        "foundation 008",
+        "organization 007",
+        "foundation 009"
       ],
-      "path_display": "819044769RR0001→866073133RR0001→827378977RR0001→819044769RR0001",
+      "path_display": "foundation 008→organization 007→foundation 009→foundation 008",
       "bottleneck_amt": 89075,
       "total_flow_amt": 324926,
       "participants": [
         {
-          "bn": "819044769RR0001",
-          "bn_root": "819044769",
-          "org_name": "Mealshare Aid Foundation",
-          "legal_name": "Mealshare Aid Foundation",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 008",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 50696,
+          "entity_id": null,
           "dataset_sources": [
             "ab",
             "cra"
@@ -3749,13 +3751,13 @@
           "registry_statuses": "Struck"
         },
         {
-          "bn": "866073133RR0001",
-          "bn_root": "866073133",
-          "org_name": "Club des petits déjeuners du Canada - Breakfast Club of Canada",
-          "legal_name": "Club des petits déjeuners du Canada - Breakfast Club of Canada",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 007",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 65585,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -3775,13 +3777,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "827378977RR0001",
-          "bn_root": "827378977",
-          "org_name": "Calgary Shaw Charity Classic Foundation",
-          "legal_name": "CALGARY SHAW CHARITY CLASSIC FOUNDATION",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 009",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 52992,
+          "entity_id": null,
           "dataset_sources": [
             "ab",
             "cra"
@@ -3804,22 +3806,22 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "819044769RR0001",
-          "dst": "866073133RR0001",
+          "src": "foundation 008",
+          "dst": "organization 007",
           "year_flow": 122052,
           "gift_count": 2
         },
         {
           "hop_idx": 2,
-          "src": "866073133RR0001",
-          "dst": "827378977RR0001",
+          "src": "organization 007",
+          "dst": "foundation 009",
           "year_flow": 113799,
           "gift_count": 2
         },
         {
           "hop_idx": 3,
-          "src": "827378977RR0001",
-          "dst": "819044769RR0001",
+          "src": "foundation 009",
+          "dst": "foundation 008",
           "year_flow": 89075,
           "gift_count": 2
         }
@@ -3861,21 +3863,21 @@
       "max_year": 2024,
       "same_year": true,
       "path_bns": [
-        "119074409RR0001",
-        "119281640RR0001"
+        "sport org 001",
+        "foundation 007"
       ],
-      "path_display": "119074409RR0001→119281640RR0001→119074409RR0001",
+      "path_display": "sport org 001→foundation 007→sport org 001",
       "bottleneck_amt": 261138,
       "total_flow_amt": 10261138,
       "participants": [
         {
-          "bn": "119074409RR0001",
-          "bn_root": "119074409",
-          "org_name": "OUTDOOR RECREATION COUNCIL OF BRITISH COLUMBIA",
-          "legal_name": "OUTDOOR RECREATION COUNCIL OF BRITISH COLUMBIA",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "sport org 001",
+          "legal_name": null,
           "designation": "C",
           "category": "200",
-          "entity_id": 17196,
+          "entity_id": null,
           "dataset_sources": [
             "cra"
           ],
@@ -3894,13 +3896,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "119281640RR0001",
-          "bn_root": "119281640",
-          "org_name": "VANCOUVER FOUNDATION",
-          "legal_name": "VANCOUVER FOUNDATION",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 007",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 22729,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed",
@@ -3924,15 +3926,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "119074409RR0001",
-          "dst": "119281640RR0001",
+          "src": "sport org 001",
+          "dst": "foundation 007",
           "year_flow": 10000000,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "119281640RR0001",
-          "dst": "119074409RR0001",
+          "src": "foundation 007",
+          "dst": "sport org 001",
           "year_flow": 261138,
           "gift_count": 1
         }
@@ -3973,21 +3975,21 @@
       "max_year": 2024,
       "same_year": true,
       "path_bns": [
-        "119281640RR0001",
-        "867261299RR0001"
+        "foundation 007",
+        "organization 008"
       ],
-      "path_display": "119281640RR0001→867261299RR0001→119281640RR0001",
+      "path_display": "foundation 007→organization 008→foundation 007",
       "bottleneck_amt": 52139,
       "total_flow_amt": 302139,
       "participants": [
         {
-          "bn": "119281640RR0001",
-          "bn_root": "119281640",
-          "org_name": "VANCOUVER FOUNDATION",
-          "legal_name": "VANCOUVER FOUNDATION",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 007",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 22729,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed",
@@ -4008,13 +4010,13 @@
           "registry_statuses": "Struck"
         },
         {
-          "bn": "867261299RR0001",
-          "bn_root": "867261299",
-          "org_name": "BOWEN ISLAND CONSERVANCY",
-          "legal_name": "BOWEN ISLAND CONSERVANCY",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 008",
+          "legal_name": null,
           "designation": "C",
           "category": "170",
-          "entity_id": 66268,
+          "entity_id": null,
           "dataset_sources": [
             "cra"
           ],
@@ -4036,15 +4038,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "119281640RR0001",
-          "dst": "867261299RR0001",
+          "src": "foundation 007",
+          "dst": "organization 008",
           "year_flow": 52139,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "867261299RR0001",
-          "dst": "119281640RR0001",
+          "src": "organization 008",
+          "dst": "foundation 007",
           "year_flow": 250000,
           "gift_count": 1
         }
@@ -4085,22 +4087,22 @@
       "max_year": 2022,
       "same_year": false,
       "path_bns": [
-        "119304954RR0001",
-        "868947797RR0001",
-        "895098515RR0001"
+        "foundation 010",
+        "foundation 003",
+        "organization 002"
       ],
-      "path_display": "119304954RR0001→868947797RR0001→895098515RR0001→119304954RR0001",
+      "path_display": "foundation 010→foundation 003→organization 002→foundation 010",
       "bottleneck_amt": 15000,
       "total_flow_amt": 90000,
       "participants": [
         {
-          "bn": "119304954RR0001",
-          "bn_root": "119304954",
-          "org_name": "WORLD WILDLIFE FUND CANADA FONDS MONDIAL POUR LA NATURE CAN ADA",
-          "legal_name": "WORLD WILDLIFE FUND CANADA FONDS MONDIAL POUR LA NATURE CAN ADA",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 010",
+          "legal_name": null,
           "designation": "C",
           "category": "180",
-          "entity_id": 23430,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -4120,13 +4122,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "868947797RR0001",
-          "bn_root": "868947797",
-          "org_name": "MakeWay Foundation",
-          "legal_name": "MAKEWAY FOUNDATION",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 003",
+          "legal_name": null,
           "designation": "A",
           "category": "160",
-          "entity_id": 67181,
+          "entity_id": null,
           "dataset_sources": [
             "ab",
             "cra",
@@ -4147,13 +4149,13 @@
           "registry_statuses": "Active"
         },
         {
-          "bn": "895098515RR0001",
-          "bn_root": "895098515",
-          "org_name": "Environment Funders Canada / Philanthropie Canadienne pour l'environnement",
-          "legal_name": "Environment Funders Canada / Philanthropie Canadienne pour l'environnement",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 002",
+          "legal_name": null,
           "designation": "C",
           "category": "160",
-          "entity_id": 84627,
+          "entity_id": null,
           "dataset_sources": [
             "cra"
           ],
@@ -4175,22 +4177,22 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "119304954RR0001",
-          "dst": "868947797RR0001",
+          "src": "foundation 010",
+          "dst": "foundation 003",
           "year_flow": 25000,
           "gift_count": 2
         },
         {
           "hop_idx": 2,
-          "src": "868947797RR0001",
-          "dst": "895098515RR0001",
+          "src": "foundation 003",
+          "dst": "organization 002",
           "year_flow": 15000,
           "gift_count": 1
         },
         {
           "hop_idx": 3,
-          "src": "895098515RR0001",
-          "dst": "119304954RR0001",
+          "src": "organization 002",
+          "dst": "foundation 010",
           "year_flow": 50000,
           "gift_count": 1
         }
@@ -4206,7 +4208,7 @@
       "shared_director_pair_count": 1,
       "shared_directors": [
         {
-          "director_name": "Julie  Gelfand",
+          "director_name": "Director 001",
           "bn_roots": [
             "119304954",
             "868947797"
@@ -4239,21 +4241,21 @@
       "max_year": 2023,
       "same_year": false,
       "path_bns": [
-        "119031524RR0001",
-        "821896875RR0001"
+        "organization 009",
+        "organization 010"
       ],
-      "path_display": "119031524RR0001→821896875RR0001→119031524RR0001",
+      "path_display": "organization 009→organization 010→organization 009",
       "bottleneck_amt": 25619,
       "total_flow_amt": 292896,
       "participants": [
         {
-          "bn": "119031524RR0001",
-          "bn_root": "119031524",
-          "org_name": "Health Partners International of Canada / Partenaires canadiens pour la santé internationale",
-          "legal_name": "Health Partners International of Canada / Partenaires canadiens pour la santé internationale",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 009",
+          "legal_name": null,
           "designation": "C",
           "category": "210",
-          "entity_id": 15924,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -4273,13 +4275,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "821896875RR0001",
-          "bn_root": "821896875",
-          "org_name": "Islamic Relief Canada",
-          "legal_name": "ISLAMIC RELIEF - IR CANADA",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 010",
+          "legal_name": null,
           "designation": "C",
           "category": "120",
-          "entity_id": 51494,
+          "entity_id": null,
           "dataset_sources": [
             "ab",
             "cra",
@@ -4303,15 +4305,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "119031524RR0001",
-          "dst": "821896875RR0001",
+          "src": "organization 009",
+          "dst": "organization 010",
           "year_flow": 267277,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "821896875RR0001",
-          "dst": "119031524RR0001",
+          "src": "organization 010",
+          "dst": "organization 009",
           "year_flow": 25619,
           "gift_count": 2
         }
@@ -4353,21 +4355,21 @@
       "max_year": 2024,
       "same_year": false,
       "path_bns": [
-        "821896875RR0001",
-        "893257139RR0001"
+        "organization 010",
+        "organization 011"
       ],
-      "path_display": "821896875RR0001→893257139RR0001→821896875RR0001",
+      "path_display": "organization 010→organization 011→organization 010",
       "bottleneck_amt": 15500,
       "total_flow_amt": 41609,
       "participants": [
         {
-          "bn": "821896875RR0001",
-          "bn_root": "821896875",
-          "org_name": "Islamic Relief Canada",
-          "legal_name": "ISLAMIC RELIEF - IR CANADA",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 010",
+          "legal_name": null,
           "designation": "C",
           "category": "120",
-          "entity_id": 51494,
+          "entity_id": null,
           "dataset_sources": [
             "ab",
             "cra",
@@ -4388,13 +4390,13 @@
           "registry_statuses": "Struck"
         },
         {
-          "bn": "893257139RR0001",
-          "bn_root": "893257139",
-          "org_name": "THUNDER BAY MUSLIM RELIGIOUS ASSOCIATION",
-          "legal_name": "THUNDER BAY MUSLIM RELIGIOUS ASSOCIATION",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 011",
+          "legal_name": null,
           "designation": "C",
           "category": "40",
-          "entity_id": 83357,
+          "entity_id": null,
           "dataset_sources": [
             "cra"
           ],
@@ -4416,15 +4418,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "821896875RR0001",
-          "dst": "893257139RR0001",
+          "src": "organization 010",
+          "dst": "organization 011",
           "year_flow": 26109,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "893257139RR0001",
-          "dst": "821896875RR0001",
+          "src": "organization 011",
+          "dst": "organization 010",
           "year_flow": 15500,
           "gift_count": 1
         }
@@ -4466,21 +4468,21 @@
       "max_year": 2024,
       "same_year": true,
       "path_bns": [
-        "814898896RR0002",
-        "821896875RR0001"
+        "organization 012",
+        "organization 010"
       ],
-      "path_display": "814898896RR0002→821896875RR0001→814898896RR0002",
+      "path_display": "organization 012→organization 010→organization 012",
       "bottleneck_amt": 15522,
       "total_flow_amt": 92175,
       "participants": [
         {
-          "bn": "814898896RR0002",
-          "bn_root": "814898896",
-          "org_name": "Al-Hedaya Islamic Centre of Northeast Calgary",
-          "legal_name": "Al-Hedaya Islamic Centre of Northeast Calgary",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 012",
+          "legal_name": null,
           "designation": "C",
           "category": "40",
-          "entity_id": 49503,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "ab"
@@ -4500,13 +4502,13 @@
           "registry_statuses": "Struck"
         },
         {
-          "bn": "821896875RR0001",
-          "bn_root": "821896875",
-          "org_name": "Islamic Relief Canada",
-          "legal_name": "ISLAMIC RELIEF - IR CANADA",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 010",
+          "legal_name": null,
           "designation": "C",
           "category": "120",
-          "entity_id": 51494,
+          "entity_id": null,
           "dataset_sources": [
             "ab",
             "cra",
@@ -4530,15 +4532,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "814898896RR0002",
-          "dst": "821896875RR0001",
+          "src": "organization 012",
+          "dst": "organization 010",
           "year_flow": 15522,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "821896875RR0001",
-          "dst": "814898896RR0002",
+          "src": "organization 010",
+          "dst": "organization 012",
           "year_flow": 76653,
           "gift_count": 1
         }
@@ -4580,21 +4582,21 @@
       "max_year": 2021,
       "same_year": true,
       "path_bns": [
-        "102333176RR0001",
-        "888078425RR0001"
+        "arts org 002",
+        "organization 013"
       ],
-      "path_display": "102333176RR0001→888078425RR0001→102333176RR0001",
+      "path_display": "arts org 002→organization 013→arts org 002",
       "bottleneck_amt": 20000,
       "total_flow_amt": 40000,
       "participants": [
         {
-          "bn": "102333176RR0001",
-          "bn_root": "102333176",
-          "org_name": "HERITAGE BENEVOLENT ASSOCIATION OF MANITOBA INC.",
-          "legal_name": "HERITAGE BENEVOLENT ASSOCIATION OF MANITOBA INC.",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "arts org 002",
+          "legal_name": null,
           "designation": "C",
           "category": "1",
-          "entity_id": 441,
+          "entity_id": null,
           "dataset_sources": [
             "cra"
           ],
@@ -4613,13 +4615,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "888078425RR0001",
-          "bn_root": "888078425",
-          "org_name": "3885136 MANITOBA ASSOCIATION INC",
-          "legal_name": "3885136 MANITOBA ASSOCIATION INC",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 013",
+          "legal_name": null,
           "designation": "C",
           "category": "1",
-          "entity_id": 74139,
+          "entity_id": null,
           "dataset_sources": [
             "cra"
           ],
@@ -4641,15 +4643,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "102333176RR0001",
-          "dst": "888078425RR0001",
+          "src": "arts org 002",
+          "dst": "organization 013",
           "year_flow": 20000,
           "gift_count": 1
         },
         {
           "hop_idx": 2,
-          "src": "888078425RR0001",
-          "dst": "102333176RR0001",
+          "src": "organization 013",
+          "dst": "arts org 002",
           "year_flow": 20000,
           "gift_count": 1
         }
@@ -4664,98 +4666,98 @@
       "shared_director_pair_count": 1,
       "shared_directors": [
         {
-          "director_name": "GREG  ARNDT",
+          "director_name": "Director 001",
           "bn_roots": [
             "102333176",
             "888078425"
           ]
         },
         {
-          "director_name": "DAVID  BARDAL",
+          "director_name": "Director 002",
           "bn_roots": [
             "102333176",
             "888078425"
           ]
         },
         {
-          "director_name": "WAYNE  BOLLMAN",
+          "director_name": "Director 003",
           "bn_roots": [
             "102333176",
             "888078425"
           ]
         },
         {
-          "director_name": "CLARISSA  ENGEL",
+          "director_name": "Director 004",
           "bn_roots": [
             "102333176",
             "888078425"
           ]
         },
         {
-          "director_name": "RANDY  HOLM",
+          "director_name": "Director 005",
           "bn_roots": [
             "102333176",
             "888078425"
           ]
         },
         {
-          "director_name": "IRENE  LANGDON",
+          "director_name": "Director 006",
           "bn_roots": [
             "102333176",
             "888078425"
           ]
         },
         {
-          "director_name": "LINDA  MANDZIUK",
+          "director_name": "Director 007",
           "bn_roots": [
             "102333176",
             "888078425"
           ]
         },
         {
-          "director_name": "BRUCE  MARTIN",
+          "director_name": "Director 008",
           "bn_roots": [
             "102333176",
             "888078425"
           ]
         },
         {
-          "director_name": "JOHN  PENNER",
+          "director_name": "Director 009",
           "bn_roots": [
             "102333176",
             "888078425"
           ]
         },
         {
-          "director_name": "ANDREW  PORTERFIELD",
+          "director_name": "Director 010",
           "bn_roots": [
             "102333176",
             "888078425"
           ]
         },
         {
-          "director_name": "DON  REIMER",
+          "director_name": "Director 011",
           "bn_roots": [
             "102333176",
             "888078425"
           ]
         },
         {
-          "director_name": "JASON  STOFFMAN",
+          "director_name": "Director 012",
           "bn_roots": [
             "102333176",
             "888078425"
           ]
         },
         {
-          "director_name": "CHARLENE  THOMAS",
+          "director_name": "Director 013",
           "bn_roots": [
             "102333176",
             "888078425"
           ]
         },
         {
-          "director_name": "GRANT  WILSON",
+          "director_name": "Director 014",
           "bn_roots": [
             "102333176",
             "888078425"
@@ -4788,21 +4790,21 @@
       "max_year": 2024,
       "same_year": false,
       "path_bns": [
-        "118974179RR0001",
-        "766747133RR0001"
+        "foundation 011",
+        "organization 014"
       ],
-      "path_display": "118974179RR0001→766747133RR0001→118974179RR0001",
+      "path_display": "foundation 011→organization 014→foundation 011",
       "bottleneck_amt": 15000,
       "total_flow_amt": 32614,
       "participants": [
         {
-          "bn": "118974179RR0001",
-          "bn_root": "118974179",
-          "org_name": "Jewish Community Foundation of Montreal / La Fondation Communautaire Juive de Montréal",
-          "legal_name": "Jewish Community Foundation of Montreal / La Fondation Communautaire Juive de Montréal",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "foundation 011",
+          "legal_name": null,
           "designation": "A",
           "category": "210",
-          "entity_id": 14306,
+          "entity_id": null,
           "dataset_sources": [
             "cra",
             "fed"
@@ -4822,13 +4824,13 @@
           "registry_statuses": null
         },
         {
-          "bn": "766747133RR0001",
-          "bn_root": "766747133",
-          "org_name": "Musique 3 Femmes",
-          "legal_name": "Musique 3 Femmes",
+          "bn": null,
+          "bn_root": null,
+          "org_name": "organization 014",
+          "legal_name": null,
           "designation": "C",
           "category": "190",
-          "entity_id": 41614,
+          "entity_id": null,
           "dataset_sources": [
             "cra"
           ],
@@ -4850,15 +4852,15 @@
       "edges": [
         {
           "hop_idx": 1,
-          "src": "118974179RR0001",
-          "dst": "766747133RR0001",
+          "src": "foundation 011",
+          "dst": "organization 014",
           "year_flow": 17614,
           "gift_count": 2
         },
         {
           "hop_idx": 2,
-          "src": "766747133RR0001",
-          "dst": "118974179RR0001",
+          "src": "organization 014",
+          "dst": "foundation 011",
           "year_flow": 15000,
           "gift_count": 1
         }
