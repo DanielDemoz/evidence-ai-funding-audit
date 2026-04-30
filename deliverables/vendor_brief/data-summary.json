@@ -1,0 +1,4895 @@
+{
+  "generatedAt": "2026-04-28T13:44:54.622Z",
+  "topic": "Funding Loops",
+  "insight": "We identified a cluster of organizations that exchanged funding, shared connections, received public funds, and showed extra risk signals around activity and concentration. Cluster #141 links BOB RUMBALL CANADIAN CENTRE OF EXCELLENCE FOR THE DEAF, The Bob Rumball Camp of the Deaf in a 2-hop loop with $539,500 in circular flow and $89,257,445 in surrounding public-funding exposure. It scores 4/6 because entities are connected through shared directors; at least one organization is highly government-funded (max 80.3%).",
+  "methodology": {
+    "base_signal": "CRA charity-to-charity loops (2-hop and 3-hop)",
+    "supporting_signals": [
+      "CRA government-funding dependency",
+      "CRA shared directors",
+      "general golden-record linkage",
+      "FED grants",
+      "AB grants, contracts, and sole-source",
+      "AB non-profit registry status"
+    ]
+  },
+  "counts": {
+    "flaggedLoops": 20,
+    "highRiskLoops": 5,
+    "totalOrganizations": 37,
+    "sameYearLoops": 9,
+    "twoHopLoops": 14,
+    "threeHopLoops": 6,
+    "governmentFundingExposure": 6959822098.539999
+  },
+  "signalCounts": {
+    "connectedEntities": 7,
+    "inactiveAfterFunding": 7,
+    "highlyGovernmentFunded": 13,
+    "repeatedFunding": 18,
+    "contractConcentration": 0
+  },
+  "top5": [
+    {
+      "loop_id": 141,
+      "hops": 2,
+      "min_year": 2020,
+      "max_year": 2020,
+      "same_year": true,
+      "path_bns": [
+        "108073776RR0001",
+        "119067494RR0001"
+      ],
+      "path_display": "108073776RR0001→119067494RR0001→108073776RR0001",
+      "bottleneck_amt": 250000,
+      "total_flow_amt": 539500,
+      "participants": [
+        {
+          "bn": "108073776RR0001",
+          "bn_root": "108073776",
+          "org_name": "BOB RUMBALL CANADIAN CENTRE OF EXCELLENCE FOR THE DEAF",
+          "legal_name": "BOB RUMBALL CANADIAN CENTRE OF EXCELLENCE FOR THE DEAF",
+          "designation": "C",
+          "category": "200",
+          "entity_id": 7518,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 88476332,
+          "govt_funding": 71074146,
+          "govt_dependency_pct": 80.3,
+          "fed_total_grants": 2020840.52,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 1,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "119067494RR0001",
+          "bn_root": "119067494",
+          "org_name": "The Bob Rumball Camp of the Deaf",
+          "legal_name": "The Bob Rumball Camp of the Deaf",
+          "designation": "C",
+          "category": "200",
+          "entity_id": 17018,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 3346746,
+          "govt_funding": 139152,
+          "govt_dependency_pct": 4.2,
+          "fed_total_grants": 16023306.63,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 1,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "108073776RR0001",
+          "dst": "119067494RR0001",
+          "year_flow": 250000,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "119067494RR0001",
+          "dst": "108073776RR0001",
+          "year_flow": 289500,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 4,
+      "risk_label": "high risk",
+      "max_govt_dependency_pct": 80.3,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 3,
+      "shared_director_pair_count": 1,
+      "shared_directors": [
+        {
+          "director_name": "ARTHUR  LAST",
+          "bn_roots": [
+            "108073776",
+            "119067494"
+          ]
+        },
+        {
+          "director_name": "LEROY  RAYMOND",
+          "bn_roots": [
+            "108073776",
+            "119067494"
+          ]
+        },
+        {
+          "director_name": "DEREK  RUMBALL",
+          "bn_roots": [
+            "108073776",
+            "119067494"
+          ]
+        }
+      ],
+      "fed_total_grants": 18044147.15,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 71213298,
+      "cluster_total_funding": 89257445.15,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 539500,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": true,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "entities are connected through shared directors",
+      "explanation": "entities are connected through shared directors; at least one organization is highly government-funded (max 80.3%)"
+    },
+    {
+      "loop_id": 336,
+      "hops": 2,
+      "min_year": 2021,
+      "max_year": 2021,
+      "same_year": true,
+      "path_bns": [
+        "130808363RR0001",
+        "816275895RR0001"
+      ],
+      "path_display": "130808363RR0001→816275895RR0001→130808363RR0001",
+      "bottleneck_amt": 46010,
+      "total_flow_amt": 279951,
+      "participants": [
+        {
+          "bn": "130808363RR0001",
+          "bn_root": "130808363",
+          "org_name": "MORE THAN A ROOF MENNONITE HOUSING SOCIETY",
+          "legal_name": "MORE THAN A ROOF MENNONITE HOUSING SOCIETY",
+          "designation": "C",
+          "category": "1",
+          "entity_id": 27161,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 64985621,
+          "govt_funding": 27677596,
+          "govt_dependency_pct": 42.6,
+          "fed_total_grants": 212603,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 2,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "816275895RR0001",
+          "bn_root": "816275895",
+          "org_name": "WEST END MENNONITE HOUSING SOCIETY",
+          "legal_name": "WEST END MENNONITE HOUSING SOCIETY",
+          "designation": "C",
+          "category": "1",
+          "entity_id": 49944,
+          "dataset_sources": [
+            "cra"
+          ],
+          "revenue": 33374246,
+          "govt_funding": 22097540,
+          "govt_dependency_pct": 66.2,
+          "fed_total_grants": 0,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "130808363RR0001",
+          "dst": "816275895RR0001",
+          "year_flow": 46010,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "816275895RR0001",
+          "dst": "130808363RR0001",
+          "year_flow": 233941,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 4,
+      "risk_label": "high risk",
+      "max_govt_dependency_pct": 66.2,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 9,
+      "shared_director_pair_count": 1,
+      "shared_directors": [
+        {
+          "director_name": "DAVID  HILLHOUSE",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "DEWEY J DEVRIES",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "MARIE-LOUISE  STOLZ",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "RACHEL  WIEBE",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "SPENCER  ANDRES",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "WILLY  REIMER",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "KARA  DOUGLAS",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "JASON  HEINRICH",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "ANDREW  MACRITCHIE",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        }
+      ],
+      "fed_total_grants": 212603,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 49775136,
+      "cluster_total_funding": 49987739,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 279951,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": true,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "entities are connected through shared directors",
+      "explanation": "entities are connected through shared directors; at least one organization is highly government-funded (max 66.2%)"
+    },
+    {
+      "loop_id": 17,
+      "hops": 2,
+      "min_year": 2022,
+      "max_year": 2022,
+      "same_year": true,
+      "path_bns": [
+        "106987399RR0001",
+        "702805524RR0001"
+      ],
+      "path_display": "106987399RR0001→702805524RR0001→106987399RR0001",
+      "bottleneck_amt": 16084,
+      "total_flow_amt": 35084,
+      "participants": [
+        {
+          "bn": "106987399RR0001",
+          "bn_root": "106987399",
+          "org_name": "COSMOPOLITAN INDUSTRIES LTD.",
+          "legal_name": "COSMOPOLITAN INDUSTRIES LTD.",
+          "designation": "C",
+          "category": "160",
+          "entity_id": 2620,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 72244086,
+          "govt_funding": 42713582,
+          "govt_dependency_pct": 59.1,
+          "fed_total_grants": 753436,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 3,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "702805524RR0001",
+          "bn_root": "702805524",
+          "org_name": "THE STENSRUD FAMILY TOP OF THE ROCK FOUNDATION INC.",
+          "legal_name": "THE STENSRUD FAMILY TOP OF THE ROCK FOUNDATION INC.",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 33922,
+          "dataset_sources": [
+            "cra"
+          ],
+          "revenue": 992231,
+          "govt_funding": 0,
+          "govt_dependency_pct": 0,
+          "fed_total_grants": 0,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "106987399RR0001",
+          "dst": "702805524RR0001",
+          "year_flow": 19000,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "702805524RR0001",
+          "dst": "106987399RR0001",
+          "year_flow": 16084,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 4,
+      "risk_label": "high risk",
+      "max_govt_dependency_pct": 59.1,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 3,
+      "shared_director_pair_count": 1,
+      "shared_directors": [
+        {
+          "director_name": "GREG  KUSE",
+          "bn_roots": [
+            "106987399",
+            "702805524"
+          ]
+        },
+        {
+          "director_name": "BRENT  REMPEL",
+          "bn_roots": [
+            "106987399",
+            "702805524"
+          ]
+        },
+        {
+          "director_name": "MICHAEL  STENSRUD",
+          "bn_roots": [
+            "106987399",
+            "702805524"
+          ]
+        }
+      ],
+      "fed_total_grants": 753436,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 42713582,
+      "cluster_total_funding": 43467018,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 35084,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": true,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "entities are connected through shared directors",
+      "explanation": "entities are connected through shared directors; at least one organization is highly government-funded (max 59.1%)"
+    },
+    {
+      "loop_id": 436,
+      "hops": 2,
+      "min_year": 2022,
+      "max_year": 2022,
+      "same_year": true,
+      "path_bns": [
+        "801919739RR0001",
+        "801934134RR0001"
+      ],
+      "path_display": "801919739RR0001→801934134RR0001→801919739RR0001",
+      "bottleneck_amt": 24142,
+      "total_flow_amt": 119354,
+      "participants": [
+        {
+          "bn": "801919739RR0001",
+          "bn_root": "801919739",
+          "org_name": "AKOMA HOLDINGS INCORPORATED",
+          "legal_name": "AKOMA HOLDINGS INCORPORATED",
+          "designation": "C",
+          "category": "210",
+          "entity_id": 46076,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 2816375,
+          "govt_funding": 332598,
+          "govt_dependency_pct": 11.8,
+          "fed_total_grants": 1800000,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "801934134RR0001",
+          "bn_root": "801934134",
+          "org_name": "AKOMA FAMILY CENTRE INCORPORATED",
+          "legal_name": "AKOMA FAMILY CENTRE INCORPORATED",
+          "designation": "C",
+          "category": "160",
+          "entity_id": 46081,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 11323910,
+          "govt_funding": 11127392,
+          "govt_dependency_pct": 98.3,
+          "fed_total_grants": 187421,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 1,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "801919739RR0001",
+          "dst": "801934134RR0001",
+          "year_flow": 24142,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "801934134RR0001",
+          "dst": "801919739RR0001",
+          "year_flow": 95212,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 4,
+      "risk_label": "high risk",
+      "max_govt_dependency_pct": 98.3,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 8,
+      "shared_director_pair_count": 1,
+      "shared_directors": [
+        {
+          "director_name": "SPENCER  COLLEY",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "DAVID  HENDSBEE",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "KATHLEEN  MITCHELL",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "DOLLY  WILLIAMS",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "JASON  JACKSON",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "YVONNE  ATWELL",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "MARJORIE  JOHNSTONE",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "ANGELA  COLLEY",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        }
+      ],
+      "fed_total_grants": 1987421,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 11459990,
+      "cluster_total_funding": 13447411,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 119354,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": true,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "entities are connected through shared directors",
+      "explanation": "entities are connected through shared directors; at least one organization is highly government-funded (max 98.3%)"
+    },
+    {
+      "loop_id": 231,
+      "hops": 2,
+      "min_year": 2021,
+      "max_year": 2021,
+      "same_year": true,
+      "path_bns": [
+        "119097962RR0001",
+        "865088439RR0001"
+      ],
+      "path_display": "119097962RR0001→865088439RR0001→119097962RR0001",
+      "bottleneck_amt": 40000,
+      "total_flow_amt": 309883,
+      "participants": [
+        {
+          "bn": "119097962RR0001",
+          "bn_root": "119097962",
+          "org_name": "Prairie Theatre Exchange Inc",
+          "legal_name": "PRAIRIE THEATRE EXCHANGE INC.",
+          "designation": "C",
+          "category": "190",
+          "entity_id": 17729,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 11484744,
+          "govt_funding": 6303441,
+          "govt_dependency_pct": 54.9,
+          "fed_total_grants": 1865857,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "865088439RR0001",
+          "bn_root": "865088439",
+          "org_name": "PRAIRIE THEATRE EXCHANGE FOUNDATION TRUST",
+          "legal_name": "PRAIRIE THEATRE EXCHANGE FOUNDATION TRUST",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 65102,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 1550354,
+          "govt_funding": 208824,
+          "govt_dependency_pct": 13.5,
+          "fed_total_grants": 600191.69,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 1,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "119097962RR0001",
+          "dst": "865088439RR0001",
+          "year_flow": 269883,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "865088439RR0001",
+          "dst": "119097962RR0001",
+          "year_flow": 40000,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 4,
+      "risk_label": "high risk",
+      "max_govt_dependency_pct": 54.9,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 1,
+      "shared_director_pair_count": 1,
+      "shared_directors": [
+        {
+          "director_name": "MELISSA  MCALISTER",
+          "bn_roots": [
+            "119097962",
+            "865088439"
+          ]
+        }
+      ],
+      "fed_total_grants": 2466048.69,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 6512265,
+      "cluster_total_funding": 8978313.69,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 309883,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": true,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "entities are connected through shared directors",
+      "explanation": "entities are connected through shared directors; at least one organization is highly government-funded (max 54.9%)"
+    }
+  ],
+  "top10": [
+    {
+      "loop_id": 141,
+      "hops": 2,
+      "min_year": 2020,
+      "max_year": 2020,
+      "same_year": true,
+      "path_bns": [
+        "108073776RR0001",
+        "119067494RR0001"
+      ],
+      "path_display": "108073776RR0001→119067494RR0001→108073776RR0001",
+      "bottleneck_amt": 250000,
+      "total_flow_amt": 539500,
+      "participants": [
+        {
+          "bn": "108073776RR0001",
+          "bn_root": "108073776",
+          "org_name": "BOB RUMBALL CANADIAN CENTRE OF EXCELLENCE FOR THE DEAF",
+          "legal_name": "BOB RUMBALL CANADIAN CENTRE OF EXCELLENCE FOR THE DEAF",
+          "designation": "C",
+          "category": "200",
+          "entity_id": 7518,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 88476332,
+          "govt_funding": 71074146,
+          "govt_dependency_pct": 80.3,
+          "fed_total_grants": 2020840.52,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 1,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "119067494RR0001",
+          "bn_root": "119067494",
+          "org_name": "The Bob Rumball Camp of the Deaf",
+          "legal_name": "The Bob Rumball Camp of the Deaf",
+          "designation": "C",
+          "category": "200",
+          "entity_id": 17018,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 3346746,
+          "govt_funding": 139152,
+          "govt_dependency_pct": 4.2,
+          "fed_total_grants": 16023306.63,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 1,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "108073776RR0001",
+          "dst": "119067494RR0001",
+          "year_flow": 250000,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "119067494RR0001",
+          "dst": "108073776RR0001",
+          "year_flow": 289500,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 4,
+      "risk_label": "high risk",
+      "max_govt_dependency_pct": 80.3,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 3,
+      "shared_director_pair_count": 1,
+      "shared_directors": [
+        {
+          "director_name": "ARTHUR  LAST",
+          "bn_roots": [
+            "108073776",
+            "119067494"
+          ]
+        },
+        {
+          "director_name": "LEROY  RAYMOND",
+          "bn_roots": [
+            "108073776",
+            "119067494"
+          ]
+        },
+        {
+          "director_name": "DEREK  RUMBALL",
+          "bn_roots": [
+            "108073776",
+            "119067494"
+          ]
+        }
+      ],
+      "fed_total_grants": 18044147.15,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 71213298,
+      "cluster_total_funding": 89257445.15,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 539500,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": true,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "entities are connected through shared directors",
+      "explanation": "entities are connected through shared directors; at least one organization is highly government-funded (max 80.3%)"
+    },
+    {
+      "loop_id": 336,
+      "hops": 2,
+      "min_year": 2021,
+      "max_year": 2021,
+      "same_year": true,
+      "path_bns": [
+        "130808363RR0001",
+        "816275895RR0001"
+      ],
+      "path_display": "130808363RR0001→816275895RR0001→130808363RR0001",
+      "bottleneck_amt": 46010,
+      "total_flow_amt": 279951,
+      "participants": [
+        {
+          "bn": "130808363RR0001",
+          "bn_root": "130808363",
+          "org_name": "MORE THAN A ROOF MENNONITE HOUSING SOCIETY",
+          "legal_name": "MORE THAN A ROOF MENNONITE HOUSING SOCIETY",
+          "designation": "C",
+          "category": "1",
+          "entity_id": 27161,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 64985621,
+          "govt_funding": 27677596,
+          "govt_dependency_pct": 42.6,
+          "fed_total_grants": 212603,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 2,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "816275895RR0001",
+          "bn_root": "816275895",
+          "org_name": "WEST END MENNONITE HOUSING SOCIETY",
+          "legal_name": "WEST END MENNONITE HOUSING SOCIETY",
+          "designation": "C",
+          "category": "1",
+          "entity_id": 49944,
+          "dataset_sources": [
+            "cra"
+          ],
+          "revenue": 33374246,
+          "govt_funding": 22097540,
+          "govt_dependency_pct": 66.2,
+          "fed_total_grants": 0,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "130808363RR0001",
+          "dst": "816275895RR0001",
+          "year_flow": 46010,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "816275895RR0001",
+          "dst": "130808363RR0001",
+          "year_flow": 233941,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 4,
+      "risk_label": "high risk",
+      "max_govt_dependency_pct": 66.2,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 9,
+      "shared_director_pair_count": 1,
+      "shared_directors": [
+        {
+          "director_name": "DAVID  HILLHOUSE",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "DEWEY J DEVRIES",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "MARIE-LOUISE  STOLZ",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "RACHEL  WIEBE",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "SPENCER  ANDRES",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "WILLY  REIMER",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "KARA  DOUGLAS",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "JASON  HEINRICH",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "ANDREW  MACRITCHIE",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        }
+      ],
+      "fed_total_grants": 212603,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 49775136,
+      "cluster_total_funding": 49987739,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 279951,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": true,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "entities are connected through shared directors",
+      "explanation": "entities are connected through shared directors; at least one organization is highly government-funded (max 66.2%)"
+    },
+    {
+      "loop_id": 17,
+      "hops": 2,
+      "min_year": 2022,
+      "max_year": 2022,
+      "same_year": true,
+      "path_bns": [
+        "106987399RR0001",
+        "702805524RR0001"
+      ],
+      "path_display": "106987399RR0001→702805524RR0001→106987399RR0001",
+      "bottleneck_amt": 16084,
+      "total_flow_amt": 35084,
+      "participants": [
+        {
+          "bn": "106987399RR0001",
+          "bn_root": "106987399",
+          "org_name": "COSMOPOLITAN INDUSTRIES LTD.",
+          "legal_name": "COSMOPOLITAN INDUSTRIES LTD.",
+          "designation": "C",
+          "category": "160",
+          "entity_id": 2620,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 72244086,
+          "govt_funding": 42713582,
+          "govt_dependency_pct": 59.1,
+          "fed_total_grants": 753436,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 3,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "702805524RR0001",
+          "bn_root": "702805524",
+          "org_name": "THE STENSRUD FAMILY TOP OF THE ROCK FOUNDATION INC.",
+          "legal_name": "THE STENSRUD FAMILY TOP OF THE ROCK FOUNDATION INC.",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 33922,
+          "dataset_sources": [
+            "cra"
+          ],
+          "revenue": 992231,
+          "govt_funding": 0,
+          "govt_dependency_pct": 0,
+          "fed_total_grants": 0,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "106987399RR0001",
+          "dst": "702805524RR0001",
+          "year_flow": 19000,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "702805524RR0001",
+          "dst": "106987399RR0001",
+          "year_flow": 16084,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 4,
+      "risk_label": "high risk",
+      "max_govt_dependency_pct": 59.1,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 3,
+      "shared_director_pair_count": 1,
+      "shared_directors": [
+        {
+          "director_name": "GREG  KUSE",
+          "bn_roots": [
+            "106987399",
+            "702805524"
+          ]
+        },
+        {
+          "director_name": "BRENT  REMPEL",
+          "bn_roots": [
+            "106987399",
+            "702805524"
+          ]
+        },
+        {
+          "director_name": "MICHAEL  STENSRUD",
+          "bn_roots": [
+            "106987399",
+            "702805524"
+          ]
+        }
+      ],
+      "fed_total_grants": 753436,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 42713582,
+      "cluster_total_funding": 43467018,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 35084,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": true,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "entities are connected through shared directors",
+      "explanation": "entities are connected through shared directors; at least one organization is highly government-funded (max 59.1%)"
+    },
+    {
+      "loop_id": 436,
+      "hops": 2,
+      "min_year": 2022,
+      "max_year": 2022,
+      "same_year": true,
+      "path_bns": [
+        "801919739RR0001",
+        "801934134RR0001"
+      ],
+      "path_display": "801919739RR0001→801934134RR0001→801919739RR0001",
+      "bottleneck_amt": 24142,
+      "total_flow_amt": 119354,
+      "participants": [
+        {
+          "bn": "801919739RR0001",
+          "bn_root": "801919739",
+          "org_name": "AKOMA HOLDINGS INCORPORATED",
+          "legal_name": "AKOMA HOLDINGS INCORPORATED",
+          "designation": "C",
+          "category": "210",
+          "entity_id": 46076,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 2816375,
+          "govt_funding": 332598,
+          "govt_dependency_pct": 11.8,
+          "fed_total_grants": 1800000,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "801934134RR0001",
+          "bn_root": "801934134",
+          "org_name": "AKOMA FAMILY CENTRE INCORPORATED",
+          "legal_name": "AKOMA FAMILY CENTRE INCORPORATED",
+          "designation": "C",
+          "category": "160",
+          "entity_id": 46081,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 11323910,
+          "govt_funding": 11127392,
+          "govt_dependency_pct": 98.3,
+          "fed_total_grants": 187421,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 1,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "801919739RR0001",
+          "dst": "801934134RR0001",
+          "year_flow": 24142,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "801934134RR0001",
+          "dst": "801919739RR0001",
+          "year_flow": 95212,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 4,
+      "risk_label": "high risk",
+      "max_govt_dependency_pct": 98.3,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 8,
+      "shared_director_pair_count": 1,
+      "shared_directors": [
+        {
+          "director_name": "SPENCER  COLLEY",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "DAVID  HENDSBEE",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "KATHLEEN  MITCHELL",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "DOLLY  WILLIAMS",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "JASON  JACKSON",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "YVONNE  ATWELL",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "MARJORIE  JOHNSTONE",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "ANGELA  COLLEY",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        }
+      ],
+      "fed_total_grants": 1987421,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 11459990,
+      "cluster_total_funding": 13447411,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 119354,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": true,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "entities are connected through shared directors",
+      "explanation": "entities are connected through shared directors; at least one organization is highly government-funded (max 98.3%)"
+    },
+    {
+      "loop_id": 231,
+      "hops": 2,
+      "min_year": 2021,
+      "max_year": 2021,
+      "same_year": true,
+      "path_bns": [
+        "119097962RR0001",
+        "865088439RR0001"
+      ],
+      "path_display": "119097962RR0001→865088439RR0001→119097962RR0001",
+      "bottleneck_amt": 40000,
+      "total_flow_amt": 309883,
+      "participants": [
+        {
+          "bn": "119097962RR0001",
+          "bn_root": "119097962",
+          "org_name": "Prairie Theatre Exchange Inc",
+          "legal_name": "PRAIRIE THEATRE EXCHANGE INC.",
+          "designation": "C",
+          "category": "190",
+          "entity_id": 17729,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 11484744,
+          "govt_funding": 6303441,
+          "govt_dependency_pct": 54.9,
+          "fed_total_grants": 1865857,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "865088439RR0001",
+          "bn_root": "865088439",
+          "org_name": "PRAIRIE THEATRE EXCHANGE FOUNDATION TRUST",
+          "legal_name": "PRAIRIE THEATRE EXCHANGE FOUNDATION TRUST",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 65102,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 1550354,
+          "govt_funding": 208824,
+          "govt_dependency_pct": 13.5,
+          "fed_total_grants": 600191.69,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 1,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "119097962RR0001",
+          "dst": "865088439RR0001",
+          "year_flow": 269883,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "865088439RR0001",
+          "dst": "119097962RR0001",
+          "year_flow": 40000,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 4,
+      "risk_label": "high risk",
+      "max_govt_dependency_pct": 54.9,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 1,
+      "shared_director_pair_count": 1,
+      "shared_directors": [
+        {
+          "director_name": "MELISSA  MCALISTER",
+          "bn_roots": [
+            "119097962",
+            "865088439"
+          ]
+        }
+      ],
+      "fed_total_grants": 2466048.69,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 6512265,
+      "cluster_total_funding": 8978313.69,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 309883,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": true,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "entities are connected through shared directors",
+      "explanation": "entities are connected through shared directors; at least one organization is highly government-funded (max 54.9%)"
+    },
+    {
+      "loop_id": 264,
+      "hops": 2,
+      "min_year": 2023,
+      "max_year": 2024,
+      "same_year": false,
+      "path_bns": [
+        "119279313RR0001",
+        "135309342RR0001"
+      ],
+      "path_display": "119279313RR0001→135309342RR0001→119279313RR0001",
+      "bottleneck_amt": 58406,
+      "total_flow_amt": 1088901,
+      "participants": [
+        {
+          "bn": "119279313RR0001",
+          "bn_root": "119279313",
+          "org_name": "University of Saskatchewan",
+          "legal_name": "UNIVERSITY OF SASKATCHEWAN",
+          "designation": "C",
+          "category": "10",
+          "entity_id": 22654,
+          "dataset_sources": [
+            "ab",
+            "cra",
+            "fed"
+          ],
+          "revenue": 5625494822,
+          "govt_funding": 3149480840,
+          "govt_dependency_pct": 56,
+          "fed_total_grants": 390548932.18,
+          "ab_total_grants": 65989678.34,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 47,
+          "duplicate_program_groups": 13,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": "Active"
+        },
+        {
+          "bn": "135309342RR0001",
+          "bn_root": "135309342",
+          "org_name": "Jim Pattison Children's Hospital Foundation Inc",
+          "legal_name": "Jim Pattison Children's Hospital Foundation Inc.",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 30817,
+          "dataset_sources": [
+            "cra"
+          ],
+          "revenue": 89044685,
+          "govt_funding": 422288,
+          "govt_dependency_pct": 0.5,
+          "fed_total_grants": 0,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "119279313RR0001",
+          "dst": "135309342RR0001",
+          "year_flow": 58406,
+          "gift_count": 2
+        },
+        {
+          "hop_idx": 2,
+          "src": "135309342RR0001",
+          "dst": "119279313RR0001",
+          "year_flow": 1030495,
+          "gift_count": 2
+        }
+      ],
+      "risk_score": 3,
+      "risk_label": "flagged",
+      "max_govt_dependency_pct": 56,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants",
+        "Alberta grants"
+      ],
+      "shared_director_count": 0,
+      "shared_director_pair_count": 0,
+      "shared_directors": [],
+      "fed_total_grants": 390548932.18,
+      "ab_total_grants": 65989678.34,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 3149903128,
+      "cluster_total_funding": 3606441738.52,
+      "total_edge_gift_count": 4,
+      "total_edge_flow": 1088901,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": false,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "at least one organization is highly government-funded (max 56%)",
+      "explanation": "at least one organization is highly government-funded (max 56%); repeated funding descriptions or duplicate program patterns appear"
+    },
+    {
+      "loop_id": 677,
+      "hops": 3,
+      "min_year": 2021,
+      "max_year": 2022,
+      "same_year": false,
+      "path_bns": [
+        "136535226RR0001",
+        "868947797RR0001",
+        "892028242RR0001"
+      ],
+      "path_display": "136535226RR0001→868947797RR0001→892028242RR0001→136535226RR0001",
+      "bottleneck_amt": 62014,
+      "total_flow_amt": 357014,
+      "participants": [
+        {
+          "bn": "136535226RR0001",
+          "bn_root": "136535226",
+          "org_name": "Community Foundations of Canada",
+          "legal_name": "COMMUNITY FOUNDATIONS OF CANADA",
+          "designation": "C",
+          "category": "1",
+          "entity_id": 31294,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 423570558,
+          "govt_funding": 349909500,
+          "govt_dependency_pct": 82.6,
+          "fed_total_grants": 288886715,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 2,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "868947797RR0001",
+          "bn_root": "868947797",
+          "org_name": "MakeWay Foundation",
+          "legal_name": "MAKEWAY FOUNDATION",
+          "designation": "A",
+          "category": "160",
+          "entity_id": 67181,
+          "dataset_sources": [
+            "ab",
+            "cra",
+            "fed"
+          ],
+          "revenue": 164297628,
+          "govt_funding": 20171619,
+          "govt_dependency_pct": 12.3,
+          "fed_total_grants": 1237431,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": "Active"
+        },
+        {
+          "bn": "892028242RR0001",
+          "bn_root": "892028242",
+          "org_name": "Vancity Community Foundation",
+          "legal_name": "VANCITY COMMUNITY FOUNDATION",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 81454,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 87172821,
+          "govt_funding": 8637267,
+          "govt_dependency_pct": 9.9,
+          "fed_total_grants": 14383764.71,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "136535226RR0001",
+          "dst": "868947797RR0001",
+          "year_flow": 80000,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "868947797RR0001",
+          "dst": "892028242RR0001",
+          "year_flow": 62014,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 3,
+          "src": "892028242RR0001",
+          "dst": "136535226RR0001",
+          "year_flow": 215000,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 3,
+      "risk_label": "flagged",
+      "max_govt_dependency_pct": 82.6,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 0,
+      "shared_director_pair_count": 0,
+      "shared_directors": [],
+      "fed_total_grants": 304507910.71,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 378718386,
+      "cluster_total_funding": 683226296.71,
+      "total_edge_gift_count": 3,
+      "total_edge_flow": 357014,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": false,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "at least one organization is highly government-funded (max 82.6%)",
+      "explanation": "at least one organization is highly government-funded (max 82.6%); repeated funding descriptions or duplicate program patterns appear"
+    },
+    {
+      "loop_id": 679,
+      "hops": 3,
+      "min_year": 2021,
+      "max_year": 2022,
+      "same_year": false,
+      "path_bns": [
+        "136535226RR0001",
+        "868947797RR0001",
+        "895098515RR0001"
+      ],
+      "path_display": "136535226RR0001→868947797RR0001→895098515RR0001→136535226RR0001",
+      "bottleneck_amt": 15000,
+      "total_flow_amt": 125000,
+      "participants": [
+        {
+          "bn": "136535226RR0001",
+          "bn_root": "136535226",
+          "org_name": "Community Foundations of Canada",
+          "legal_name": "COMMUNITY FOUNDATIONS OF CANADA",
+          "designation": "C",
+          "category": "1",
+          "entity_id": 31294,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 423570558,
+          "govt_funding": 349909500,
+          "govt_dependency_pct": 82.6,
+          "fed_total_grants": 288886715,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 2,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "868947797RR0001",
+          "bn_root": "868947797",
+          "org_name": "MakeWay Foundation",
+          "legal_name": "MAKEWAY FOUNDATION",
+          "designation": "A",
+          "category": "160",
+          "entity_id": 67181,
+          "dataset_sources": [
+            "ab",
+            "cra",
+            "fed"
+          ],
+          "revenue": 164297628,
+          "govt_funding": 20171619,
+          "govt_dependency_pct": 12.3,
+          "fed_total_grants": 1237431,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": "Active"
+        },
+        {
+          "bn": "895098515RR0001",
+          "bn_root": "895098515",
+          "org_name": "Environment Funders Canada / Philanthropie Canadienne pour l'environnement",
+          "legal_name": "Environment Funders Canada / Philanthropie Canadienne pour l'environnement",
+          "designation": "C",
+          "category": "160",
+          "entity_id": 84627,
+          "dataset_sources": [
+            "cra"
+          ],
+          "revenue": 19135666,
+          "govt_funding": 82535,
+          "govt_dependency_pct": 0.4,
+          "fed_total_grants": 0,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "136535226RR0001",
+          "dst": "868947797RR0001",
+          "year_flow": 80000,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "868947797RR0001",
+          "dst": "895098515RR0001",
+          "year_flow": 15000,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 3,
+          "src": "895098515RR0001",
+          "dst": "136535226RR0001",
+          "year_flow": 30000,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 3,
+      "risk_label": "flagged",
+      "max_govt_dependency_pct": 82.6,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 0,
+      "shared_director_pair_count": 0,
+      "shared_directors": [],
+      "fed_total_grants": 290124146,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 370163654,
+      "cluster_total_funding": 660287800,
+      "total_edge_gift_count": 3,
+      "total_edge_flow": 125000,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": false,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "at least one organization is highly government-funded (max 82.6%)",
+      "explanation": "at least one organization is highly government-funded (max 82.6%); repeated funding descriptions or duplicate program patterns appear"
+    },
+    {
+      "loop_id": 162,
+      "hops": 2,
+      "min_year": 2023,
+      "max_year": 2024,
+      "same_year": false,
+      "path_bns": [
+        "108161266RR0001",
+        "725310676RR0001"
+      ],
+      "path_display": "108161266RR0001→725310676RR0001→108161266RR0001",
+      "bottleneck_amt": 311586,
+      "total_flow_amt": 771086,
+      "participants": [
+        {
+          "bn": "108161266RR0001",
+          "bn_root": "108161266",
+          "org_name": "Institut national de la recherche scientifique",
+          "legal_name": "Institut National de la recherche scientifique",
+          "designation": "C",
+          "category": "11",
+          "entity_id": 8082,
+          "dataset_sources": [
+            "ab",
+            "cra",
+            "fed"
+          ],
+          "revenue": 773671411,
+          "govt_funding": 544380379,
+          "govt_dependency_pct": 70.4,
+          "fed_total_grants": 82984187.35,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 92559.6,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 18,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": 78.6,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "725310676RR0001",
+          "bn_root": "725310676",
+          "org_name": "Fondation de l'INRS",
+          "legal_name": "Fondation de l'INRS",
+          "designation": "A",
+          "category": "11",
+          "entity_id": 36182,
+          "dataset_sources": [
+            "cra"
+          ],
+          "revenue": 2387863,
+          "govt_funding": 0,
+          "govt_dependency_pct": 0,
+          "fed_total_grants": 0,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "108161266RR0001",
+          "dst": "725310676RR0001",
+          "year_flow": 459500,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "725310676RR0001",
+          "dst": "108161266RR0001",
+          "year_flow": 311586,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 3,
+      "risk_label": "flagged",
+      "max_govt_dependency_pct": 70.4,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants",
+        "Alberta contracts"
+      ],
+      "shared_director_count": 0,
+      "shared_director_pair_count": 0,
+      "shared_directors": [],
+      "fed_total_grants": 82984187.35,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 92559.6,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 544380379,
+      "cluster_total_funding": 627457125.95,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 771086,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": false,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "at least one organization is highly government-funded (max 70.4%)",
+      "explanation": "at least one organization is highly government-funded (max 70.4%); repeated funding descriptions or duplicate program patterns appear"
+    },
+    {
+      "loop_id": 733,
+      "hops": 3,
+      "min_year": 2020,
+      "max_year": 2021,
+      "same_year": false,
+      "path_bns": [
+        "129855607RR0001",
+        "896568417RR0001",
+        "892028242RR0001"
+      ],
+      "path_display": "129855607RR0001→896568417RR0001→892028242RR0001→129855607RR0001",
+      "bottleneck_amt": 17796,
+      "total_flow_amt": 81902,
+      "participants": [
+        {
+          "bn": "129855607RR0001",
+          "bn_root": "129855607",
+          "org_name": "Canadian Women's Foundation / Fondation Canadienne des Femmes",
+          "legal_name": "CANADIAN WOMEN'S FOUNDATION / FONDATION CANADIENNE DES FEMMES",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 25954,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 169848769,
+          "govt_funding": 144423640,
+          "govt_dependency_pct": 85,
+          "fed_total_grants": 96266328,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "896568417RR0001",
+          "bn_root": "896568417",
+          "org_name": "CANADAHELPS CANADON",
+          "legal_name": "CANADAHELPS CANADON",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 85290,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 2017071783,
+          "govt_funding": 72463,
+          "govt_dependency_pct": 0,
+          "fed_total_grants": 4618454,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 4,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "892028242RR0001",
+          "bn_root": "892028242",
+          "org_name": "Vancity Community Foundation",
+          "legal_name": "VANCITY COMMUNITY FOUNDATION",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 81454,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 87172821,
+          "govt_funding": 8637267,
+          "govt_dependency_pct": 9.9,
+          "fed_total_grants": 14383764.71,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "129855607RR0001",
+          "dst": "896568417RR0001",
+          "year_flow": 25000,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "896568417RR0001",
+          "dst": "892028242RR0001",
+          "year_flow": 17796,
+          "gift_count": 2
+        },
+        {
+          "hop_idx": 3,
+          "src": "892028242RR0001",
+          "dst": "129855607RR0001",
+          "year_flow": 39106,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 3,
+      "risk_label": "flagged",
+      "max_govt_dependency_pct": 85,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 0,
+      "shared_director_pair_count": 0,
+      "shared_directors": [],
+      "fed_total_grants": 115268546.71,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 153133370,
+      "cluster_total_funding": 268401916.71,
+      "total_edge_gift_count": 4,
+      "total_edge_flow": 81902,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": false,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "at least one organization is highly government-funded (max 85%)",
+      "explanation": "at least one organization is highly government-funded (max 85%); repeated funding descriptions or duplicate program patterns appear"
+    }
+  ],
+  "loops": [
+    {
+      "loop_id": 141,
+      "hops": 2,
+      "min_year": 2020,
+      "max_year": 2020,
+      "same_year": true,
+      "path_bns": [
+        "108073776RR0001",
+        "119067494RR0001"
+      ],
+      "path_display": "108073776RR0001→119067494RR0001→108073776RR0001",
+      "bottleneck_amt": 250000,
+      "total_flow_amt": 539500,
+      "participants": [
+        {
+          "bn": "108073776RR0001",
+          "bn_root": "108073776",
+          "org_name": "BOB RUMBALL CANADIAN CENTRE OF EXCELLENCE FOR THE DEAF",
+          "legal_name": "BOB RUMBALL CANADIAN CENTRE OF EXCELLENCE FOR THE DEAF",
+          "designation": "C",
+          "category": "200",
+          "entity_id": 7518,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 88476332,
+          "govt_funding": 71074146,
+          "govt_dependency_pct": 80.3,
+          "fed_total_grants": 2020840.52,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 1,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "119067494RR0001",
+          "bn_root": "119067494",
+          "org_name": "The Bob Rumball Camp of the Deaf",
+          "legal_name": "The Bob Rumball Camp of the Deaf",
+          "designation": "C",
+          "category": "200",
+          "entity_id": 17018,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 3346746,
+          "govt_funding": 139152,
+          "govt_dependency_pct": 4.2,
+          "fed_total_grants": 16023306.63,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 1,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "108073776RR0001",
+          "dst": "119067494RR0001",
+          "year_flow": 250000,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "119067494RR0001",
+          "dst": "108073776RR0001",
+          "year_flow": 289500,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 4,
+      "risk_label": "high risk",
+      "max_govt_dependency_pct": 80.3,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 3,
+      "shared_director_pair_count": 1,
+      "shared_directors": [
+        {
+          "director_name": "ARTHUR  LAST",
+          "bn_roots": [
+            "108073776",
+            "119067494"
+          ]
+        },
+        {
+          "director_name": "LEROY  RAYMOND",
+          "bn_roots": [
+            "108073776",
+            "119067494"
+          ]
+        },
+        {
+          "director_name": "DEREK  RUMBALL",
+          "bn_roots": [
+            "108073776",
+            "119067494"
+          ]
+        }
+      ],
+      "fed_total_grants": 18044147.15,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 71213298,
+      "cluster_total_funding": 89257445.15,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 539500,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": true,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "entities are connected through shared directors",
+      "explanation": "entities are connected through shared directors; at least one organization is highly government-funded (max 80.3%)"
+    },
+    {
+      "loop_id": 336,
+      "hops": 2,
+      "min_year": 2021,
+      "max_year": 2021,
+      "same_year": true,
+      "path_bns": [
+        "130808363RR0001",
+        "816275895RR0001"
+      ],
+      "path_display": "130808363RR0001→816275895RR0001→130808363RR0001",
+      "bottleneck_amt": 46010,
+      "total_flow_amt": 279951,
+      "participants": [
+        {
+          "bn": "130808363RR0001",
+          "bn_root": "130808363",
+          "org_name": "MORE THAN A ROOF MENNONITE HOUSING SOCIETY",
+          "legal_name": "MORE THAN A ROOF MENNONITE HOUSING SOCIETY",
+          "designation": "C",
+          "category": "1",
+          "entity_id": 27161,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 64985621,
+          "govt_funding": 27677596,
+          "govt_dependency_pct": 42.6,
+          "fed_total_grants": 212603,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 2,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "816275895RR0001",
+          "bn_root": "816275895",
+          "org_name": "WEST END MENNONITE HOUSING SOCIETY",
+          "legal_name": "WEST END MENNONITE HOUSING SOCIETY",
+          "designation": "C",
+          "category": "1",
+          "entity_id": 49944,
+          "dataset_sources": [
+            "cra"
+          ],
+          "revenue": 33374246,
+          "govt_funding": 22097540,
+          "govt_dependency_pct": 66.2,
+          "fed_total_grants": 0,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "130808363RR0001",
+          "dst": "816275895RR0001",
+          "year_flow": 46010,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "816275895RR0001",
+          "dst": "130808363RR0001",
+          "year_flow": 233941,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 4,
+      "risk_label": "high risk",
+      "max_govt_dependency_pct": 66.2,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 9,
+      "shared_director_pair_count": 1,
+      "shared_directors": [
+        {
+          "director_name": "DAVID  HILLHOUSE",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "DEWEY J DEVRIES",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "MARIE-LOUISE  STOLZ",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "RACHEL  WIEBE",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "SPENCER  ANDRES",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "WILLY  REIMER",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "KARA  DOUGLAS",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "JASON  HEINRICH",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        },
+        {
+          "director_name": "ANDREW  MACRITCHIE",
+          "bn_roots": [
+            "130808363",
+            "816275895"
+          ]
+        }
+      ],
+      "fed_total_grants": 212603,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 49775136,
+      "cluster_total_funding": 49987739,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 279951,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": true,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "entities are connected through shared directors",
+      "explanation": "entities are connected through shared directors; at least one organization is highly government-funded (max 66.2%)"
+    },
+    {
+      "loop_id": 17,
+      "hops": 2,
+      "min_year": 2022,
+      "max_year": 2022,
+      "same_year": true,
+      "path_bns": [
+        "106987399RR0001",
+        "702805524RR0001"
+      ],
+      "path_display": "106987399RR0001→702805524RR0001→106987399RR0001",
+      "bottleneck_amt": 16084,
+      "total_flow_amt": 35084,
+      "participants": [
+        {
+          "bn": "106987399RR0001",
+          "bn_root": "106987399",
+          "org_name": "COSMOPOLITAN INDUSTRIES LTD.",
+          "legal_name": "COSMOPOLITAN INDUSTRIES LTD.",
+          "designation": "C",
+          "category": "160",
+          "entity_id": 2620,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 72244086,
+          "govt_funding": 42713582,
+          "govt_dependency_pct": 59.1,
+          "fed_total_grants": 753436,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 3,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "702805524RR0001",
+          "bn_root": "702805524",
+          "org_name": "THE STENSRUD FAMILY TOP OF THE ROCK FOUNDATION INC.",
+          "legal_name": "THE STENSRUD FAMILY TOP OF THE ROCK FOUNDATION INC.",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 33922,
+          "dataset_sources": [
+            "cra"
+          ],
+          "revenue": 992231,
+          "govt_funding": 0,
+          "govt_dependency_pct": 0,
+          "fed_total_grants": 0,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "106987399RR0001",
+          "dst": "702805524RR0001",
+          "year_flow": 19000,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "702805524RR0001",
+          "dst": "106987399RR0001",
+          "year_flow": 16084,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 4,
+      "risk_label": "high risk",
+      "max_govt_dependency_pct": 59.1,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 3,
+      "shared_director_pair_count": 1,
+      "shared_directors": [
+        {
+          "director_name": "GREG  KUSE",
+          "bn_roots": [
+            "106987399",
+            "702805524"
+          ]
+        },
+        {
+          "director_name": "BRENT  REMPEL",
+          "bn_roots": [
+            "106987399",
+            "702805524"
+          ]
+        },
+        {
+          "director_name": "MICHAEL  STENSRUD",
+          "bn_roots": [
+            "106987399",
+            "702805524"
+          ]
+        }
+      ],
+      "fed_total_grants": 753436,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 42713582,
+      "cluster_total_funding": 43467018,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 35084,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": true,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "entities are connected through shared directors",
+      "explanation": "entities are connected through shared directors; at least one organization is highly government-funded (max 59.1%)"
+    },
+    {
+      "loop_id": 436,
+      "hops": 2,
+      "min_year": 2022,
+      "max_year": 2022,
+      "same_year": true,
+      "path_bns": [
+        "801919739RR0001",
+        "801934134RR0001"
+      ],
+      "path_display": "801919739RR0001→801934134RR0001→801919739RR0001",
+      "bottleneck_amt": 24142,
+      "total_flow_amt": 119354,
+      "participants": [
+        {
+          "bn": "801919739RR0001",
+          "bn_root": "801919739",
+          "org_name": "AKOMA HOLDINGS INCORPORATED",
+          "legal_name": "AKOMA HOLDINGS INCORPORATED",
+          "designation": "C",
+          "category": "210",
+          "entity_id": 46076,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 2816375,
+          "govt_funding": 332598,
+          "govt_dependency_pct": 11.8,
+          "fed_total_grants": 1800000,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "801934134RR0001",
+          "bn_root": "801934134",
+          "org_name": "AKOMA FAMILY CENTRE INCORPORATED",
+          "legal_name": "AKOMA FAMILY CENTRE INCORPORATED",
+          "designation": "C",
+          "category": "160",
+          "entity_id": 46081,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 11323910,
+          "govt_funding": 11127392,
+          "govt_dependency_pct": 98.3,
+          "fed_total_grants": 187421,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 1,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "801919739RR0001",
+          "dst": "801934134RR0001",
+          "year_flow": 24142,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "801934134RR0001",
+          "dst": "801919739RR0001",
+          "year_flow": 95212,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 4,
+      "risk_label": "high risk",
+      "max_govt_dependency_pct": 98.3,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 8,
+      "shared_director_pair_count": 1,
+      "shared_directors": [
+        {
+          "director_name": "SPENCER  COLLEY",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "DAVID  HENDSBEE",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "KATHLEEN  MITCHELL",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "DOLLY  WILLIAMS",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "JASON  JACKSON",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "YVONNE  ATWELL",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "MARJORIE  JOHNSTONE",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        },
+        {
+          "director_name": "ANGELA  COLLEY",
+          "bn_roots": [
+            "801919739",
+            "801934134"
+          ]
+        }
+      ],
+      "fed_total_grants": 1987421,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 11459990,
+      "cluster_total_funding": 13447411,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 119354,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": true,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "entities are connected through shared directors",
+      "explanation": "entities are connected through shared directors; at least one organization is highly government-funded (max 98.3%)"
+    },
+    {
+      "loop_id": 231,
+      "hops": 2,
+      "min_year": 2021,
+      "max_year": 2021,
+      "same_year": true,
+      "path_bns": [
+        "119097962RR0001",
+        "865088439RR0001"
+      ],
+      "path_display": "119097962RR0001→865088439RR0001→119097962RR0001",
+      "bottleneck_amt": 40000,
+      "total_flow_amt": 309883,
+      "participants": [
+        {
+          "bn": "119097962RR0001",
+          "bn_root": "119097962",
+          "org_name": "Prairie Theatre Exchange Inc",
+          "legal_name": "PRAIRIE THEATRE EXCHANGE INC.",
+          "designation": "C",
+          "category": "190",
+          "entity_id": 17729,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 11484744,
+          "govt_funding": 6303441,
+          "govt_dependency_pct": 54.9,
+          "fed_total_grants": 1865857,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "865088439RR0001",
+          "bn_root": "865088439",
+          "org_name": "PRAIRIE THEATRE EXCHANGE FOUNDATION TRUST",
+          "legal_name": "PRAIRIE THEATRE EXCHANGE FOUNDATION TRUST",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 65102,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 1550354,
+          "govt_funding": 208824,
+          "govt_dependency_pct": 13.5,
+          "fed_total_grants": 600191.69,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 1,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "119097962RR0001",
+          "dst": "865088439RR0001",
+          "year_flow": 269883,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "865088439RR0001",
+          "dst": "119097962RR0001",
+          "year_flow": 40000,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 4,
+      "risk_label": "high risk",
+      "max_govt_dependency_pct": 54.9,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 1,
+      "shared_director_pair_count": 1,
+      "shared_directors": [
+        {
+          "director_name": "MELISSA  MCALISTER",
+          "bn_roots": [
+            "119097962",
+            "865088439"
+          ]
+        }
+      ],
+      "fed_total_grants": 2466048.69,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 6512265,
+      "cluster_total_funding": 8978313.69,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 309883,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": true,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "entities are connected through shared directors",
+      "explanation": "entities are connected through shared directors; at least one organization is highly government-funded (max 54.9%)"
+    },
+    {
+      "loop_id": 264,
+      "hops": 2,
+      "min_year": 2023,
+      "max_year": 2024,
+      "same_year": false,
+      "path_bns": [
+        "119279313RR0001",
+        "135309342RR0001"
+      ],
+      "path_display": "119279313RR0001→135309342RR0001→119279313RR0001",
+      "bottleneck_amt": 58406,
+      "total_flow_amt": 1088901,
+      "participants": [
+        {
+          "bn": "119279313RR0001",
+          "bn_root": "119279313",
+          "org_name": "University of Saskatchewan",
+          "legal_name": "UNIVERSITY OF SASKATCHEWAN",
+          "designation": "C",
+          "category": "10",
+          "entity_id": 22654,
+          "dataset_sources": [
+            "ab",
+            "cra",
+            "fed"
+          ],
+          "revenue": 5625494822,
+          "govt_funding": 3149480840,
+          "govt_dependency_pct": 56,
+          "fed_total_grants": 390548932.18,
+          "ab_total_grants": 65989678.34,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 47,
+          "duplicate_program_groups": 13,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": "Active"
+        },
+        {
+          "bn": "135309342RR0001",
+          "bn_root": "135309342",
+          "org_name": "Jim Pattison Children's Hospital Foundation Inc",
+          "legal_name": "Jim Pattison Children's Hospital Foundation Inc.",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 30817,
+          "dataset_sources": [
+            "cra"
+          ],
+          "revenue": 89044685,
+          "govt_funding": 422288,
+          "govt_dependency_pct": 0.5,
+          "fed_total_grants": 0,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "119279313RR0001",
+          "dst": "135309342RR0001",
+          "year_flow": 58406,
+          "gift_count": 2
+        },
+        {
+          "hop_idx": 2,
+          "src": "135309342RR0001",
+          "dst": "119279313RR0001",
+          "year_flow": 1030495,
+          "gift_count": 2
+        }
+      ],
+      "risk_score": 3,
+      "risk_label": "flagged",
+      "max_govt_dependency_pct": 56,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants",
+        "Alberta grants"
+      ],
+      "shared_director_count": 0,
+      "shared_director_pair_count": 0,
+      "shared_directors": [],
+      "fed_total_grants": 390548932.18,
+      "ab_total_grants": 65989678.34,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 3149903128,
+      "cluster_total_funding": 3606441738.52,
+      "total_edge_gift_count": 4,
+      "total_edge_flow": 1088901,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": false,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "at least one organization is highly government-funded (max 56%)",
+      "explanation": "at least one organization is highly government-funded (max 56%); repeated funding descriptions or duplicate program patterns appear"
+    },
+    {
+      "loop_id": 677,
+      "hops": 3,
+      "min_year": 2021,
+      "max_year": 2022,
+      "same_year": false,
+      "path_bns": [
+        "136535226RR0001",
+        "868947797RR0001",
+        "892028242RR0001"
+      ],
+      "path_display": "136535226RR0001→868947797RR0001→892028242RR0001→136535226RR0001",
+      "bottleneck_amt": 62014,
+      "total_flow_amt": 357014,
+      "participants": [
+        {
+          "bn": "136535226RR0001",
+          "bn_root": "136535226",
+          "org_name": "Community Foundations of Canada",
+          "legal_name": "COMMUNITY FOUNDATIONS OF CANADA",
+          "designation": "C",
+          "category": "1",
+          "entity_id": 31294,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 423570558,
+          "govt_funding": 349909500,
+          "govt_dependency_pct": 82.6,
+          "fed_total_grants": 288886715,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 2,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "868947797RR0001",
+          "bn_root": "868947797",
+          "org_name": "MakeWay Foundation",
+          "legal_name": "MAKEWAY FOUNDATION",
+          "designation": "A",
+          "category": "160",
+          "entity_id": 67181,
+          "dataset_sources": [
+            "ab",
+            "cra",
+            "fed"
+          ],
+          "revenue": 164297628,
+          "govt_funding": 20171619,
+          "govt_dependency_pct": 12.3,
+          "fed_total_grants": 1237431,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": "Active"
+        },
+        {
+          "bn": "892028242RR0001",
+          "bn_root": "892028242",
+          "org_name": "Vancity Community Foundation",
+          "legal_name": "VANCITY COMMUNITY FOUNDATION",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 81454,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 87172821,
+          "govt_funding": 8637267,
+          "govt_dependency_pct": 9.9,
+          "fed_total_grants": 14383764.71,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "136535226RR0001",
+          "dst": "868947797RR0001",
+          "year_flow": 80000,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "868947797RR0001",
+          "dst": "892028242RR0001",
+          "year_flow": 62014,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 3,
+          "src": "892028242RR0001",
+          "dst": "136535226RR0001",
+          "year_flow": 215000,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 3,
+      "risk_label": "flagged",
+      "max_govt_dependency_pct": 82.6,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 0,
+      "shared_director_pair_count": 0,
+      "shared_directors": [],
+      "fed_total_grants": 304507910.71,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 378718386,
+      "cluster_total_funding": 683226296.71,
+      "total_edge_gift_count": 3,
+      "total_edge_flow": 357014,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": false,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "at least one organization is highly government-funded (max 82.6%)",
+      "explanation": "at least one organization is highly government-funded (max 82.6%); repeated funding descriptions or duplicate program patterns appear"
+    },
+    {
+      "loop_id": 679,
+      "hops": 3,
+      "min_year": 2021,
+      "max_year": 2022,
+      "same_year": false,
+      "path_bns": [
+        "136535226RR0001",
+        "868947797RR0001",
+        "895098515RR0001"
+      ],
+      "path_display": "136535226RR0001→868947797RR0001→895098515RR0001→136535226RR0001",
+      "bottleneck_amt": 15000,
+      "total_flow_amt": 125000,
+      "participants": [
+        {
+          "bn": "136535226RR0001",
+          "bn_root": "136535226",
+          "org_name": "Community Foundations of Canada",
+          "legal_name": "COMMUNITY FOUNDATIONS OF CANADA",
+          "designation": "C",
+          "category": "1",
+          "entity_id": 31294,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 423570558,
+          "govt_funding": 349909500,
+          "govt_dependency_pct": 82.6,
+          "fed_total_grants": 288886715,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 2,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "868947797RR0001",
+          "bn_root": "868947797",
+          "org_name": "MakeWay Foundation",
+          "legal_name": "MAKEWAY FOUNDATION",
+          "designation": "A",
+          "category": "160",
+          "entity_id": 67181,
+          "dataset_sources": [
+            "ab",
+            "cra",
+            "fed"
+          ],
+          "revenue": 164297628,
+          "govt_funding": 20171619,
+          "govt_dependency_pct": 12.3,
+          "fed_total_grants": 1237431,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": "Active"
+        },
+        {
+          "bn": "895098515RR0001",
+          "bn_root": "895098515",
+          "org_name": "Environment Funders Canada / Philanthropie Canadienne pour l'environnement",
+          "legal_name": "Environment Funders Canada / Philanthropie Canadienne pour l'environnement",
+          "designation": "C",
+          "category": "160",
+          "entity_id": 84627,
+          "dataset_sources": [
+            "cra"
+          ],
+          "revenue": 19135666,
+          "govt_funding": 82535,
+          "govt_dependency_pct": 0.4,
+          "fed_total_grants": 0,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "136535226RR0001",
+          "dst": "868947797RR0001",
+          "year_flow": 80000,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "868947797RR0001",
+          "dst": "895098515RR0001",
+          "year_flow": 15000,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 3,
+          "src": "895098515RR0001",
+          "dst": "136535226RR0001",
+          "year_flow": 30000,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 3,
+      "risk_label": "flagged",
+      "max_govt_dependency_pct": 82.6,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 0,
+      "shared_director_pair_count": 0,
+      "shared_directors": [],
+      "fed_total_grants": 290124146,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 370163654,
+      "cluster_total_funding": 660287800,
+      "total_edge_gift_count": 3,
+      "total_edge_flow": 125000,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": false,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "at least one organization is highly government-funded (max 82.6%)",
+      "explanation": "at least one organization is highly government-funded (max 82.6%); repeated funding descriptions or duplicate program patterns appear"
+    },
+    {
+      "loop_id": 162,
+      "hops": 2,
+      "min_year": 2023,
+      "max_year": 2024,
+      "same_year": false,
+      "path_bns": [
+        "108161266RR0001",
+        "725310676RR0001"
+      ],
+      "path_display": "108161266RR0001→725310676RR0001→108161266RR0001",
+      "bottleneck_amt": 311586,
+      "total_flow_amt": 771086,
+      "participants": [
+        {
+          "bn": "108161266RR0001",
+          "bn_root": "108161266",
+          "org_name": "Institut national de la recherche scientifique",
+          "legal_name": "Institut National de la recherche scientifique",
+          "designation": "C",
+          "category": "11",
+          "entity_id": 8082,
+          "dataset_sources": [
+            "ab",
+            "cra",
+            "fed"
+          ],
+          "revenue": 773671411,
+          "govt_funding": 544380379,
+          "govt_dependency_pct": 70.4,
+          "fed_total_grants": 82984187.35,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 92559.6,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 18,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": 78.6,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "725310676RR0001",
+          "bn_root": "725310676",
+          "org_name": "Fondation de l'INRS",
+          "legal_name": "Fondation de l'INRS",
+          "designation": "A",
+          "category": "11",
+          "entity_id": 36182,
+          "dataset_sources": [
+            "cra"
+          ],
+          "revenue": 2387863,
+          "govt_funding": 0,
+          "govt_dependency_pct": 0,
+          "fed_total_grants": 0,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "108161266RR0001",
+          "dst": "725310676RR0001",
+          "year_flow": 459500,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "725310676RR0001",
+          "dst": "108161266RR0001",
+          "year_flow": 311586,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 3,
+      "risk_label": "flagged",
+      "max_govt_dependency_pct": 70.4,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants",
+        "Alberta contracts"
+      ],
+      "shared_director_count": 0,
+      "shared_director_pair_count": 0,
+      "shared_directors": [],
+      "fed_total_grants": 82984187.35,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 92559.6,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 544380379,
+      "cluster_total_funding": 627457125.95,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 771086,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": false,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "at least one organization is highly government-funded (max 70.4%)",
+      "explanation": "at least one organization is highly government-funded (max 70.4%); repeated funding descriptions or duplicate program patterns appear"
+    },
+    {
+      "loop_id": 733,
+      "hops": 3,
+      "min_year": 2020,
+      "max_year": 2021,
+      "same_year": false,
+      "path_bns": [
+        "129855607RR0001",
+        "896568417RR0001",
+        "892028242RR0001"
+      ],
+      "path_display": "129855607RR0001→896568417RR0001→892028242RR0001→129855607RR0001",
+      "bottleneck_amt": 17796,
+      "total_flow_amt": 81902,
+      "participants": [
+        {
+          "bn": "129855607RR0001",
+          "bn_root": "129855607",
+          "org_name": "Canadian Women's Foundation / Fondation Canadienne des Femmes",
+          "legal_name": "CANADIAN WOMEN'S FOUNDATION / FONDATION CANADIENNE DES FEMMES",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 25954,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 169848769,
+          "govt_funding": 144423640,
+          "govt_dependency_pct": 85,
+          "fed_total_grants": 96266328,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "896568417RR0001",
+          "bn_root": "896568417",
+          "org_name": "CANADAHELPS CANADON",
+          "legal_name": "CANADAHELPS CANADON",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 85290,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 2017071783,
+          "govt_funding": 72463,
+          "govt_dependency_pct": 0,
+          "fed_total_grants": 4618454,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 4,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "892028242RR0001",
+          "bn_root": "892028242",
+          "org_name": "Vancity Community Foundation",
+          "legal_name": "VANCITY COMMUNITY FOUNDATION",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 81454,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 87172821,
+          "govt_funding": 8637267,
+          "govt_dependency_pct": 9.9,
+          "fed_total_grants": 14383764.71,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "129855607RR0001",
+          "dst": "896568417RR0001",
+          "year_flow": 25000,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "896568417RR0001",
+          "dst": "892028242RR0001",
+          "year_flow": 17796,
+          "gift_count": 2
+        },
+        {
+          "hop_idx": 3,
+          "src": "892028242RR0001",
+          "dst": "129855607RR0001",
+          "year_flow": 39106,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 3,
+      "risk_label": "flagged",
+      "max_govt_dependency_pct": 85,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 0,
+      "shared_director_pair_count": 0,
+      "shared_directors": [],
+      "fed_total_grants": 115268546.71,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 153133370,
+      "cluster_total_funding": 268401916.71,
+      "total_edge_gift_count": 4,
+      "total_edge_flow": 81902,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": false,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "at least one organization is highly government-funded (max 85%)",
+      "explanation": "at least one organization is highly government-funded (max 85%); repeated funding descriptions or duplicate program patterns appear"
+    },
+    {
+      "loop_id": 570,
+      "hops": 3,
+      "min_year": 2020,
+      "max_year": 2021,
+      "same_year": false,
+      "path_bns": [
+        "119278216RR0001",
+        "122437072RR0001",
+        "119281640RR0001"
+      ],
+      "path_display": "119278216RR0001→122437072RR0001→119281640RR0001→119278216RR0001",
+      "bottleneck_amt": 15500,
+      "total_flow_amt": 860092,
+      "participants": [
+        {
+          "bn": "119278216RR0001",
+          "bn_root": "119278216",
+          "org_name": "United Way of Greater Toronto",
+          "legal_name": "UNITED WAY OF GREATER TORONTO",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 22616,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 836352064,
+          "govt_funding": 83579143,
+          "govt_dependency_pct": 10,
+          "fed_total_grants": 10021164,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "122437072RR0001",
+          "bn_root": "122437072",
+          "org_name": "The Edmonton Community Foundation",
+          "legal_name": "THE EDMONTON COMMUNITY FOUNDATION PRIV ACT",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 24256,
+          "dataset_sources": [
+            "ab",
+            "cra",
+            "fed"
+          ],
+          "revenue": 488788973,
+          "govt_funding": 7452101,
+          "govt_dependency_pct": 1.5,
+          "fed_total_grants": 14246277,
+          "ab_total_grants": 1077970.27,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 20,
+          "duplicate_program_groups": 4,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": "Active"
+        },
+        {
+          "bn": "119281640RR0001",
+          "bn_root": "119281640",
+          "org_name": "VANCOUVER FOUNDATION",
+          "legal_name": "VANCOUVER FOUNDATION",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 22729,
+          "dataset_sources": [
+            "cra",
+            "fed",
+            "ab"
+          ],
+          "revenue": 1055975044,
+          "govt_funding": 113775629,
+          "govt_dependency_pct": 10.8,
+          "fed_total_grants": 16399827.17,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 23,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": true,
+          "registry_statuses": "Struck"
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "119278216RR0001",
+          "dst": "122437072RR0001",
+          "year_flow": 15500,
+          "gift_count": 2
+        },
+        {
+          "hop_idx": 2,
+          "src": "122437072RR0001",
+          "dst": "119281640RR0001",
+          "year_flow": 20000,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 3,
+          "src": "119281640RR0001",
+          "dst": "119278216RR0001",
+          "year_flow": 824592,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 3,
+      "risk_label": "flagged",
+      "max_govt_dependency_pct": 10.8,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants",
+        "Alberta grants"
+      ],
+      "shared_director_count": 0,
+      "shared_director_pair_count": 0,
+      "shared_directors": [],
+      "fed_total_grants": 40667268.17,
+      "ab_total_grants": 1077970.27,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 204806873,
+      "cluster_total_funding": 246552111.44,
+      "total_edge_gift_count": 4,
+      "total_edge_flow": 860092,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": false,
+        "inactive_after_funding": true,
+        "highly_government_funded": false,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "at least one linked entity is currently non-active after receiving public funding",
+      "explanation": "at least one linked entity is currently non-active after receiving public funding; repeated funding descriptions or duplicate program patterns appear"
+    },
+    {
+      "loop_id": 673,
+      "hops": 3,
+      "min_year": 2020,
+      "max_year": 2021,
+      "same_year": false,
+      "path_bns": [
+        "819044769RR0001",
+        "866073133RR0001",
+        "827378977RR0001"
+      ],
+      "path_display": "819044769RR0001→866073133RR0001→827378977RR0001→819044769RR0001",
+      "bottleneck_amt": 89075,
+      "total_flow_amt": 324926,
+      "participants": [
+        {
+          "bn": "819044769RR0001",
+          "bn_root": "819044769",
+          "org_name": "Mealshare Aid Foundation",
+          "legal_name": "Mealshare Aid Foundation",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 50696,
+          "dataset_sources": [
+            "ab",
+            "cra"
+          ],
+          "revenue": 1664176,
+          "govt_funding": 0,
+          "govt_dependency_pct": 0,
+          "fed_total_grants": 0,
+          "ab_total_grants": 5000,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": true,
+          "registry_statuses": "Struck"
+        },
+        {
+          "bn": "866073133RR0001",
+          "bn_root": "866073133",
+          "org_name": "Club des petits déjeuners du Canada - Breakfast Club of Canada",
+          "legal_name": "Club des petits déjeuners du Canada - Breakfast Club of Canada",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 65585,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 237975801,
+          "govt_funding": 122219910,
+          "govt_dependency_pct": 51.4,
+          "fed_total_grants": 54799000,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "827378977RR0001",
+          "bn_root": "827378977",
+          "org_name": "Calgary Shaw Charity Classic Foundation",
+          "legal_name": "CALGARY SHAW CHARITY CLASSIC FOUNDATION",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 52992,
+          "dataset_sources": [
+            "ab",
+            "cra"
+          ],
+          "revenue": 87857378,
+          "govt_funding": 0,
+          "govt_dependency_pct": 0,
+          "fed_total_grants": 0,
+          "ab_total_grants": 55000,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": "Active"
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "819044769RR0001",
+          "dst": "866073133RR0001",
+          "year_flow": 122052,
+          "gift_count": 2
+        },
+        {
+          "hop_idx": 2,
+          "src": "866073133RR0001",
+          "dst": "827378977RR0001",
+          "year_flow": 113799,
+          "gift_count": 2
+        },
+        {
+          "hop_idx": 3,
+          "src": "827378977RR0001",
+          "dst": "819044769RR0001",
+          "year_flow": 89075,
+          "gift_count": 2
+        }
+      ],
+      "risk_score": 3,
+      "risk_label": "flagged",
+      "max_govt_dependency_pct": 51.4,
+      "public_funding_channels": [
+        "Alberta grants",
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 0,
+      "shared_director_pair_count": 0,
+      "shared_directors": [],
+      "fed_total_grants": 54799000,
+      "ab_total_grants": 60000,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 122219910,
+      "cluster_total_funding": 177078910,
+      "total_edge_gift_count": 6,
+      "total_edge_flow": 324926,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": false,
+        "inactive_after_funding": true,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": false,
+        "contract_concentration": false
+      },
+      "main_reason": "at least one linked entity is currently non-active after receiving public funding",
+      "explanation": "at least one linked entity is currently non-active after receiving public funding; at least one organization is highly government-funded (max 51.4%)"
+    },
+    {
+      "loop_id": 227,
+      "hops": 2,
+      "min_year": 2024,
+      "max_year": 2024,
+      "same_year": true,
+      "path_bns": [
+        "119074409RR0001",
+        "119281640RR0001"
+      ],
+      "path_display": "119074409RR0001→119281640RR0001→119074409RR0001",
+      "bottleneck_amt": 261138,
+      "total_flow_amt": 10261138,
+      "participants": [
+        {
+          "bn": "119074409RR0001",
+          "bn_root": "119074409",
+          "org_name": "OUTDOOR RECREATION COUNCIL OF BRITISH COLUMBIA",
+          "legal_name": "OUTDOOR RECREATION COUNCIL OF BRITISH COLUMBIA",
+          "designation": "C",
+          "category": "200",
+          "entity_id": 17196,
+          "dataset_sources": [
+            "cra"
+          ],
+          "revenue": 11384579,
+          "govt_funding": 408994,
+          "govt_dependency_pct": 3.6,
+          "fed_total_grants": 0,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "119281640RR0001",
+          "bn_root": "119281640",
+          "org_name": "VANCOUVER FOUNDATION",
+          "legal_name": "VANCOUVER FOUNDATION",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 22729,
+          "dataset_sources": [
+            "cra",
+            "fed",
+            "ab"
+          ],
+          "revenue": 1055975044,
+          "govt_funding": 113775629,
+          "govt_dependency_pct": 10.8,
+          "fed_total_grants": 16399827.17,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 23,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": true,
+          "registry_statuses": "Struck"
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "119074409RR0001",
+          "dst": "119281640RR0001",
+          "year_flow": 10000000,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "119281640RR0001",
+          "dst": "119074409RR0001",
+          "year_flow": 261138,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 3,
+      "risk_label": "flagged",
+      "max_govt_dependency_pct": 10.8,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 0,
+      "shared_director_pair_count": 0,
+      "shared_directors": [],
+      "fed_total_grants": 16399827.17,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 114184623,
+      "cluster_total_funding": 130584450.17,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 10261138,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": false,
+        "inactive_after_funding": true,
+        "highly_government_funded": false,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "at least one linked entity is currently non-active after receiving public funding",
+      "explanation": "at least one linked entity is currently non-active after receiving public funding; repeated funding descriptions or duplicate program patterns appear"
+    },
+    {
+      "loop_id": 265,
+      "hops": 2,
+      "min_year": 2024,
+      "max_year": 2024,
+      "same_year": true,
+      "path_bns": [
+        "119281640RR0001",
+        "867261299RR0001"
+      ],
+      "path_display": "119281640RR0001→867261299RR0001→119281640RR0001",
+      "bottleneck_amt": 52139,
+      "total_flow_amt": 302139,
+      "participants": [
+        {
+          "bn": "119281640RR0001",
+          "bn_root": "119281640",
+          "org_name": "VANCOUVER FOUNDATION",
+          "legal_name": "VANCOUVER FOUNDATION",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 22729,
+          "dataset_sources": [
+            "cra",
+            "fed",
+            "ab"
+          ],
+          "revenue": 1055975044,
+          "govt_funding": 113775629,
+          "govt_dependency_pct": 10.8,
+          "fed_total_grants": 16399827.17,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 23,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": true,
+          "registry_statuses": "Struck"
+        },
+        {
+          "bn": "867261299RR0001",
+          "bn_root": "867261299",
+          "org_name": "BOWEN ISLAND CONSERVANCY",
+          "legal_name": "BOWEN ISLAND CONSERVANCY",
+          "designation": "C",
+          "category": "170",
+          "entity_id": 66268,
+          "dataset_sources": [
+            "cra"
+          ],
+          "revenue": 10916115,
+          "govt_funding": 0,
+          "govt_dependency_pct": 0,
+          "fed_total_grants": 0,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "119281640RR0001",
+          "dst": "867261299RR0001",
+          "year_flow": 52139,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "867261299RR0001",
+          "dst": "119281640RR0001",
+          "year_flow": 250000,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 3,
+      "risk_label": "flagged",
+      "max_govt_dependency_pct": 10.8,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 0,
+      "shared_director_pair_count": 0,
+      "shared_directors": [],
+      "fed_total_grants": 16399827.17,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 113775629,
+      "cluster_total_funding": 130175456.17,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 302139,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": false,
+        "inactive_after_funding": true,
+        "highly_government_funded": false,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "at least one linked entity is currently non-active after receiving public funding",
+      "explanation": "at least one linked entity is currently non-active after receiving public funding; repeated funding descriptions or duplicate program patterns appear"
+    },
+    {
+      "loop_id": 678,
+      "hops": 3,
+      "min_year": 2021,
+      "max_year": 2022,
+      "same_year": false,
+      "path_bns": [
+        "119304954RR0001",
+        "868947797RR0001",
+        "895098515RR0001"
+      ],
+      "path_display": "119304954RR0001→868947797RR0001→895098515RR0001→119304954RR0001",
+      "bottleneck_amt": 15000,
+      "total_flow_amt": 90000,
+      "participants": [
+        {
+          "bn": "119304954RR0001",
+          "bn_root": "119304954",
+          "org_name": "WORLD WILDLIFE FUND CANADA FONDS MONDIAL POUR LA NATURE CAN ADA",
+          "legal_name": "WORLD WILDLIFE FUND CANADA FONDS MONDIAL POUR LA NATURE CAN ADA",
+          "designation": "C",
+          "category": "180",
+          "entity_id": 23430,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 144373373,
+          "govt_funding": 11219923,
+          "govt_dependency_pct": 7.8,
+          "fed_total_grants": 18528858.97,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 3,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "868947797RR0001",
+          "bn_root": "868947797",
+          "org_name": "MakeWay Foundation",
+          "legal_name": "MAKEWAY FOUNDATION",
+          "designation": "A",
+          "category": "160",
+          "entity_id": 67181,
+          "dataset_sources": [
+            "ab",
+            "cra",
+            "fed"
+          ],
+          "revenue": 164297628,
+          "govt_funding": 20171619,
+          "govt_dependency_pct": 12.3,
+          "fed_total_grants": 1237431,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": "Active"
+        },
+        {
+          "bn": "895098515RR0001",
+          "bn_root": "895098515",
+          "org_name": "Environment Funders Canada / Philanthropie Canadienne pour l'environnement",
+          "legal_name": "Environment Funders Canada / Philanthropie Canadienne pour l'environnement",
+          "designation": "C",
+          "category": "160",
+          "entity_id": 84627,
+          "dataset_sources": [
+            "cra"
+          ],
+          "revenue": 19135666,
+          "govt_funding": 82535,
+          "govt_dependency_pct": 0.4,
+          "fed_total_grants": 0,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "119304954RR0001",
+          "dst": "868947797RR0001",
+          "year_flow": 25000,
+          "gift_count": 2
+        },
+        {
+          "hop_idx": 2,
+          "src": "868947797RR0001",
+          "dst": "895098515RR0001",
+          "year_flow": 15000,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 3,
+          "src": "895098515RR0001",
+          "dst": "119304954RR0001",
+          "year_flow": 50000,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 3,
+      "risk_label": "flagged",
+      "max_govt_dependency_pct": 12.3,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 1,
+      "shared_director_pair_count": 1,
+      "shared_directors": [
+        {
+          "director_name": "Julie  Gelfand",
+          "bn_roots": [
+            "119304954",
+            "868947797"
+          ]
+        }
+      ],
+      "fed_total_grants": 19766289.97,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 31474077,
+      "cluster_total_funding": 51240366.97,
+      "total_edge_gift_count": 4,
+      "total_edge_flow": 90000,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": true,
+        "inactive_after_funding": false,
+        "highly_government_funded": false,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "entities are connected through shared directors",
+      "explanation": "entities are connected through shared directors; repeated funding descriptions or duplicate program patterns appear"
+    },
+    {
+      "loop_id": 220,
+      "hops": 2,
+      "min_year": 2022,
+      "max_year": 2023,
+      "same_year": false,
+      "path_bns": [
+        "119031524RR0001",
+        "821896875RR0001"
+      ],
+      "path_display": "119031524RR0001→821896875RR0001→119031524RR0001",
+      "bottleneck_amt": 25619,
+      "total_flow_amt": 292896,
+      "participants": [
+        {
+          "bn": "119031524RR0001",
+          "bn_root": "119031524",
+          "org_name": "Health Partners International of Canada / Partenaires canadiens pour la santé internationale",
+          "legal_name": "Health Partners International of Canada / Partenaires canadiens pour la santé internationale",
+          "designation": "C",
+          "category": "210",
+          "entity_id": 15924,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 139462028,
+          "govt_funding": 836337,
+          "govt_dependency_pct": 0.6,
+          "fed_total_grants": 9018,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "821896875RR0001",
+          "bn_root": "821896875",
+          "org_name": "Islamic Relief Canada",
+          "legal_name": "ISLAMIC RELIEF - IR CANADA",
+          "designation": "C",
+          "category": "120",
+          "entity_id": 51494,
+          "dataset_sources": [
+            "ab",
+            "cra",
+            "fed"
+          ],
+          "revenue": 450459863,
+          "govt_funding": 6629702,
+          "govt_dependency_pct": 1.5,
+          "fed_total_grants": 29733250,
+          "ab_total_grants": 2556.82,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 1,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": true,
+          "registry_statuses": "Struck"
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "119031524RR0001",
+          "dst": "821896875RR0001",
+          "year_flow": 267277,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "821896875RR0001",
+          "dst": "119031524RR0001",
+          "year_flow": 25619,
+          "gift_count": 2
+        }
+      ],
+      "risk_score": 3,
+      "risk_label": "flagged",
+      "max_govt_dependency_pct": 1.5,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants",
+        "Alberta grants"
+      ],
+      "shared_director_count": 0,
+      "shared_director_pair_count": 0,
+      "shared_directors": [],
+      "fed_total_grants": 29742268,
+      "ab_total_grants": 2556.82,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 7466039,
+      "cluster_total_funding": 37210863.82,
+      "total_edge_gift_count": 3,
+      "total_edge_flow": 292896,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": false,
+        "inactive_after_funding": true,
+        "highly_government_funded": false,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "at least one linked entity is currently non-active after receiving public funding",
+      "explanation": "at least one linked entity is currently non-active after receiving public funding; repeated funding descriptions or duplicate program patterns appear"
+    },
+    {
+      "loop_id": 461,
+      "hops": 2,
+      "min_year": 2023,
+      "max_year": 2024,
+      "same_year": false,
+      "path_bns": [
+        "821896875RR0001",
+        "893257139RR0001"
+      ],
+      "path_display": "821896875RR0001→893257139RR0001→821896875RR0001",
+      "bottleneck_amt": 15500,
+      "total_flow_amt": 41609,
+      "participants": [
+        {
+          "bn": "821896875RR0001",
+          "bn_root": "821896875",
+          "org_name": "Islamic Relief Canada",
+          "legal_name": "ISLAMIC RELIEF - IR CANADA",
+          "designation": "C",
+          "category": "120",
+          "entity_id": 51494,
+          "dataset_sources": [
+            "ab",
+            "cra",
+            "fed"
+          ],
+          "revenue": 450459863,
+          "govt_funding": 6629702,
+          "govt_dependency_pct": 1.5,
+          "fed_total_grants": 29733250,
+          "ab_total_grants": 2556.82,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 1,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": true,
+          "registry_statuses": "Struck"
+        },
+        {
+          "bn": "893257139RR0001",
+          "bn_root": "893257139",
+          "org_name": "THUNDER BAY MUSLIM RELIGIOUS ASSOCIATION",
+          "legal_name": "THUNDER BAY MUSLIM RELIGIOUS ASSOCIATION",
+          "designation": "C",
+          "category": "40",
+          "entity_id": 83357,
+          "dataset_sources": [
+            "cra"
+          ],
+          "revenue": 732065,
+          "govt_funding": 15000,
+          "govt_dependency_pct": 2,
+          "fed_total_grants": 0,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "821896875RR0001",
+          "dst": "893257139RR0001",
+          "year_flow": 26109,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "893257139RR0001",
+          "dst": "821896875RR0001",
+          "year_flow": 15500,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 3,
+      "risk_label": "flagged",
+      "max_govt_dependency_pct": 2,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants",
+        "Alberta grants"
+      ],
+      "shared_director_count": 0,
+      "shared_director_pair_count": 0,
+      "shared_directors": [],
+      "fed_total_grants": 29733250,
+      "ab_total_grants": 2556.82,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 6644702,
+      "cluster_total_funding": 36380508.82,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 41609,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": false,
+        "inactive_after_funding": true,
+        "highly_government_funded": false,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "at least one linked entity is currently non-active after receiving public funding",
+      "explanation": "at least one linked entity is currently non-active after receiving public funding; repeated funding descriptions or duplicate program patterns appear"
+    },
+    {
+      "loop_id": 452,
+      "hops": 2,
+      "min_year": 2024,
+      "max_year": 2024,
+      "same_year": true,
+      "path_bns": [
+        "814898896RR0002",
+        "821896875RR0001"
+      ],
+      "path_display": "814898896RR0002→821896875RR0001→814898896RR0002",
+      "bottleneck_amt": 15522,
+      "total_flow_amt": 92175,
+      "participants": [
+        {
+          "bn": "814898896RR0002",
+          "bn_root": "814898896",
+          "org_name": "Al-Hedaya Islamic Centre of Northeast Calgary",
+          "legal_name": "Al-Hedaya Islamic Centre of Northeast Calgary",
+          "designation": "C",
+          "category": "40",
+          "entity_id": 49503,
+          "dataset_sources": [
+            "cra",
+            "ab"
+          ],
+          "revenue": 744233,
+          "govt_funding": 0,
+          "govt_dependency_pct": 0,
+          "fed_total_grants": 0,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": true,
+          "registry_statuses": "Struck"
+        },
+        {
+          "bn": "821896875RR0001",
+          "bn_root": "821896875",
+          "org_name": "Islamic Relief Canada",
+          "legal_name": "ISLAMIC RELIEF - IR CANADA",
+          "designation": "C",
+          "category": "120",
+          "entity_id": 51494,
+          "dataset_sources": [
+            "ab",
+            "cra",
+            "fed"
+          ],
+          "revenue": 450459863,
+          "govt_funding": 6629702,
+          "govt_dependency_pct": 1.5,
+          "fed_total_grants": 29733250,
+          "ab_total_grants": 2556.82,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 1,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": true,
+          "registry_statuses": "Struck"
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "814898896RR0002",
+          "dst": "821896875RR0001",
+          "year_flow": 15522,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "821896875RR0001",
+          "dst": "814898896RR0002",
+          "year_flow": 76653,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 3,
+      "risk_label": "flagged",
+      "max_govt_dependency_pct": 1.5,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants",
+        "Alberta grants"
+      ],
+      "shared_director_count": 0,
+      "shared_director_pair_count": 0,
+      "shared_directors": [],
+      "fed_total_grants": 29733250,
+      "ab_total_grants": 2556.82,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 6629702,
+      "cluster_total_funding": 36365508.82,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 92175,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": false,
+        "inactive_after_funding": true,
+        "highly_government_funded": false,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "at least one linked entity is currently non-active after receiving public funding",
+      "explanation": "at least one linked entity is currently non-active after receiving public funding; repeated funding descriptions or duplicate program patterns appear"
+    },
+    {
+      "loop_id": 1,
+      "hops": 2,
+      "min_year": 2021,
+      "max_year": 2021,
+      "same_year": true,
+      "path_bns": [
+        "102333176RR0001",
+        "888078425RR0001"
+      ],
+      "path_display": "102333176RR0001→888078425RR0001→102333176RR0001",
+      "bottleneck_amt": 20000,
+      "total_flow_amt": 40000,
+      "participants": [
+        {
+          "bn": "102333176RR0001",
+          "bn_root": "102333176",
+          "org_name": "HERITAGE BENEVOLENT ASSOCIATION OF MANITOBA INC.",
+          "legal_name": "HERITAGE BENEVOLENT ASSOCIATION OF MANITOBA INC.",
+          "designation": "C",
+          "category": "1",
+          "entity_id": 441,
+          "dataset_sources": [
+            "cra"
+          ],
+          "revenue": 27710,
+          "govt_funding": 0,
+          "govt_dependency_pct": 0,
+          "fed_total_grants": 0,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "888078425RR0001",
+          "bn_root": "888078425",
+          "org_name": "3885136 MANITOBA ASSOCIATION INC",
+          "legal_name": "3885136 MANITOBA ASSOCIATION INC",
+          "designation": "C",
+          "category": "1",
+          "entity_id": 74139,
+          "dataset_sources": [
+            "cra"
+          ],
+          "revenue": 46459301,
+          "govt_funding": 33167760,
+          "govt_dependency_pct": 71.4,
+          "fed_total_grants": 0,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "102333176RR0001",
+          "dst": "888078425RR0001",
+          "year_flow": 20000,
+          "gift_count": 1
+        },
+        {
+          "hop_idx": 2,
+          "src": "888078425RR0001",
+          "dst": "102333176RR0001",
+          "year_flow": 20000,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 3,
+      "risk_label": "flagged",
+      "max_govt_dependency_pct": 71.4,
+      "public_funding_channels": [
+        "CRA government funding"
+      ],
+      "shared_director_count": 14,
+      "shared_director_pair_count": 1,
+      "shared_directors": [
+        {
+          "director_name": "GREG  ARNDT",
+          "bn_roots": [
+            "102333176",
+            "888078425"
+          ]
+        },
+        {
+          "director_name": "DAVID  BARDAL",
+          "bn_roots": [
+            "102333176",
+            "888078425"
+          ]
+        },
+        {
+          "director_name": "WAYNE  BOLLMAN",
+          "bn_roots": [
+            "102333176",
+            "888078425"
+          ]
+        },
+        {
+          "director_name": "CLARISSA  ENGEL",
+          "bn_roots": [
+            "102333176",
+            "888078425"
+          ]
+        },
+        {
+          "director_name": "RANDY  HOLM",
+          "bn_roots": [
+            "102333176",
+            "888078425"
+          ]
+        },
+        {
+          "director_name": "IRENE  LANGDON",
+          "bn_roots": [
+            "102333176",
+            "888078425"
+          ]
+        },
+        {
+          "director_name": "LINDA  MANDZIUK",
+          "bn_roots": [
+            "102333176",
+            "888078425"
+          ]
+        },
+        {
+          "director_name": "BRUCE  MARTIN",
+          "bn_roots": [
+            "102333176",
+            "888078425"
+          ]
+        },
+        {
+          "director_name": "JOHN  PENNER",
+          "bn_roots": [
+            "102333176",
+            "888078425"
+          ]
+        },
+        {
+          "director_name": "ANDREW  PORTERFIELD",
+          "bn_roots": [
+            "102333176",
+            "888078425"
+          ]
+        },
+        {
+          "director_name": "DON  REIMER",
+          "bn_roots": [
+            "102333176",
+            "888078425"
+          ]
+        },
+        {
+          "director_name": "JASON  STOFFMAN",
+          "bn_roots": [
+            "102333176",
+            "888078425"
+          ]
+        },
+        {
+          "director_name": "CHARLENE  THOMAS",
+          "bn_roots": [
+            "102333176",
+            "888078425"
+          ]
+        },
+        {
+          "director_name": "GRANT  WILSON",
+          "bn_roots": [
+            "102333176",
+            "888078425"
+          ]
+        }
+      ],
+      "fed_total_grants": 0,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 33167760,
+      "cluster_total_funding": 33167760,
+      "total_edge_gift_count": 2,
+      "total_edge_flow": 40000,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": true,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": false,
+        "contract_concentration": false
+      },
+      "main_reason": "entities are connected through shared directors",
+      "explanation": "entities are connected through shared directors; at least one organization is highly government-funded (max 71.4%)"
+    },
+    {
+      "loop_id": 207,
+      "hops": 2,
+      "min_year": 2023,
+      "max_year": 2024,
+      "same_year": false,
+      "path_bns": [
+        "118974179RR0001",
+        "766747133RR0001"
+      ],
+      "path_display": "118974179RR0001→766747133RR0001→118974179RR0001",
+      "bottleneck_amt": 15000,
+      "total_flow_amt": 32614,
+      "participants": [
+        {
+          "bn": "118974179RR0001",
+          "bn_root": "118974179",
+          "org_name": "Jewish Community Foundation of Montreal / La Fondation Communautaire Juive de Montréal",
+          "legal_name": "Jewish Community Foundation of Montreal / La Fondation Communautaire Juive de Montréal",
+          "designation": "A",
+          "category": "210",
+          "entity_id": 14306,
+          "dataset_sources": [
+            "cra",
+            "fed"
+          ],
+          "revenue": 1479433443,
+          "govt_funding": 10160662,
+          "govt_dependency_pct": 0.7,
+          "fed_total_grants": 19373514.6,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 6,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        },
+        {
+          "bn": "766747133RR0001",
+          "bn_root": "766747133",
+          "org_name": "Musique 3 Femmes",
+          "legal_name": "Musique 3 Femmes",
+          "designation": "C",
+          "category": "190",
+          "entity_id": 41614,
+          "dataset_sources": [
+            "cra"
+          ],
+          "revenue": 1091840,
+          "govt_funding": 579181,
+          "govt_dependency_pct": 53,
+          "fed_total_grants": 0,
+          "ab_total_grants": 0,
+          "ab_total_contracts": 0,
+          "ab_total_sole_source": 0,
+          "duplicate_funding_groups": 0,
+          "duplicate_program_groups": 0,
+          "sole_source_count": 0,
+          "contract_top_ministry_share_pct": null,
+          "has_inactive_status": false,
+          "registry_statuses": null
+        }
+      ],
+      "edges": [
+        {
+          "hop_idx": 1,
+          "src": "118974179RR0001",
+          "dst": "766747133RR0001",
+          "year_flow": 17614,
+          "gift_count": 2
+        },
+        {
+          "hop_idx": 2,
+          "src": "766747133RR0001",
+          "dst": "118974179RR0001",
+          "year_flow": 15000,
+          "gift_count": 1
+        }
+      ],
+      "risk_score": 3,
+      "risk_label": "flagged",
+      "max_govt_dependency_pct": 53,
+      "public_funding_channels": [
+        "CRA government funding",
+        "Federal grants"
+      ],
+      "shared_director_count": 0,
+      "shared_director_pair_count": 0,
+      "shared_directors": [],
+      "fed_total_grants": 19373514.6,
+      "ab_total_grants": 0,
+      "ab_total_contracts": 0,
+      "ab_total_sole_source": 0,
+      "cluster_govt_funding": 10739843,
+      "cluster_total_funding": 30113357.6,
+      "total_edge_gift_count": 3,
+      "total_edge_flow": 32614,
+      "signals": {
+        "in_loop": true,
+        "connected_entities": false,
+        "inactive_after_funding": false,
+        "highly_government_funded": true,
+        "repeated_or_duplicate_funding": true,
+        "contract_concentration": false
+      },
+      "main_reason": "at least one organization is highly government-funded (max 53%)",
+      "explanation": "at least one organization is highly government-funded (max 53%); repeated funding descriptions or duplicate program patterns appear"
+    }
+  ]
+}

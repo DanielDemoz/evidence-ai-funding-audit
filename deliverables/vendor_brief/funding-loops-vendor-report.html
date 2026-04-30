@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Funding Loops Risk Scanner - Vendor Brief</title>
+  <style>
+    :root {
+      --bg: #eef4fb;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #d9e3ef;
+      --surface: #ffffff;
+      --accent: #0f766e;
+      --accent-soft: #ccfbf1;
+      --warn: #92400e;
+      --danger: #b91c1c;
+      --navy: #082f49;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(16, 185, 129, 0.15), transparent 24%),
+        var(--bg);
+    }
+    main { max-width: 1240px; margin: 0 auto; padding: 28px 24px 60px; }
+    section { margin-bottom: 18px; }
+    .hero {
+      background: linear-gradient(135deg, #082f49, #0f766e);
+      color: white;
+      border-radius: 10px;
+      padding: 34px 34px 30px;
+      box-shadow: 0 20px 48px rgba(8, 47, 73, 0.18);
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.76);
+      margin-bottom: 14px;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: 44px; line-height: 1.02; margin-bottom: 12px; max-width: 14ch; }
+    h2 { font-size: 26px; margin-bottom: 12px; }
+    h3 { font-size: 18px; margin-bottom: 8px; }
+    .hero p { max-width: 74ch; color: rgba(255,255,255,0.9); }
+    .band {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 22px;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 16px;
+      background: linear-gradient(180deg, #ffffff, #f8fafc);
+    }
+    .stat strong {
+      display: block;
+      font-size: 30px;
+      line-height: 1.05;
+      margin-bottom: 4px;
+    }
+    .two-up {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+    }
+    .callout {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      padding: 16px 18px;
+      border-radius: 10px;
+      color: #134e4a;
+    }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .pill {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+      background: #fff;
+    }
+    .pill strong { color: var(--ink); }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td {
+      padding: 10px 8px;
+      text-align: left;
+      border-top: 1px solid var(--line);
+      vertical-align: top;
+    }
+    th {
+      font-size: 12px;
+      color: var(--muted);
+      background: #f8fafc;
+      border-top: 0;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .mini {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 16px;
+      background: #fff;
+    }
+    .caption {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 8px;
+    }
+    .footer-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.6;
+    }
+    @media print {
+      body { background: white; }
+      main { max-width: none; padding: 0; }
+      .hero, .band { box-shadow: none; }
+    }
+    @media (max-width: 1000px) {
+      .summary-grid, .two-up, .grid-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="eyebrow">Vendor Brief | Funding Loops</div>
+      <h1>Public Funding Risk Scanner</h1>
+      <p>A vendor-ready concept for detecting circular funding ecosystems in public-interest organizations. This brief packages real evidence from the hackathon dataset and shows how the workflow can become a ministry-facing product.</p>
+      <p class="footer-note">Evidence base: unified CRA, FED, AB, and golden-record PostgreSQL dataset with approximately 23 million rows. Report generated 2026-04-28T13:44:54.622Z.</p>
+    </section>
+
+    <section class="band">
+      <h2>Executive Summary</h2>
+      <div class="callout">We identified a cluster of organizations that exchanged funding, shared connections, received public funds, and showed extra risk signals around activity and concentration. Cluster #141 links BOB RUMBALL CANADIAN CENTRE OF EXCELLENCE FOR THE DEAF, The Bob Rumball Camp of the Deaf in a 2-hop loop with $539,500 in circular flow and $89,257,445 in surrounding public-funding exposure. It scores 4/6 because entities are connected through shared directors; at least one organization is highly government-funded (max 80.3%).</div>
+      <div class="summary-grid" style="margin-top:14px">
+        <div class="stat"><strong>20</strong>Flagged loops</div>
+        <div class="stat"><strong>5</strong>High-risk loops</div>
+        <div class="stat"><strong>37</strong>Organizations involved</div>
+        <div class="stat"><strong>$6,959,822,099</strong>Public-funding exposure</div>
+      </div>
+    </section>
+
+    <section class="two-up">
+      <div class="band">
+        <h2>Why this matters</h2>
+        <p>Most public-funding assurance workflows stop at one transaction or one dataset. Funding Loops changes the frame: it surfaces hidden ecosystems where money circulates between related entities and combines those loops with dependency, governance, repetition, and activity signals.</p>
+        <div class="pills">
+          <span class="pill"><strong>14</strong> 2-hop loops</span>
+          <span class="pill"><strong>6</strong> 3-hop loops</span>
+          <span class="pill"><strong>9</strong> same-year loops</span>
+          <span class="pill"><strong>7</strong> with shared-director links</span>
+          <span class="pill"><strong>7</strong> with inactive-after-funding signal</span>
+        </div>
+        <p class="caption">Important note: these are screening signals for analyst review, not final determinations of misconduct.</p>
+      </div>
+      <div class="band">
+        <h2>What the product does</h2>
+        <ul class="list">
+          <li>Ingests messy CSV, Excel, JSONL, or linked files.</li>
+          <li>Normalizes columns and resolves duplicate organizations.</li>
+          <li>Detects A → B → A and A → B → C → A circular flows.</li>
+          <li>Enriches each loop with shared directors, inactivity, government dependency, repetition, and concentration signals.</li>
+          <li>Ranks risky clusters and explains them in plain language for analysts.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="band">
+      <h2>Real-data evidence</h2>
+      
+    <svg viewBox="0 0 1120 520" role="img" aria-label="Top funding loop clusters by total funding">
+      <rect x="0" y="0" width="1120" height="520" fill="#ffffff"></rect>
+      <text x="180" y="24" font-size="20" font-weight="700" fill="#0f172a">Top flagged clusters by surrounding public-funding exposure</text>
+      <line x1="180" y1="400" x2="1090" y2="400" stroke="#cbd5e1"></line>
+      
+      <text x="164" y="55.5" text-anchor="end" font-size="13" fill="#1f2937">141  BOB RUMBALL CANADIAN CENTRE OF EXCELLENCE FOR THE DEAF -&gt; The Bob R</text>
+      <rect x="180" y="40" width="23" height="23" rx="8" fill="#b91c1c"></rect>
+      <text x="213" y="55.5" font-size="13" fill="#0f172a">$89,257,445</text>
+    
+      <text x="164" y="92.5" text-anchor="end" font-size="13" fill="#1f2937">336  MORE THAN A ROOF MENNONITE HOUSING SOCIETY -&gt; WEST END MENNONITE HO</text>
+      <rect x="180" y="77" width="13" height="23" rx="8" fill="#b91c1c"></rect>
+      <text x="203" y="92.5" font-size="13" fill="#0f172a">$49,987,739</text>
+    
+      <text x="164" y="129.5" text-anchor="end" font-size="13" fill="#1f2937">17  COSMOPOLITAN INDUSTRIES LTD. -&gt; THE STENSRUD FAMILY TOP OF THE ROCK </text>
+      <rect x="180" y="114" width="11" height="23" rx="8" fill="#b91c1c"></rect>
+      <text x="201" y="129.5" font-size="13" fill="#0f172a">$43,467,018</text>
+    
+      <text x="164" y="166.5" text-anchor="end" font-size="13" fill="#1f2937">436  AKOMA HOLDINGS INCORPORATED -&gt; AKOMA FAMILY CENTRE INCORPORATED</text>
+      <rect x="180" y="151" width="6" height="23" rx="8" fill="#b91c1c"></rect>
+      <text x="196" y="166.5" font-size="13" fill="#0f172a">$13,447,411</text>
+    
+      <text x="164" y="203.5" text-anchor="end" font-size="13" fill="#1f2937">231  Prairie Theatre Exchange Inc -&gt; PRAIRIE THEATRE EXCHANGE FOUNDATION</text>
+      <rect x="180" y="188" width="6" height="23" rx="8" fill="#b91c1c"></rect>
+      <text x="196" y="203.5" font-size="13" fill="#0f172a">$8,978,314</text>
+    
+      <text x="164" y="240.5" text-anchor="end" font-size="13" fill="#1f2937">264  University of Saskatchewan -&gt; Jim Pattison Children&#39;s Hospital Foun</text>
+      <rect x="180" y="225" width="910" height="23" rx="8" fill="#0f766e"></rect>
+      <text x="1100" y="240.5" font-size="13" fill="#0f172a">$3,606,441,739</text>
+    
+      <text x="164" y="277.5" text-anchor="end" font-size="13" fill="#1f2937">677  Community Foundations of Canada -&gt; MakeWay Foundation -&gt; Vancity Co</text>
+      <rect x="180" y="262" width="172" height="23" rx="8" fill="#0f766e"></rect>
+      <text x="362" y="277.5" font-size="13" fill="#0f172a">$683,226,297</text>
+    
+      <text x="164" y="314.5" text-anchor="end" font-size="13" fill="#1f2937">679  Community Foundations of Canada -&gt; MakeWay Foundation -&gt; Environmen</text>
+      <rect x="180" y="299" width="167" height="23" rx="8" fill="#0f766e"></rect>
+      <text x="357" y="314.5" font-size="13" fill="#0f172a">$660,287,800</text>
+    
+      <text x="164" y="351.5" text-anchor="end" font-size="13" fill="#1f2937">162  Institut national de la recherche scientifique -&gt; Fondation de l&#39;IN</text>
+      <rect x="180" y="336" width="158" height="23" rx="8" fill="#0f766e"></rect>
+      <text x="348" y="351.5" font-size="13" fill="#0f172a">$627,457,126</text>
+    
+      <text x="164" y="388.5" text-anchor="end" font-size="13" fill="#1f2937">733  Canadian Women&#39;s Foundation / Fondation Canadienne des Femmes -&gt; CA</text>
+      <rect x="180" y="373" width="68" height="23" rx="8" fill="#0f766e"></rect>
+      <text x="258" y="388.5" font-size="13" fill="#0f172a">$268,401,917</text>
+    
+    </svg>
+  
+      <div class="caption">Ranking is based on the current Funding Loops pipeline: loop participation plus supporting signals from CRA, FED, AB, and the entity-matching layer.</div>
+    </section>
+
+    <section class="two-up">
+      <div class="band">
+        <h2>Signal prevalence</h2>
+        
+    <svg viewBox="0 0 1000 320" role="img" aria-label="Frequency of risk signals across flagged loops">
+      <rect x="0" y="0" width="1000" height="320" fill="#ffffff"></rect>
+      <text x="70" y="24" font-size="20" font-weight="700" fill="#0f172a">How often each risk signal appears across 20 flagged loops</text>
+      <line x1="70" y1="250" x2="960" y2="250" stroke="#cbd5e1"></line>
+      
+      <rect x="70" y="172" width="150" height="78" rx="10" fill="#0f766e"></rect>
+      <text x="145" y="162" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">7</text>
+      <text x="145" y="298" text-anchor="middle" font-size="12" fill="#475569">Connected entities</text>
+    
+      <rect x="248" y="172" width="150" height="78" rx="10" fill="#b45309"></rect>
+      <text x="323" y="162" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">7</text>
+      <text x="323" y="298" text-anchor="middle" font-size="12" fill="#475569">Inactive after funding</text>
+    
+      <rect x="426" y="106" width="150" height="144" rx="10" fill="#7c3aed"></rect>
+      <text x="501" y="96" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">13</text>
+      <text x="501" y="298" text-anchor="middle" font-size="12" fill="#475569">High govt dependency</text>
+    
+      <rect x="604" y="50" width="150" height="200" rx="10" fill="#1d4ed8"></rect>
+      <text x="679" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">18</text>
+      <text x="679" y="298" text-anchor="middle" font-size="12" fill="#475569">Repeated funding</text>
+    
+      <rect x="782" y="240" width="150" height="10" rx="10" fill="#b91c1c"></rect>
+      <text x="857" y="230" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">0</text>
+      <text x="857" y="298" text-anchor="middle" font-size="12" fill="#475569">Contract concentration</text>
+    
+    </svg>
+  
+      </div>
+      <div class="band">
+        <h2>Representative high-risk loop</h2>
+        
+    <svg viewBox="0 0 760 320" role="img" aria-label="Top funding loop network">
+      <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L10,3 L0,6 z" fill="#64748b"></path>
+        </marker>
+      </defs>
+      <rect x="0" y="0" width="760" height="320" fill="#ffffff"></rect>
+      <text x="38" y="28" font-size="20" font-weight="700" fill="#0f172a">Representative high-risk loop: Cluster #141</text>
+      
+      <line x1="380" y1="82" x2="380" y2="258" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"></line>
+      <text x="380" y="164" text-anchor="middle" font-size="12" fill="#475569">$250,000</text>
+    
+      <line x1="380" y1="258" x2="380" y2="82" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"></line>
+      <text x="380" y="164" text-anchor="middle" font-size="12" fill="#475569">$289,500</text>
+    
+      
+      <circle cx="380" cy="82" r="28" fill="#fdba74" stroke="#0f172a" stroke-width="1.5"></circle>
+      <text x="380" y="40" text-anchor="middle" font-size="13" fill="#0f172a">BOB RUMBALL CANADIAN CENTRE OF EXC</text>
+      <text x="380" y="87" text-anchor="middle" font-size="11" fill="#0f172a">108073776</text>
+      <text x="380" y="102" text-anchor="middle" font-size="10" fill="#475569">80.3%</text>
+    
+      <circle cx="380" cy="258" r="28" fill="#93c5fd" stroke="#0f172a" stroke-width="1.5"></circle>
+      <text x="380" y="216" text-anchor="middle" font-size="13" fill="#0f172a">The Bob Rumball Camp of the Deaf</text>
+      <text x="380" y="263" text-anchor="middle" font-size="11" fill="#0f172a">119067494</text>
+      <text x="380" y="278" text-anchor="middle" font-size="10" fill="#475569">4.2%</text>
+    
+    </svg>
+  
+        <p class="caption">This example illustrates the product story: detect the loop first, then show why it deserves attention.</p>
+      </div>
+    </section>
+
+    <section class="band">
+      <h2>Top clusters for analyst review</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Cluster</th>
+            <th>Organizations involved</th>
+            <th>Circular flow</th>
+            <th>Total funding</th>
+            <th>Risk</th>
+            <th>Main reason flagged</th>
+          </tr>
+        </thead>
+        <tbody>
+    <tr>
+      <td>1</td>
+      <td>#141</td>
+      <td>BOB RUMBALL CANADIAN CENTRE OF EXCELLENCE FOR THE DEAF -&gt; The Bob Rumball Camp of the Deaf</td>
+      <td>$539,500</td>
+      <td>$89,257,445</td>
+      <td>4/6</td>
+      <td>entities are connected through shared directors</td>
+    </tr>
+  
+    <tr>
+      <td>2</td>
+      <td>#336</td>
+      <td>MORE THAN A ROOF MENNONITE HOUSING SOCIETY -&gt; WEST END MENNONITE HOUSING SOCIETY</td>
+      <td>$279,951</td>
+      <td>$49,987,739</td>
+      <td>4/6</td>
+      <td>entities are connected through shared directors</td>
+    </tr>
+  
+    <tr>
+      <td>3</td>
+      <td>#17</td>
+      <td>COSMOPOLITAN INDUSTRIES LTD. -&gt; THE STENSRUD FAMILY TOP OF THE ROCK FOUNDATION INC.</td>
+      <td>$35,084</td>
+      <td>$43,467,018</td>
+      <td>4/6</td>
+      <td>entities are connected through shared directors</td>
+    </tr>
+  
+    <tr>
+      <td>4</td>
+      <td>#436</td>
+      <td>AKOMA HOLDINGS INCORPORATED -&gt; AKOMA FAMILY CENTRE INCORPORATED</td>
+      <td>$119,354</td>
+      <td>$13,447,411</td>
+      <td>4/6</td>
+      <td>entities are connected through shared directors</td>
+    </tr>
+  
+    <tr>
+      <td>5</td>
+      <td>#231</td>
+      <td>Prairie Theatre Exchange Inc -&gt; PRAIRIE THEATRE EXCHANGE FOUNDATION TRUST</td>
+      <td>$309,883</td>
+      <td>$8,978,314</td>
+      <td>4/6</td>
+      <td>entities are connected through shared directors</td>
+    </tr>
+  
+    <tr>
+      <td>6</td>
+      <td>#264</td>
+      <td>University of Saskatchewan -&gt; Jim Pattison Children&#39;s Hospital Foundation Inc</td>
+      <td>$1,088,901</td>
+      <td>$3,606,441,739</td>
+      <td>3/6</td>
+      <td>at least one organization is highly government-funded (max 56%)</td>
+    </tr>
+  
+    <tr>
+      <td>7</td>
+      <td>#677</td>
+      <td>Community Foundations of Canada -&gt; MakeWay Foundation -&gt; Vancity Community Foundation</td>
+      <td>$357,014</td>
+      <td>$683,226,297</td>
+      <td>3/6</td>
+      <td>at least one organization is highly government-funded (max 82.6%)</td>
+    </tr>
+  
+    <tr>
+      <td>8</td>
+      <td>#679</td>
+      <td>Community Foundations of Canada -&gt; MakeWay Foundation -&gt; Environment Funders Canada / Philanthropie Canadienne pour l&#39;environnement</td>
+      <td>$125,000</td>
+      <td>$660,287,800</td>
+      <td>3/6</td>
+      <td>at least one organization is highly government-funded (max 82.6%)</td>
+    </tr>
+  
+    <tr>
+      <td>9</td>
+      <td>#162</td>
+      <td>Institut national de la recherche scientifique -&gt; Fondation de l&#39;INRS</td>
+      <td>$771,086</td>
+      <td>$627,457,126</td>
+      <td>3/6</td>
+      <td>at least one organization is highly government-funded (max 70.4%)</td>
+    </tr>
+  
+    <tr>
+      <td>10</td>
+      <td>#733</td>
+      <td>Canadian Women&#39;s Foundation / Fondation Canadienne des Femmes -&gt; CANADAHELPS CANADON -&gt; Vancity Community Foundation</td>
+      <td>$81,902</td>
+      <td>$268,401,917</td>
+      <td>3/6</td>
+      <td>at least one organization is highly government-funded (max 85%)</td>
+    </tr>
+  </tbody>
+      </table>
+    </section>
+
+    <section class="grid-3">
+      <div class="band">
+        <h2>Delivery architecture</h2>
+        <p>Current MVP: FastAPI, pandas, rapidfuzz, NetworkX, and a web dashboard. Production path: Cloud Run, Cloud Storage, BigQuery, and optional Vertex AI explanations.</p>
+      </div>
+      <div class="band">
+        <h2>Implementation path</h2>
+        <p>Phase 1: analyst MVP. Phase 2: shared cloud ingestion and scheduled refresh. Phase 3: enterprise workflow, exports, notes, and governance controls.</p>
+      </div>
+      <div class="band">
+        <h2>Vendor angle</h2>
+        <p>This is a strong fit for vendors serving audit, grants management, public-sector analytics, and integrity screening. The evidence base shows both real signal and a clear workflow for buyers.</p>
+      </div>
+    </section>
+
+    <section class="band">
+      <h2>Recommended buyer message</h2>
+      <p>We are not just finding anomalies. We are showing hidden funding ecosystems where money circulates between connected organizations, then giving analysts a fast way to understand which loops warrant review.</p>
+      <p class="footer-note">Source tables: CRA T3010 loop outputs and financials, CRA directors, FED grants and contributions, AB grants/contracts/sole-source/non-profit registry, and general golden records. Prepared for vendor-facing discussions on April 28, 2026.</p>
+    </section>
+  </main>
+</body>
+</html>

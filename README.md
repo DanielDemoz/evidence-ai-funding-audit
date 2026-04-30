@@ -173,6 +173,8 @@ Participants who drop the info-pack `.env.public` files into each module directo
 
 ## Quick Start
 
+### Bash / macOS / Linux
+
 ```bash
 # Clone and install everything
 git clone <repo-url> && cd hackathon
@@ -194,6 +196,39 @@ cd ../CRA && npm run analyze:all
 
 # Run the entity-resolution pipeline (produces golden records across CRA+FED+AB)
 cd ../general
+npm install
+npm run entities:splink:install     # one-time: Splink Python dependencies
+npm run entities:dashboard          # http://localhost:3800 — pipeline control
+npm run entities:dossier            # http://localhost:3801 — per-entity explorer
+```
+
+### Windows PowerShell
+
+```powershell
+# Clone and install everything
+git clone <repo-url>
+Set-Location hackathon
+"CRA","FED","AB","general" | ForEach-Object { Push-Location $_; npm install; Pop-Location }
+
+# Option 1 — connect to the shared Render database (read-only for participants)
+# Nothing to do; the schemas are already loaded. Verify:
+Set-Location CRA; npm run verify
+Set-Location ../FED; npm run verify
+Set-Location ../AB; npm run verify
+
+# Option 2 — recreate the database in your own local Postgres
+createdb hackathon
+Set-Location ../.local-db
+npm install
+$env:DB_CONNECTION_STRING="postgresql://..."
+npm run import
+
+# Run the dataset analysis scripts
+Set-Location ../AB; npm run analyze:all
+Set-Location ../CRA; npm run analyze:all
+
+# Run the entity-resolution pipeline (produces golden records across CRA+FED+AB)
+Set-Location ../general
 npm install
 npm run entities:splink:install     # one-time: Splink Python dependencies
 npm run entities:dashboard          # http://localhost:3800 — pipeline control
