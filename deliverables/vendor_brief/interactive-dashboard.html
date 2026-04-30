@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Funding Loops Interactive Dashboard</title>
+  <style>
+    :root {
+      --bg: #f3f7fb;
+      --surface: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #d9e2ec;
+      --accent: #0f766e;
+      --danger: #b91c1c;
+      --warn: #b45309;
+      --info: #1d4ed8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at top left, rgba(15,118,110,0.14), transparent 30%), var(--bg);
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 22px; }
+    .hero {
+      background: linear-gradient(135deg, #082f49 0%, #0f766e 100%);
+      color: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 18px 40px rgba(8,47,73,0.2);
+      margin-bottom: 18px;
+    }
+    .hero h1 { margin: 0 0 8px; font-size: 30px; }
+    .hero p { margin: 6px 0; max-width: 90ch; color: rgba(255,255,255,0.92); }
+    .meta { font-size: 13px; color: rgba(255,255,255,0.76); }
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+    .kpi {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      background: linear-gradient(180deg, #fff, #f8fafc);
+    }
+    .kpi .label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+    .kpi .value { font-size: 24px; font-weight: 700; }
+    .layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 16px;
+    }
+    .filters label {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .filters input, .filters select {
+      width: 100%;
+      padding: 9px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin-bottom: 10px;
+      background: #fff;
+    }
+    .signals .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      padding: 7px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+    .signals .row:last-child { border-bottom: 0; }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .badge.high { background: #fee2e2; color: #991b1b; }
+    .badge.medium { background: #fef3c7; color: #92400e; }
+    .badge.low { background: #dbeafe; color: #1e40af; }
+    .chart-wrap { margin-top: 14px; }
+    .bar {
+      margin: 8px 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .bar-track {
+      background: #e5edf5;
+      border-radius: 6px;
+      overflow: hidden;
+      height: 10px;
+      margin-top: 4px;
+    }
+    .bar-fill {
+      height: 10px;
+      background: var(--accent);
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 8px 6px;
+      border-top: 1px solid var(--line);
+    }
+    th { font-size: 12px; color: var(--muted); background: #f8fafc; position: sticky; top: 0; }
+    .table-wrap { max-height: 540px; overflow: auto; border: 1px solid var(--line); border-radius: 10px; }
+    .empty { color: var(--muted); padding: 18px 6px; }
+    .error {
+      border: 1px solid #fecaca;
+      background: #fff1f2;
+      color: #9f1239;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 12px;
+      display: none;
+    }
+    .small { font-size: 12px; color: var(--muted); }
+    @media (max-width: 1050px) { .layout { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <h1>Funding Loops Results Dashboard</h1>
+      <p id="insightText">Loading project insight...</p>
+      <p class="meta" id="metaText"></p>
+    </header>
+
+    <div id="errorBox" class="error"></div>
+
+    <section class="panel">
+      <h2 style="margin-top:0">Project KPIs</h2>
+      <div id="kpiGrid" class="kpis"></div>
+    </section>
+
+    <section class="layout">
+      <aside class="panel filters">
+        <h3 style="margin-top:0">Filters</h3>
+        <label for="search">Search organization / reason</label>
+        <input id="search" type="text" placeholder="e.g. university, shared directors">
+
+        <label for="riskFilter">Risk label</label>
+        <select id="riskFilter">
+          <option value="">All</option>
+          <option value="high risk">High risk</option>
+          <option value="medium risk">Medium risk</option>
+          <option value="low risk">Low risk</option>
+        </select>
+
+        <label for="hopFilter">Hop count</label>
+        <select id="hopFilter">
+          <option value="">All</option>
+          <option value="2">2-hop only</option>
+          <option value="3">3-hop only</option>
+        </select>
+
+        <label for="sortBy">Sort by</label>
+        <select id="sortBy">
+          <option value="publicFunding">Public funding (desc)</option>
+          <option value="riskScore">Risk score (desc)</option>
+          <option value="totalFlow">Circular flow (desc)</option>
+          <option value="loopId">Loop id (asc)</option>
+        </select>
+
+        <div class="signals" style="margin-top:10px">
+          <h3>Signal prevalence</h3>
+          <div id="signalRows"></div>
+        </div>
+      </aside>
+
+      <main class="panel">
+        <h3 style="margin-top:0">Flagged loops <span class="small" id="resultCount"></span></h3>
+        <div class="chart-wrap" id="miniChart"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Loop</th>
+                <th>Risk</th>
+                <th>Organizations</th>
+                <th>Circular flow</th>
+                <th>Public funding</th>
+                <th>Reason</th>
+              </tr>
+            </thead>
+            <tbody id="loopBody"></tbody>
+          </table>
+        </div>
+      </main>
+    </section>
+  </div>
+
+  <script>
+    const state = {
+      data: null,
+      loops: []
+    };
+
+    function formatCurrency(value) {
+      return new Intl.NumberFormat("en-CA", { style: "currency", currency: "CAD", maximumFractionDigits: 0 }).format(value || 0);
+    }
+
+    function formatNumber(value) {
+      return new Intl.NumberFormat("en-CA").format(value || 0);
+    }
+
+    function riskBadgeClass(label) {
+      const x = (label || "").toLowerCase();
+      if (x.includes("high")) return "high";
+      if (x.includes("medium")) return "medium";
+      return "low";
+    }
+
+    function showError(msg) {
+      const box = document.getElementById("errorBox");
+      box.style.display = "block";
+      box.textContent = msg;
+    }
+
+    function fillHeader(data) {
+      document.getElementById("insightText").textContent = data.insight || "No insight text found.";
+      const dateText = data.generatedAt ? new Date(data.generatedAt).toLocaleString() : "Unknown time";
+      document.getElementById("metaText").textContent = "Generated: " + dateText + " | Topic: " + (data.topic || "N/A");
+    }
+
+    function fillKpis(data) {
+      const counts = data.counts || {};
+      const items = [
+        { label: "Flagged loops", value: formatNumber(counts.flaggedLoops) },
+        { label: "High-risk loops", value: formatNumber(counts.highRiskLoops) },
+        { label: "Organizations involved", value: formatNumber(counts.totalOrganizations) },
+        { label: "2-hop loops", value: formatNumber(counts.twoHopLoops) },
+        { label: "3-hop loops", value: formatNumber(counts.threeHopLoops) },
+        { label: "Same-year loops", value: formatNumber(counts.sameYearLoops) },
+        { label: "Funding exposure", value: formatCurrency(counts.governmentFundingExposure) }
+      ];
+
+      const root = document.getElementById("kpiGrid");
+      root.innerHTML = items.map(item =>
+        '<div class="kpi"><div class="label">' + item.label + '</div><div class="value">' + item.value + '</div></div>'
+      ).join("");
+    }
+
+    function fillSignals(data) {
+      const signals = data.signalCounts || {};
+      const pretty = [
+        ["Connected entities", signals.connectedEntities],
+        ["Inactive after funding", signals.inactiveAfterFunding],
+        ["High govt dependency", signals.highlyGovernmentFunded],
+        ["Repeated funding", signals.repeatedFunding],
+        ["Contract concentration", signals.contractConcentration]
+      ];
+
+      const root = document.getElementById("signalRows");
+      root.innerHTML = pretty.map(([k, v]) => (
+        '<div class="row"><span>' + k + '</span><strong>' + formatNumber(v) + '</strong></div>'
+      )).join("");
+    }
+
+    function getAllLoops(data) {
+      const all = [];
+      if (Array.isArray(data.top5)) all.push(...data.top5);
+      if (Array.isArray(data.top10)) all.push(...data.top10);
+      if (Array.isArray(data.loops)) all.push(...data.loops);
+
+      const byId = new Map();
+      all.forEach(loop => {
+        if (!loop || loop.loop_id == null) return;
+        byId.set(loop.loop_id, loop);
+      });
+      return Array.from(byId.values());
+    }
+
+    function pickPublicFunding(loop) {
+      if (typeof loop.total_public_funding === "number") return loop.total_public_funding;
+      if (typeof loop.public_funding_exposure === "number") return loop.public_funding_exposure;
+      if (typeof loop.total_funding === "number") return loop.total_funding;
+      return 0;
+    }
+
+    function pickMainReason(loop) {
+      if (loop.main_reason) return loop.main_reason;
+      if (Array.isArray(loop.risk_reasons) && loop.risk_reasons[0]) return loop.risk_reasons[0];
+      if (loop.summary_reason) return loop.summary_reason;
+      return "See loop details";
+    }
+
+    function pickOrgText(loop) {
+      if (loop.organizations_display) return loop.organizations_display;
+      if (Array.isArray(loop.participants) && loop.participants.length > 0) {
+        return loop.participants.map(p => p.org_name || p.legal_name || p.bn_root || "Unknown").join(" -> ");
+      }
+      return loop.path_display || "Unknown path";
+    }
+
+    function currentFilters() {
+      return {
+        q: document.getElementById("search").value.trim().toLowerCase(),
+        risk: document.getElementById("riskFilter").value.toLowerCase(),
+        hop: document.getElementById("hopFilter").value,
+        sort: document.getElementById("sortBy").value
+      };
+    }
+
+    function applyFilters() {
+      const f = currentFilters();
+      let rows = state.loops.slice();
+
+      if (f.q) {
+        rows = rows.filter(loop => {
+          const hay = [
+            String(loop.loop_id || ""),
+            (loop.risk_label || ""),
+            pickMainReason(loop),
+            pickOrgText(loop),
+            (loop.path_display || "")
+          ].join(" ").toLowerCase();
+          return hay.includes(f.q);
+        });
+      }
+
+      if (f.risk) {
+        rows = rows.filter(loop => (loop.risk_label || "").toLowerCase() === f.risk);
+      }
+
+      if (f.hop) {
+        rows = rows.filter(loop => String(loop.hops || "") === f.hop);
+      }
+
+      if (f.sort === "publicFunding") rows.sort((a, b) => pickPublicFunding(b) - pickPublicFunding(a));
+      if (f.sort === "riskScore") rows.sort((a, b) => (b.risk_score || 0) - (a.risk_score || 0));
+      if (f.sort === "totalFlow") rows.sort((a, b) => (b.total_flow_amt || 0) - (a.total_flow_amt || 0));
+      if (f.sort === "loopId") rows.sort((a, b) => (a.loop_id || 0) - (b.loop_id || 0));
+
+      renderTable(rows);
+      renderBars(rows);
+    }
+
+    function renderBars(rows) {
+      const root = document.getElementById("miniChart");
+      if (!rows.length) {
+        root.innerHTML = "";
+        return;
+      }
+
+      const top = rows.slice(0, 6);
+      const max = Math.max(...top.map(pickPublicFunding), 1);
+
+      root.innerHTML = top.map(loop => {
+        const amount = pickPublicFunding(loop);
+        const pct = Math.max(2, Math.round((amount / max) * 100));
+        return (
+          '<div class="bar">#' + loop.loop_id + " | " + (loop.hops || "?") + "-hop" +
+          '<div class="bar-track"><div class="bar-fill" style="width:' + pct + '%"></div></div>' +
+          '<div class="small">' + formatCurrency(amount) + "</div></div>"
+        );
+      }).join("");
+    }
+
+    function renderTable(rows) {
+      const body = document.getElementById("loopBody");
+      document.getElementById("resultCount").textContent = "(" + rows.length + " shown)";
+      if (!rows.length) {
+        body.innerHTML = '<tr><td colspan="6" class="empty">No loops match the selected filters.</td></tr>';
+        return;
+      }
+
+      body.innerHTML = rows.map(loop => {
+        const risk = loop.risk_label || "unknown";
+        return (
+          "<tr>" +
+            "<td><strong>#" + (loop.loop_id || "?") + "</strong><br><span class='small'>" + (loop.hops || "?") + "-hop</span></td>" +
+            "<td><span class='badge " + riskBadgeClass(risk) + "'>" + risk + " (" + (loop.risk_score ?? "?") + "/6)</span></td>" +
+            "<td>" + pickOrgText(loop) + "</td>" +
+            "<td>" + formatCurrency(loop.total_flow_amt) + "</td>" +
+            "<td>" + formatCurrency(pickPublicFunding(loop)) + "</td>" +
+            "<td>" + pickMainReason(loop) + "</td>" +
+          "</tr>"
+        );
+      }).join("");
+    }
+
+    function attachFilterEvents() {
+      ["search", "riskFilter", "hopFilter", "sortBy"].forEach(id => {
+        document.getElementById(id).addEventListener("input", applyFilters);
+        document.getElementById(id).addEventListener("change", applyFilters);
+      });
+    }
+
+    async function init() {
+      try {
+        const res = await fetch("./data-summary.json", { cache: "no-store" });
+        if (!res.ok) throw new Error("Unable to load data-summary.json (" + res.status + ")");
+        const data = await res.json();
+        state.data = data;
+        state.loops = getAllLoops(data);
+
+        fillHeader(data);
+        fillKpis(data);
+        fillSignals(data);
+        attachFilterEvents();
+        applyFilters();
+      } catch (err) {
+        showError(
+          "Could not load dashboard data. Serve this directory over HTTP and open this page there. " +
+          "Example: run `python -m http.server 8080` in deliverables/vendor_brief and open http://localhost:8080/interactive-dashboard.html. " +
+          "Technical detail: " + err.message
+        );
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>

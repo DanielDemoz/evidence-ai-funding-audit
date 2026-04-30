@@ -8,6 +8,7 @@
     "setup": "npm run migrate && npm run seed:ministries",
     "drop": "node scripts/drop-tables.js",
     "reset": "npm run drop && npm run setup",
+    "analyze:funding-loops": "node scripts/advanced/11-funding-loops.js",
     "entities:migrate": "node scripts/03-migrate-entities.js",
     "entities:resolve": "node scripts/04-resolve-entities.js",
     "entities:resolve:cra": "node scripts/04-resolve-entities.js --phase 1",
