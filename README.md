@@ -60,7 +60,7 @@ All four data modules share the same PostgreSQL database on Render (`cra`, `fed`
 
 **Schema:** `cra` · **Rows:** ~8.76M (7.3M T3010 raw + ~1.42M pre-computed analysis) · **Tables:** 49 + 3 views · **Years:** 2020–2024
 
-Annual filings from ~85,000 registered Canadian charities: financial statements, directors, gift flows between charities, program descriptions. Also includes pre-computed accountability-analysis tables (loop detection across 2–8 hops in the CRA detector, SCC decomposition, overhead rollups, government-funding breakdown, T3010 data-quality violation flags, donee-name quality scoring). The **`general` funding-loops report** (`npm run analyze:funding-loops`) intentionally **caps loops at 5 hops** for prioritization and dashboard consistency.
+Annual filings from ~85,000 registered Canadian charities: financial statements, directors, gift flows between charities, program descriptions. Also includes pre-computed accountability-analysis tables (loop detection across 2–8 hops in the CRA detector, SCC decomposition, overhead rollups, government-funding breakdown, T3010 data-quality violation flags, donee-name quality scoring). The **`general` funding-loops report** (`npm run analyze:funding-loops`) intentionally **caps loops at 3 hops** (2- and 3-hop cycles only) for prioritization and dashboard consistency.
 
 ```bash
 cd CRA && npm install && npm run setup

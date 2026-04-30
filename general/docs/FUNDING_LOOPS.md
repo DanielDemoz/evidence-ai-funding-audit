@@ -5,7 +5,7 @@ This workflow keeps the analysis centered on one question: where does money appe
 ## What it uses
 
 - `cra.loops`, `cra.loop_participants`, and `cra.loop_edge_year_flows` as the default core circular-flow signal
-- `cra.loop_edges` only when you pass `--recompute-loops` (experimental DFS on aggregated edges). Normal runs use **`cra.loops` only**. **This report caps all loop lengths at 5 hops** (shorter cycles only; the CRA detector may materialize longer paths in the DB, but this pipeline does not use them here).
+- `cra.loop_edges` only when you pass `--recompute-loops` (experimental DFS on aggregated edges). Normal runs use **`cra.loops` only**. **This report caps all loop lengths at 3 hops** (2-hop and 3-hop cycles only; longer materialized paths in the DB are not used here).
 - `cra.cra_financial_details` for revenue, total government funding, and dependency ratios
 - `cra.cra_directors` for shared-board overlap
 - `general.entity_golden_records` plus `general.vw_entity_funding` to carry CRA loop participants into FED and Alberta funding context
@@ -23,7 +23,7 @@ Running `npm run analyze:funding-loops` from `general/` writes three files under
 
 The ranking is intentionally simple and hackathon-friendly:
 
-- After enrichment, sort primarily by **risk score**, then public funding and circular flow; **shorter loops break ties** (2-hop before 5-hop when other signals match), matching “favour short loops first”
+- After enrichment, sort primarily by **risk score**, then public funding and circular flow; **shorter loops break ties** (2-hop before 3-hop when other signals match), matching “favour short loops first”
 - Increase risk when loop participants depend heavily on government funding
 - Increase risk when two or more loop participants share board members
 - Increase risk when the same loop participants also show FED or Alberta funding exposure
@@ -41,10 +41,10 @@ npm run analyze:funding-loops
 Optional flags:
 
 ```bash
-node scripts/advanced/11-funding-loops.js --top 25 --network 12 --candidate-pool 250 --max-hops 5
+node scripts/advanced/11-funding-loops.js --top 25 --network 12 --candidate-pool 250 --max-hops 3
 ```
 
-`--max-hops` is **clamped to 5**. Values above 5 are capped with a console warning. To use the DFS path on `cra.loop_edges` instead of `cra.loops` (still max 5 hops):
+`--max-hops` is **clamped to 3**. Values above 3 are capped with a console warning. To use the DFS path on `cra.loop_edges` instead of `cra.loops` (same 3-hop cap):
 
 ```bash
 node scripts/advanced/11-funding-loops.js --recompute-loops --candidate-pool 500 --max-computed-cycles 6000

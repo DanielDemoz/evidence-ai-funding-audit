@@ -264,7 +264,7 @@ def refresh_real_report() -> None:
         "--network",
         "12",
         "--max-hops",
-        "5",
+        "3",
     ]
     env = os.environ.copy()
     if REAL_DB_CONNECTION_STRING:
