@@ -297,7 +297,7 @@
               <strong>Public funding.</strong> When the public report includes a cluster funding total (sometimes a range), charts and exposure use a consistent midpoint for ranges.
             </li>
             <li>
-              <strong>Loop search depth.</strong> Cycles are detected in the gift graph up to the configured hop limit (the published run uses up to <strong>15 hops</strong>). Deeper search can surface additional clusters.
+              <strong>Loop depth.</strong> Rankings use CRA <strong>materialized</strong> loops in <code>cra.loops</code> (the charity gift-graph cycle pipeline, typically 2–8 hops depending on how the DB was built). The report does <strong>not</strong> switch to ad-hoc graph search unless you explicitly enable recomputation in the tooling.
             </li>
           </ol>
           <p class="rank-disclaimer">

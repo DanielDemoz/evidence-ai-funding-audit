@@ -3,7 +3,7 @@
  * Funding Loops report
  *
  * Focus:
- * - Detect simple CRA charity-to-charity loops (2-hop, 3-hop)
+ * - Start from materialized CRA cycles in cra.loops (2–8 hops per CRA loop detector settings)
  * - Enrich them with government-funding dependency, director overlap, and
  *   cross-dataset public-money exposure from FED and Alberta sources
  * - Produce:
@@ -22,12 +22,15 @@ const db = require('../../lib/db');
 
 const REPORT_DIR = path.join(__dirname, '..', '..', 'data', 'reports');
 
+/** Upper bound for hop count stored in `cra.loops` when the CRA loop detector runs (see 01-detect-all-loops.js, max-hops clamp). */
+const MATERIALIZED_MAX_HOPS = 8;
+
 function parseArgs() {
   const args = {
     top: 25,
     network: 12,
     candidatePool: 250,
-    maxHops: 3,
+    maxHops: 8,
     publicReport: false,
     recomputeLoops: false,
     maxComputedCycles: 4000,
@@ -119,7 +122,7 @@ async function queryOneValue(client, sql, params = []) {
   return res.rows[0];
 }
 
-async function fetchCandidateLoops(client) {
+async function fetchCandidateLoops(client, maxHopsLimit = args.maxHops) {
   const usesLoopFinancials = await queryOneValue(client, `
     SELECT EXISTS (
       SELECT 1
@@ -166,7 +169,7 @@ async function fetchCandidateLoops(client) {
     LIMIT $2
   `;
 
-  const res = await client.query(sql, [args.maxHops, args.candidatePool]);
+  const res = await client.query(sql, [maxHopsLimit, args.candidatePool]);
   return res.rows.map((row) => ({ ...row, source: 'materialized' }));
 }
 
@@ -1145,9 +1148,17 @@ async function main() {
 
   const client = await db.getClient();
   try {
-    const loops = (args.maxHops > 6 || args.recomputeLoops)
+    const useRecomputed = args.recomputeLoops;
+    const materializedHopCap = Math.min(args.maxHops, MATERIALIZED_MAX_HOPS);
+    if (!useRecomputed && args.maxHops > MATERIALIZED_MAX_HOPS) {
+      console.warn(
+        `Funding loops: --max-hops ${args.maxHops} exceeds materialized cra.loops (max ${MATERIALIZED_MAX_HOPS}). ` +
+          `Using hop cap ${materializedHopCap}. For experimental deeper cycles on cra.loop_edges, pass --recompute-loops.`
+      );
+    }
+    const loops = useRecomputed
       ? await fetchComputedLoops(client)
-      : await fetchCandidateLoops(client);
+      : await fetchCandidateLoops(client, materializedHopCap);
     if (!loops.length) {
       throw new Error('No loop records found in cra.loops. Run the CRA loop analysis first.');
     }
@@ -1185,8 +1196,7 @@ async function main() {
       }
     }
     const directors = bnRoots.length ? await fetchDirectors(client, bnRoots) : [];
-    const hasComputed = loops.some((loop) => loop.source === 'computed');
-    const edges = hasComputed ? [] : await fetchEdgeFlows(client, loopIds);
+    const edges = useRecomputed ? [] : await fetchEdgeFlows(client, loopIds);
 
     const participantsByLoop = buildLookup(participants, 'loop_id');
     const directorsByRoot = buildLookup(directors, 'bn_root');
@@ -1224,11 +1234,12 @@ async function main() {
 
     const finalLoops = args.publicReport ? anonymizeLoopsForPublic(rankedLoops) : rankedLoops;
     const insight = buildNarrativeInsight(finalLoops[0]);
+    const methodologyMaxHops = useRecomputed ? args.maxHops : materializedHopCap;
     const payload = {
       generated_at: new Date().toISOString(),
       topic: 'Funding Loops',
       methodology: {
-        base_signal: `CRA charity-to-charity loops (2-hop through ${args.maxHops}-hop)`,
+        base_signal: `CRA charity-to-charity loops (2-hop through ${methodologyMaxHops}-hop)`,
         supporting_signals: [
           'CRA government-funding dependency',
           'CRA shared directors',
@@ -1238,7 +1249,7 @@ async function main() {
           'AB non-profit registry status',
         ],
         public_report_mode: args.publicReport,
-        loop_source: hasComputed ? 'computed-from-cra.loop_edges' : 'cra.loops',
+        loop_source: useRecomputed ? 'computed-from-cra.loop_edges' : 'cra.loops',
       },
       insight,
       loops: finalLoops,
