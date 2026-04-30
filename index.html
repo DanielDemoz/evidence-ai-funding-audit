@@ -240,7 +240,7 @@
       <div class="meta-row">
         <span>University of Ottawa</span>
         <span aria-hidden="true">·</span>
-        <span>Ayesha Khalil, Kenneth Preston, Matthew Rocky</span>
+        <span>Daniel Demoz, Kenneth Preston, Matthew Rocky, Ayesha Khalil</span>
         <span aria-hidden="true">·</span>
         <time datetime="2026-04-29">April 29, 2026</time>
         <span aria-hidden="true">·</span>
@@ -297,7 +297,7 @@
               <strong>Public funding.</strong> When the public report includes a cluster funding total (sometimes a range), charts and exposure use a consistent midpoint for ranges.
             </li>
             <li>
-              <strong>Loop depth.</strong> Rankings use CRA <strong>materialized</strong> loops in <code>cra.loops</code> (the charity gift-graph cycle pipeline, typically 2–8 hops depending on how the DB was built). The report does <strong>not</strong> switch to ad-hoc graph search unless you explicitly enable recomputation in the tooling.
+              <strong>Loop depth.</strong> Clusters are limited to <strong>at most 5 hops</strong> on the charity gift-flow graph (from <code>cra.loops</code> by default). Shorter loops break ties when risk and funding signals are similar.
             </li>
           </ol>
           <p class="rank-disclaimer">
@@ -306,10 +306,10 @@
         </div>
 
         <div class="stat-grid">
-          <div class="stat"><div class="number">~23M</div><div class="label">Total records</div></div>
-          <div class="stat"><div class="number">25</div><div class="label">Flagged loop clusters</div></div>
-          <div class="stat"><div class="number">5</div><div class="label">High-risk clusters</div></div>
-          <div class="stat"><div class="number">$7.0B+</div><div class="label">Funding exposure</div></div>
+          <div class="stat"><div class="number">~23M</div><div class="label">Total records (unified DB)</div></div>
+          <div class="stat"><div class="number">5</div><div class="label">Max hops (policy cap)</div></div>
+          <div class="stat"><div class="number">—</div><div class="label">Flagged clusters (see dashboard)</div></div>
+          <div class="stat"><div class="number">—</div><div class="label">Funding exposure (see dashboard)</div></div>
         </div>
 
         <div class="overview-actions">
@@ -324,7 +324,7 @@
         </iframe>
 
         <div class="credits-strip">
-          <p class="names">Ayesha Khalil · Kenneth Preston · Matthew Rocky</p>
+          <p class="names">Daniel Demoz · Kenneth Preston · Matthew Rocky · Ayesha Khalil</p>
           <p class="affil">University of Ottawa</p>
         </div>
       </div>
@@ -1058,7 +1058,7 @@ DB_CONNECTION_STRING=postgresql://user:pass@localhost/hackathon npm run import</
 
   <footer>
     <div class="container">
-      <p><strong>Ayesha Khalil</strong> · <strong>Kenneth Preston</strong> · <strong>Matthew Rocky</strong> — University of Ottawa</p>
+      <p><strong>Daniel Demoz</strong> · <strong>Kenneth Preston</strong> · <strong>Matthew Rocky</strong> · <strong>Ayesha Khalil</strong> — University of Ottawa</p>
       <p style="margin-top: 10px;">
         Evidence · April 29, 2026 ·
         <a href="LICENSE">MIT License</a> ·

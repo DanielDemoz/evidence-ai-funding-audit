@@ -155,12 +155,12 @@
 
     <section class="band">
       <h2>Executive Summary</h2>
-      <div class="callout">We identified a cluster of organizations that exchanged funding, shared connections, received public funds, and showed extra risk signals around activity and concentration. Cluster #900014 links ORG-00001, ORG-00002, ORG-00003 in a 15-hop loop with $5M-$10M in circular flow and $100M+ in surrounding public-funding exposure. It scores 6/6 because entities are connected through shared directors; at least one linked entity is currently non-active after receiving public funding. These are screening indicators for human review, not determinations of wrongdoing.</div>
+      <div class="callout">No loops in this snapshot are within the 5-hop cap (this bundle previously used longer experimental cycles). Regenerate from the database: `cd general &amp;&amp; npm run analyze:funding-loops &amp;&amp; cd .. &amp;&amp; node deliverables/build_vendor_brief.js`.</div>
       <div class="summary-grid" style="margin-top:14px">
-        <div class="stat"><strong>25</strong>Flagged loops</div>
-        <div class="stat"><strong>25</strong>High-risk loops</div>
-        <div class="stat"><strong>44</strong>Organizations involved</div>
-        <div class="stat"><strong>$3,750,000,000</strong>Public-funding exposure</div>
+        <div class="stat"><strong>0</strong>Flagged loops</div>
+        <div class="stat"><strong>0</strong>High-risk loops</div>
+        <div class="stat"><strong>0</strong>Organizations involved</div>
+        <div class="stat"><strong>$0</strong>Public-funding exposure</div>
       </div>
     </section>
 
@@ -171,10 +171,10 @@
         <div class="pills">
           <span class="pill"><strong>0</strong> 2-hop loops</span>
           <span class="pill"><strong>0</strong> 3-hop loops</span>
-          <span class="pill"><strong>15</strong> max hop depth observed</span>
+          <span class="pill"><strong>0</strong> max hop depth observed</span>
           <span class="pill"><strong>0</strong> same-year loops</span>
-          <span class="pill"><strong>25</strong> with shared-director links</span>
-          <span class="pill"><strong>25</strong> with inactive-after-funding signal</span>
+          <span class="pill"><strong>0</strong> with shared-director links</span>
+          <span class="pill"><strong>0</strong> with inactive-after-funding signal</span>
         </div>
         <p class="caption">Important note: these are screening signals for analyst review, not final determinations of misconduct.</p>
       </div>
@@ -183,7 +183,7 @@
         <ul class="list">
           <li>Ingests messy CSV, Excel, JSONL, or linked files.</li>
           <li>Normalizes columns and resolves duplicate organizations.</li>
-          <li>Detects circular flows from 2-hop loops up to configurable deeper cycles (up to 15).</li>
+          <li>Uses CRA materialized loops in <code>cra.loops</code>, capped at <strong>5 hops</strong>. Optional <code>--recompute-loops</code> uses the same hop cap on aggregated <code>cra.loop_edges</code>.</li>
           <li>Enriches each loop with shared directors, inactivity, government dependency, repetition, and concentration signals.</li>
           <li>Ranks risky clusters and explains them in plain language for analysts.</li>
         </ul>
@@ -192,54 +192,7 @@
 
     <section class="band">
       <h2>Real-data evidence</h2>
-      
-    <svg viewBox="0 0 1120 520" role="img" aria-label="Top funding loop clusters by total funding">
-      <rect x="0" y="0" width="1120" height="520" fill="#ffffff"></rect>
-      <text x="180" y="24" font-size="20" font-weight="700" fill="#0f172a">Top flagged clusters by surrounding public-funding exposure</text>
-      <line x1="180" y1="400" x2="1090" y2="400" stroke="#cbd5e1"></line>
-      
-      <text x="164" y="55.5" text-anchor="end" font-size="13" fill="#1f2937">900014  ORG-00001 -&gt; ORG-00002 -&gt; ORG-00003 -&gt; ORG-00004 -&gt; ORG-00005 -&gt;</text>
-      <rect x="180" y="40" width="910" height="23" rx="8" fill="#b91c1c"></rect>
-      <text x="1100" y="55.5" font-size="13" fill="#0f172a">$100M+</text>
-    
-      <text x="164" y="92.5" text-anchor="end" font-size="13" fill="#1f2937">900019  ORG-00001 -&gt; ORG-00002 -&gt; ORG-00003 -&gt; ORG-00004 -&gt; ORG-00005 -&gt;</text>
-      <rect x="180" y="77" width="910" height="23" rx="8" fill="#b91c1c"></rect>
-      <text x="1100" y="92.5" font-size="13" fill="#0f172a">$100M+</text>
-    
-      <text x="164" y="129.5" text-anchor="end" font-size="13" fill="#1f2937">905955  ORG-00001 -&gt; ORG-00002 -&gt; ORG-00003 -&gt; ORG-00004 -&gt; ORG-00005 -&gt;</text>
-      <rect x="180" y="114" width="910" height="23" rx="8" fill="#b91c1c"></rect>
-      <text x="1100" y="129.5" font-size="13" fill="#0f172a">$100M+</text>
-    
-      <text x="164" y="166.5" text-anchor="end" font-size="13" fill="#1f2937">902478  ORG-00001 -&gt; ORG-00002 -&gt; ORG-00003 -&gt; ORG-00004 -&gt; ORG-00005 -&gt;</text>
-      <rect x="180" y="151" width="910" height="23" rx="8" fill="#b91c1c"></rect>
-      <text x="1100" y="166.5" font-size="13" fill="#0f172a">$100M+</text>
-    
-      <text x="164" y="203.5" text-anchor="end" font-size="13" fill="#1f2937">901284  ORG-00001 -&gt; ORG-00002 -&gt; ORG-00003 -&gt; ORG-00004 -&gt; ORG-00005 -&gt;</text>
-      <rect x="180" y="188" width="910" height="23" rx="8" fill="#b91c1c"></rect>
-      <text x="1100" y="203.5" font-size="13" fill="#0f172a">$100M+</text>
-    
-      <text x="164" y="240.5" text-anchor="end" font-size="13" fill="#1f2937">905892  ORG-00001 -&gt; ORG-00002 -&gt; ORG-00003 -&gt; ORG-00004 -&gt; ORG-00005 -&gt;</text>
-      <rect x="180" y="225" width="910" height="23" rx="8" fill="#b91c1c"></rect>
-      <text x="1100" y="240.5" font-size="13" fill="#0f172a">$100M+</text>
-    
-      <text x="164" y="277.5" text-anchor="end" font-size="13" fill="#1f2937">903303  ORG-00001 -&gt; ORG-00002 -&gt; ORG-00003 -&gt; ORG-00004 -&gt; ORG-00005 -&gt;</text>
-      <rect x="180" y="262" width="910" height="23" rx="8" fill="#b91c1c"></rect>
-      <text x="1100" y="277.5" font-size="13" fill="#0f172a">$100M+</text>
-    
-      <text x="164" y="314.5" text-anchor="end" font-size="13" fill="#1f2937">902714  ORG-00001 -&gt; ORG-00002 -&gt; ORG-00003 -&gt; ORG-00004 -&gt; ORG-00005 -&gt;</text>
-      <rect x="180" y="299" width="910" height="23" rx="8" fill="#b91c1c"></rect>
-      <text x="1100" y="314.5" font-size="13" fill="#0f172a">$100M+</text>
-    
-      <text x="164" y="351.5" text-anchor="end" font-size="13" fill="#1f2937">904943  ORG-00001 -&gt; ORG-00002 -&gt; ORG-00003 -&gt; ORG-00004 -&gt; ORG-00005 -&gt;</text>
-      <rect x="180" y="336" width="910" height="23" rx="8" fill="#b91c1c"></rect>
-      <text x="1100" y="351.5" font-size="13" fill="#0f172a">$100M+</text>
-    
-      <text x="164" y="388.5" text-anchor="end" font-size="13" fill="#1f2937">904941  ORG-00001 -&gt; ORG-00002 -&gt; ORG-00003 -&gt; ORG-00004 -&gt; ORG-00005 -&gt;</text>
-      <rect x="180" y="373" width="910" height="23" rx="8" fill="#b91c1c"></rect>
-      <text x="1100" y="388.5" font-size="13" fill="#0f172a">$100M+</text>
-    
-    </svg>
-  
+      <svg viewBox="0 0 1120 520" role="img" aria-label="No bar chart"><rect width="100%" height="100%" fill="#ffffff"/><text x="180" y="120" font-size="16" fill="#64748b">No clusters to chart for this summary.</text></svg>
       <div class="caption">Ranking is based on the current Funding Loops pipeline: loop participation plus supporting signals from CRA, FED, AB, and the entity-matching layer.</div>
     </section>
 
@@ -249,27 +202,27 @@
         
     <svg viewBox="0 0 1000 320" role="img" aria-label="Frequency of risk signals across flagged loops">
       <rect x="0" y="0" width="1000" height="320" fill="#ffffff"></rect>
-      <text x="70" y="24" font-size="20" font-weight="700" fill="#0f172a">How often each risk signal appears across 25 flagged loops</text>
+      <text x="70" y="24" font-size="20" font-weight="700" fill="#0f172a">How often each risk signal appears across 0 flagged loops</text>
       <line x1="70" y1="250" x2="960" y2="250" stroke="#cbd5e1"></line>
       
-      <rect x="70" y="50" width="150" height="200" rx="10" fill="#0f766e"></rect>
-      <text x="145" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">25</text>
+      <rect x="70" y="240" width="150" height="10" rx="10" fill="#0f766e"></rect>
+      <text x="145" y="230" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">0</text>
       <text x="145" y="298" text-anchor="middle" font-size="12" fill="#475569">Connected entities</text>
     
-      <rect x="248" y="50" width="150" height="200" rx="10" fill="#b45309"></rect>
-      <text x="323" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">25</text>
+      <rect x="248" y="240" width="150" height="10" rx="10" fill="#b45309"></rect>
+      <text x="323" y="230" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">0</text>
       <text x="323" y="298" text-anchor="middle" font-size="12" fill="#475569">Inactive after funding</text>
     
-      <rect x="426" y="50" width="150" height="200" rx="10" fill="#7c3aed"></rect>
-      <text x="501" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">25</text>
+      <rect x="426" y="240" width="150" height="10" rx="10" fill="#7c3aed"></rect>
+      <text x="501" y="230" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">0</text>
       <text x="501" y="298" text-anchor="middle" font-size="12" fill="#475569">High govt dependency</text>
     
-      <rect x="604" y="50" width="150" height="200" rx="10" fill="#1d4ed8"></rect>
-      <text x="679" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">25</text>
+      <rect x="604" y="240" width="150" height="10" rx="10" fill="#1d4ed8"></rect>
+      <text x="679" y="230" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">0</text>
       <text x="679" y="298" text-anchor="middle" font-size="12" fill="#475569">Repeated funding</text>
     
-      <rect x="782" y="50" width="150" height="200" rx="10" fill="#b91c1c"></rect>
-      <text x="857" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">25</text>
+      <rect x="782" y="240" width="150" height="10" rx="10" fill="#b91c1c"></rect>
+      <text x="857" y="230" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">0</text>
       <text x="857" y="298" text-anchor="middle" font-size="12" fill="#475569">Contract concentration</text>
     
     </svg>
@@ -277,94 +230,7 @@
       </div>
       <div class="band">
         <h2>Representative high-risk loop</h2>
-        
-    <svg viewBox="0 0 760 320" role="img" aria-label="Top funding loop network">
-      <defs>
-        <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-          <path d="M0,0 L10,3 L0,6 z" fill="#64748b"></path>
-        </marker>
-      </defs>
-      <rect x="0" y="0" width="760" height="320" fill="#ffffff"></rect>
-      <text x="38" y="28" font-size="20" font-weight="700" fill="#0f172a">Representative high-risk loop: Cluster #900014</text>
-      
-      
-      <circle cx="380" cy="82" r="28" fill="#93c5fd" stroke="#0f172a" stroke-width="1.5"></circle>
-      <text x="380" y="40" text-anchor="middle" font-size="13" fill="#0f172a">ORG-00001</text>
-      <text x="380" y="87" text-anchor="middle" font-size="11" fill="#0f172a">ORG-00001</text>
-      <text x="380" y="102" text-anchor="middle" font-size="10" fill="#475569">49.4%</text>
-    
-      <circle cx="415.7928245906704" cy="89.60799972745113" r="28" fill="#93c5fd" stroke="#0f172a" stroke-width="1.5"></circle>
-      <text x="415.7928245906704" y="47.60799972745113" text-anchor="middle" font-size="13" fill="#0f172a">ORG-00002</text>
-      <text x="415.7928245906704" y="94.60799972745113" text-anchor="middle" font-size="11" fill="#0f172a">ORG-00002</text>
-      <text x="415.7928245906704" y="109.60799972745113" text-anchor="middle" font-size="10" fill="#475569">16.3%</text>
-    
-      <circle cx="445.3967446420107" cy="111.11650664042048" r="28" fill="#93c5fd" stroke="#0f172a" stroke-width="1.5"></circle>
-      <text x="445.3967446420107" y="69.11650664042048" text-anchor="middle" font-size="13" fill="#0f172a">ORG-00003</text>
-      <text x="445.3967446420107" y="116.11650664042048" text-anchor="middle" font-size="11" fill="#0f172a">ORG-00003</text>
-      <text x="445.3967446420107" y="131.11650664042048" text-anchor="middle" font-size="10" fill="#475569">1.0%</text>
-    
-      <circle cx="463.6929734339735" cy="142.80650449500462" r="28" fill="#93c5fd" stroke="#0f172a" stroke-width="1.5"></circle>
-      <text x="463.6929734339735" y="100.80650449500462" text-anchor="middle" font-size="13" fill="#0f172a">ORG-00004</text>
-      <text x="463.6929734339735" y="147.80650449500462" text-anchor="middle" font-size="11" fill="#0f172a">ORG-00004</text>
-      <text x="463.6929734339735" y="162.80650449500462" text-anchor="middle" font-size="10" fill="#475569">7.1%</text>
-    
-      <circle cx="467.51792679240805" cy="179.1985047675535" r="28" fill="#fdba74" stroke="#0f172a" stroke-width="1.5"></circle>
-      <text x="467.51792679240805" y="137.1985047675535" text-anchor="middle" font-size="13" fill="#0f172a">ORG-00005</text>
-      <text x="467.51792679240805" y="184.1985047675535" text-anchor="middle" font-size="11" fill="#0f172a">ORG-00005</text>
-      <text x="467.51792679240805" y="199.1985047675535" text-anchor="middle" font-size="10" fill="#475569">94.7%</text>
-    
-      <circle cx="456.21023553303064" cy="214" r="28" fill="#fdba74" stroke="#0f172a" stroke-width="1.5"></circle>
-      <text x="456.21023553303064" y="172" text-anchor="middle" font-size="13" fill="#0f172a">ORG-00006</text>
-      <text x="456.21023553303064" y="219" text-anchor="middle" font-size="11" fill="#0f172a">ORG-00006</text>
-      <text x="456.21023553303064" y="234" text-anchor="middle" font-size="10" fill="#475569">58.4%</text>
-    
-      <circle cx="431.7251022017376" cy="241.19349550499538" r="28" fill="#93c5fd" stroke="#0f172a" stroke-width="1.5"></circle>
-      <text x="431.7251022017376" y="199.19349550499538" text-anchor="middle" font-size="13" fill="#0f172a">ORG-00007</text>
-      <text x="431.7251022017376" y="246.19349550499538" text-anchor="middle" font-size="11" fill="#0f172a">ORG-00007</text>
-      <text x="431.7251022017376" y="261.1934955049954" text-anchor="middle" font-size="10" fill="#475569">2.9%</text>
-    
-      <circle cx="398.2962287919628" cy="256.0769888645749" r="28" fill="#93c5fd" stroke="#0f172a" stroke-width="1.5"></circle>
-      <text x="398.2962287919628" y="214.0769888645749" text-anchor="middle" font-size="13" fill="#0f172a">ORG-00008</text>
-      <text x="398.2962287919628" y="261.0769888645749" text-anchor="middle" font-size="11" fill="#0f172a">ORG-00008</text>
-      <text x="398.2962287919628" y="276.0769888645749" text-anchor="middle" font-size="10" fill="#475569">0.3%</text>
-    
-      <circle cx="361.7037712080372" cy="256.0769888645749" r="28" fill="#93c5fd" stroke="#0f172a" stroke-width="1.5"></circle>
-      <text x="361.7037712080372" y="214.0769888645749" text-anchor="middle" font-size="13" fill="#0f172a">ORG-00009</text>
-      <text x="361.7037712080372" y="261.0769888645749" text-anchor="middle" font-size="11" fill="#0f172a">ORG-00009</text>
-      <text x="361.7037712080372" y="276.0769888645749" text-anchor="middle" font-size="10" fill="#475569">1.5%</text>
-    
-      <circle cx="328.2748977982624" cy="241.19349550499538" r="28" fill="#fdba74" stroke="#0f172a" stroke-width="1.5"></circle>
-      <text x="328.2748977982624" y="199.19349550499538" text-anchor="middle" font-size="13" fill="#0f172a">ORG-00010</text>
-      <text x="328.2748977982624" y="246.19349550499538" text-anchor="middle" font-size="11" fill="#0f172a">ORG-00010</text>
-      <text x="328.2748977982624" y="261.1934955049954" text-anchor="middle" font-size="10" fill="#475569">52.3%</text>
-    
-      <circle cx="303.7897644669694" cy="214.00000000000003" r="28" fill="#93c5fd" stroke="#0f172a" stroke-width="1.5"></circle>
-      <text x="303.7897644669694" y="172.00000000000003" text-anchor="middle" font-size="13" fill="#0f172a">ORG-00011</text>
-      <text x="303.7897644669694" y="219.00000000000003" text-anchor="middle" font-size="11" fill="#0f172a">ORG-00011</text>
-      <text x="303.7897644669694" y="234.00000000000003" text-anchor="middle" font-size="10" fill="#475569">41.5%</text>
-    
-      <circle cx="292.48207320759195" cy="179.19850476755357" r="28" fill="#fdba74" stroke="#0f172a" stroke-width="1.5"></circle>
-      <text x="292.48207320759195" y="137.19850476755357" text-anchor="middle" font-size="13" fill="#0f172a">ORG-00012</text>
-      <text x="292.48207320759195" y="184.19850476755357" text-anchor="middle" font-size="11" fill="#0f172a">ORG-00012</text>
-      <text x="292.48207320759195" y="199.19850476755357" text-anchor="middle" font-size="10" fill="#475569">61.1%</text>
-    
-      <circle cx="296.3070265660265" cy="142.80650449500465" r="28" fill="#fdba74" stroke="#0f172a" stroke-width="1.5"></circle>
-      <text x="296.3070265660265" y="100.80650449500465" text-anchor="middle" font-size="13" fill="#0f172a">ORG-00013</text>
-      <text x="296.3070265660265" y="147.80650449500465" text-anchor="middle" font-size="11" fill="#0f172a">ORG-00013</text>
-      <text x="296.3070265660265" y="162.80650449500465" text-anchor="middle" font-size="10" fill="#475569">92.6%</text>
-    
-      <circle cx="314.6032553579893" cy="111.11650664042045" r="28" fill="#fdba74" stroke="#0f172a" stroke-width="1.5"></circle>
-      <text x="314.6032553579893" y="69.11650664042045" text-anchor="middle" font-size="13" fill="#0f172a">ORG-00014</text>
-      <text x="314.6032553579893" y="116.11650664042045" text-anchor="middle" font-size="11" fill="#0f172a">ORG-00014</text>
-      <text x="314.6032553579893" y="131.11650664042045" text-anchor="middle" font-size="10" fill="#475569">54.7%</text>
-    
-      <circle cx="344.2071754093296" cy="89.60799972745112" r="28" fill="#93c5fd" stroke="#0f172a" stroke-width="1.5"></circle>
-      <text x="344.2071754093296" y="47.607999727451116" text-anchor="middle" font-size="13" fill="#0f172a">ORG-00015</text>
-      <text x="344.2071754093296" y="94.60799972745112" text-anchor="middle" font-size="11" fill="#0f172a">ORG-00015</text>
-      <text x="344.2071754093296" y="109.60799972745112" text-anchor="middle" font-size="10" fill="#475569">0.0%</text>
-    
-    </svg>
-  
+        <svg viewBox="0 0 760 320" role="img" aria-label="No loop diagram"><rect width="100%" height="100%" fill="#ffffff"/><text x="38" y="160" font-size="16" fill="#64748b">No cluster available for this summary.</text></svg>
         <p class="caption">This example illustrates the product story: detect the loop first, then show why it deserves attention.</p>
       </div>
     </section>
@@ -383,107 +249,7 @@
             <th>Main reason flagged</th>
           </tr>
         </thead>
-        <tbody>
-    <tr>
-      <td>1</td>
-      <td>#900014</td>
-      <td>ORG-00001 -&gt; ORG-00002 -&gt; ORG-00003 -&gt; ORG-00004 -&gt; ORG-00005 -&gt; ORG-00006 -&gt; ORG-00007 -&gt; ORG-00008 -&gt; ORG-00009 -&gt; ORG-00010 -&gt; ORG-00011 -&gt; ORG-00012 -&gt; ORG-00013 -&gt; ORG-00014 -&gt; ORG-00015</td>
-      <td>$5M-$10M</td>
-      <td>$100M+</td>
-      <td>6/6</td>
-      <td>entities are connected through shared directors</td>
-    </tr>
-  
-    <tr>
-      <td>2</td>
-      <td>#900019</td>
-      <td>ORG-00001 -&gt; ORG-00002 -&gt; ORG-00003 -&gt; ORG-00004 -&gt; ORG-00005 -&gt; ORG-00006 -&gt; ORG-00007 -&gt; ORG-00008 -&gt; ORG-00009 -&gt; ORG-00010 -&gt; ORG-00016 -&gt; ORG-00017 -&gt; ORG-00018 -&gt; ORG-00014 -&gt; ORG-00015</td>
-      <td>$10M-$50M</td>
-      <td>$100M+</td>
-      <td>6/6</td>
-      <td>entities are connected through shared directors</td>
-    </tr>
-  
-    <tr>
-      <td>3</td>
-      <td>#905955</td>
-      <td>ORG-00001 -&gt; ORG-00002 -&gt; ORG-00003 -&gt; ORG-00004 -&gt; ORG-00005 -&gt; ORG-00006 -&gt; ORG-00007 -&gt; ORG-00019 -&gt; ORG-00020 -&gt; ORG-00021 -&gt; ORG-00022 -&gt; ORG-00017 -&gt; ORG-00018 -&gt; ORG-00014 -&gt; ORG-00015</td>
-      <td>$5M-$10M</td>
-      <td>$100M+</td>
-      <td>6/6</td>
-      <td>entities are connected through shared directors</td>
-    </tr>
-  
-    <tr>
-      <td>4</td>
-      <td>#902478</td>
-      <td>ORG-00001 -&gt; ORG-00002 -&gt; ORG-00003 -&gt; ORG-00004 -&gt; ORG-00005 -&gt; ORG-00006 -&gt; ORG-00007 -&gt; ORG-00019 -&gt; ORG-00020 -&gt; ORG-00021 -&gt; ORG-00023 -&gt; ORG-00017 -&gt; ORG-00018 -&gt; ORG-00014 -&gt; ORG-00015</td>
-      <td>$10M-$50M</td>
-      <td>$100M+</td>
-      <td>6/6</td>
-      <td>entities are connected through shared directors</td>
-    </tr>
-  
-    <tr>
-      <td>5</td>
-      <td>#901284</td>
-      <td>ORG-00001 -&gt; ORG-00002 -&gt; ORG-00003 -&gt; ORG-00004 -&gt; ORG-00005 -&gt; ORG-00006 -&gt; ORG-00007 -&gt; ORG-00019 -&gt; ORG-00020 -&gt; ORG-00021 -&gt; ORG-00024 -&gt; ORG-00017 -&gt; ORG-00018 -&gt; ORG-00014 -&gt; ORG-00015</td>
-      <td>$5M-$10M</td>
-      <td>$100M+</td>
-      <td>6/6</td>
-      <td>entities are connected through shared directors</td>
-    </tr>
-  
-    <tr>
-      <td>6</td>
-      <td>#905892</td>
-      <td>ORG-00001 -&gt; ORG-00002 -&gt; ORG-00003 -&gt; ORG-00004 -&gt; ORG-00005 -&gt; ORG-00006 -&gt; ORG-00007 -&gt; ORG-00019 -&gt; ORG-00020 -&gt; ORG-00021 -&gt; ORG-00025 -&gt; ORG-00017 -&gt; ORG-00018 -&gt; ORG-00014 -&gt; ORG-00015</td>
-      <td>$10M-$50M</td>
-      <td>$100M+</td>
-      <td>6/6</td>
-      <td>entities are connected through shared directors</td>
-    </tr>
-  
-    <tr>
-      <td>7</td>
-      <td>#903303</td>
-      <td>ORG-00001 -&gt; ORG-00002 -&gt; ORG-00003 -&gt; ORG-00004 -&gt; ORG-00005 -&gt; ORG-00006 -&gt; ORG-00007 -&gt; ORG-00019 -&gt; ORG-00020 -&gt; ORG-00021 -&gt; ORG-00026 -&gt; ORG-00017 -&gt; ORG-00018 -&gt; ORG-00014 -&gt; ORG-00015</td>
-      <td>$5M-$10M</td>
-      <td>$100M+</td>
-      <td>6/6</td>
-      <td>entities are connected through shared directors</td>
-    </tr>
-  
-    <tr>
-      <td>8</td>
-      <td>#902714</td>
-      <td>ORG-00001 -&gt; ORG-00002 -&gt; ORG-00003 -&gt; ORG-00004 -&gt; ORG-00005 -&gt; ORG-00006 -&gt; ORG-00007 -&gt; ORG-00019 -&gt; ORG-00020 -&gt; ORG-00021 -&gt; ORG-00027 -&gt; ORG-00017 -&gt; ORG-00018 -&gt; ORG-00014 -&gt; ORG-00015</td>
-      <td>$10M-$50M</td>
-      <td>$100M+</td>
-      <td>6/6</td>
-      <td>entities are connected through shared directors</td>
-    </tr>
-  
-    <tr>
-      <td>9</td>
-      <td>#904943</td>
-      <td>ORG-00001 -&gt; ORG-00002 -&gt; ORG-00003 -&gt; ORG-00004 -&gt; ORG-00005 -&gt; ORG-00006 -&gt; ORG-00007 -&gt; ORG-00019 -&gt; ORG-00020 -&gt; ORG-00021 -&gt; ORG-00028 -&gt; ORG-00029 -&gt; ORG-00016 -&gt; ORG-00014 -&gt; ORG-00015</td>
-      <td>$1M-$5M</td>
-      <td>$100M+</td>
-      <td>6/6</td>
-      <td>entities are connected through shared directors</td>
-    </tr>
-  
-    <tr>
-      <td>10</td>
-      <td>#904941</td>
-      <td>ORG-00001 -&gt; ORG-00002 -&gt; ORG-00003 -&gt; ORG-00004 -&gt; ORG-00005 -&gt; ORG-00006 -&gt; ORG-00007 -&gt; ORG-00019 -&gt; ORG-00020 -&gt; ORG-00021 -&gt; ORG-00028 -&gt; ORG-00029 -&gt; ORG-00030 -&gt; ORG-00014 -&gt; ORG-00015</td>
-      <td>$1M-$5M</td>
-      <td>$100M+</td>
-      <td>6/6</td>
-      <td>entities are connected through shared directors</td>
-    </tr>
-  </tbody>
+        <tbody></tbody>
       </table>
     </section>
 
