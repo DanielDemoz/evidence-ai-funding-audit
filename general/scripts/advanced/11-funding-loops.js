@@ -3,7 +3,7 @@
  * Funding Loops report
  *
  * Focus:
- * - Start from materialized CRA cycles in cra.loops (2–8 hops per CRA loop detector settings)
+ * - Start from materialized CRA cycles in cra.loops (this report caps at 5 hops; DB may hold longer cycles)
  * - Enrich them with government-funding dependency, director overlap, and
  *   cross-dataset public-money exposure from FED and Alberta sources
  * - Produce:
@@ -22,15 +22,16 @@ const db = require('../../lib/db');
 
 const REPORT_DIR = path.join(__dirname, '..', '..', 'data', 'reports');
 
-/** Upper bound for hop count stored in `cra.loops` when the CRA loop detector runs (see 01-detect-all-loops.js, max-hops clamp). */
-const MATERIALIZED_MAX_HOPS = 8;
+/** Max hop length for this report (`cra.loops` reads and optional `--recompute-loops` DFS). */
+const MAX_LOOP_HOPS = 5;
+const MATERIALIZED_MAX_HOPS = MAX_LOOP_HOPS;
 
 function parseArgs() {
   const args = {
     top: 25,
     network: 12,
     candidatePool: 250,
-    maxHops: 8,
+    maxHops: MAX_LOOP_HOPS,
     publicReport: false,
     recomputeLoops: false,
     maxComputedCycles: 4000,
@@ -61,7 +62,13 @@ function parseArgs() {
     }
   }
 
-  args.maxHops = Math.max(2, Math.min(15, args.maxHops));
+  const requestedMaxHops = args.maxHops;
+  args.maxHops = Math.max(2, Math.min(MAX_LOOP_HOPS, args.maxHops));
+  if (requestedMaxHops > MAX_LOOP_HOPS) {
+    console.warn(
+      `Funding loops: --max-hops ${requestedMaxHops} capped to ${MAX_LOOP_HOPS} for this report.`
+    );
+  }
   args.maxComputedCycles = Math.max(200, args.maxComputedCycles);
   return args;
 }
@@ -1150,12 +1157,6 @@ async function main() {
   try {
     const useRecomputed = args.recomputeLoops;
     const materializedHopCap = Math.min(args.maxHops, MATERIALIZED_MAX_HOPS);
-    if (!useRecomputed && args.maxHops > MATERIALIZED_MAX_HOPS) {
-      console.warn(
-        `Funding loops: --max-hops ${args.maxHops} exceeds materialized cra.loops (max ${MATERIALIZED_MAX_HOPS}). ` +
-          `Using hop cap ${materializedHopCap}. For experimental deeper cycles on cra.loop_edges, pass --recompute-loops.`
-      );
-    }
     const loops = useRecomputed
       ? await fetchComputedLoops(client)
       : await fetchCandidateLoops(client, materializedHopCap);
@@ -1224,6 +1225,7 @@ async function main() {
         b.risk_score - a.risk_score ||
         toNumber(b.cluster_total_funding) - toNumber(a.cluster_total_funding) ||
         toNumber(b.total_edge_flow) - toNumber(a.total_edge_flow) ||
+        a.hops - b.hops ||
         a.loop_id - b.loop_id
       ))
       .slice(0, args.top);

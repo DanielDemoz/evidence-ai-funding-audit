@@ -169,9 +169,6 @@
           <option value="3">3-hop</option>
           <option value="4">4-hop</option>
           <option value="5">5-hop</option>
-          <option value="6">6-hop</option>
-          <option value="7">7-hop</option>
-          <option value="8">8-hop</option>
         </select>
 
         <label for="sortBy">Sort by</label>
@@ -432,7 +429,16 @@
         if (!res.ok) throw new Error("Unable to load data-summary.json (" + res.status + ")");
         const data = await res.json();
         state.data = data;
-        state.loops = getAllLoops(data);
+        const allLoops = getAllLoops(data);
+        const maxHopPolicy = 5;
+        state.loops = allLoops.filter((l) => Number(l.hops) <= maxHopPolicy);
+        if (allLoops.length && !state.loops.length) {
+          showError(
+            "Every loop in this snapshot exceeds the " +
+              maxHopPolicy +
+              "-hop policy. Regenerate: cd general && npm run analyze:funding-loops && cd .. && node deliverables/build_vendor_brief.js"
+          );
+        }
 
         fillHeader(data);
         fillKpis(data);

@@ -124,6 +124,9 @@ function barChartSvg(topLoops) {
   const margin = { top: 40, right: 30, bottom: 120, left: 180 };
   const plotWidth = width - margin.left - margin.right;
   const plotHeight = height - margin.top - margin.bottom;
+  if (!topLoops.length) {
+    return `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="No bar chart"><rect width="100%" height="100%" fill="#ffffff"/><text x="${margin.left}" y="120" font-size="16" fill="#64748b">No clusters to chart for this summary.</text></svg>`;
+  }
   const numericTotals = topLoops.map((loop) => fundingRangeMidpointCad(loop.cluster_total_funding));
   const maxValue = Math.max(...numericTotals, 1);
   const barGap = 14;
@@ -196,6 +199,9 @@ function signalChartSvg(signalCounts, loopCount) {
 function topLoopNetworkSvg(loop) {
   const width = 760;
   const height = 320;
+  if (!loop) {
+    return `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="No loop diagram"><rect width="100%" height="100%" fill="#ffffff"/><text x="38" y="160" font-size="16" fill="#64748b">No cluster available for this summary.</text></svg>`;
+  }
   const centerX = width / 2;
   const centerY = 170;
   const radius = 88;
@@ -267,7 +273,13 @@ function buildMarkdown(summary) {
   lines.push("| Rank | Cluster | Organizations | Total Funding | Score |");
   lines.push("| --- | --- | --- | --- | --- |");
   summary.top5.forEach((loop, index) => {
-    lines.push(`| ${index + 1} | #${loop.loop_id} | ${loop.participants.map((p) => p.org_name).join(" -> ")} | ${money(loop.cluster_total_funding)} | ${loop.risk_score}/6 |`);
+    const funding =
+      typeof loop.cluster_total_funding === "string" && loop.cluster_total_funding.startsWith("$")
+        ? loop.cluster_total_funding
+        : money(loop.cluster_total_funding);
+    lines.push(
+      `| ${index + 1} | #${loop.loop_id} | ${(loop.participants || []).map((p) => p.org_name).join(" -> ")} | ${funding} | ${loop.risk_score}/6 |`
+    );
   });
   lines.push("");
   lines.push("## Vendor Positioning");
@@ -279,7 +291,7 @@ function buildMarkdown(summary) {
 function buildHtml(summary) {
   const barSvg = barChartSvg(summary.top10);
   const signalSvg = signalChartSvg(summary.signalCounts, summary.counts.flaggedLoops);
-  const networkSvg = topLoopNetworkSvg(summary.top5[0]);
+  const networkSvg = topLoopNetworkSvg(summary.top5[0] || null);
 
   const topRows = summary.top10.map((loop, index) => `
     <tr>
@@ -478,7 +490,7 @@ function buildHtml(summary) {
         <ul class="list">
           <li>Ingests messy CSV, Excel, JSONL, or linked files.</li>
           <li>Normalizes columns and resolves duplicate organizations.</li>
-          <li>Uses CRA materialized loops in <code>cra.loops</code> (2–8 hops per detector settings). Optional <code>--recompute-loops</code> scans deeper on graph edges for experiments only.</li>
+          <li>Uses CRA materialized loops in <code>cra.loops</code>, capped at <strong>5 hops</strong>. Optional <code>--recompute-loops</code> uses the same hop cap on aggregated <code>cra.loop_edges</code>.</li>
           <li>Enriches each loop with shared directors, inactivity, government dependency, repetition, and concentration signals.</li>
           <li>Ranks risky clusters and explains them in plain language for analysts.</li>
         </ul>
@@ -557,4 +569,8 @@ function main() {
   console.log(`Vendor brief written to ${OUT_DIR}`);
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = { summarize, buildMarkdown, buildHtml, fundingRangeMidpointCad };

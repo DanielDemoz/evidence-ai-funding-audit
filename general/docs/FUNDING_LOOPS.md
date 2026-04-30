@@ -5,7 +5,7 @@ This workflow keeps the analysis centered on one question: where does money appe
 ## What it uses
 
 - `cra.loops`, `cra.loop_participants`, and `cra.loop_edge_year_flows` as the default core circular-flow signal
-- `cra.loop_edges` only when you pass `--recompute-loops` (experimental DFS, up to 15 hops). Normal runs use **`cra.loops` only** (2–8 hops as materialized by the CRA loop detector).
+- `cra.loop_edges` only when you pass `--recompute-loops` (experimental DFS on aggregated edges). Normal runs use **`cra.loops` only**. **This report caps all loop lengths at 5 hops** (shorter cycles only; the CRA detector may materialize longer paths in the DB, but this pipeline does not use them here).
 - `cra.cra_financial_details` for revenue, total government funding, and dependency ratios
 - `cra.cra_directors` for shared-board overlap
 - `general.entity_golden_records` plus `general.vw_entity_funding` to carry CRA loop participants into FED and Alberta funding context
@@ -23,7 +23,7 @@ Running `npm run analyze:funding-loops` from `general/` writes three files under
 
 The ranking is intentionally simple and hackathon-friendly:
 
-- Favour short loops first: `A -> B -> A` is scored above longer cycles
+- After enrichment, sort primarily by **risk score**, then public funding and circular flow; **shorter loops break ties** (2-hop before 5-hop when other signals match), matching “favour short loops first”
 - Increase risk when loop participants depend heavily on government funding
 - Increase risk when two or more loop participants share board members
 - Increase risk when the same loop participants also show FED or Alberta funding exposure
@@ -41,13 +41,13 @@ npm run analyze:funding-loops
 Optional flags:
 
 ```bash
-node scripts/advanced/11-funding-loops.js --top 25 --network 12 --candidate-pool 250 --max-hops 8
+node scripts/advanced/11-funding-loops.js --top 25 --network 12 --candidate-pool 250 --max-hops 5
 ```
 
-Values of `--max-hops` above **8** are capped to **8** unless you opt into recomputation (materialized `cra.loops` matches the CRA detector’s hop ceiling). To scan deeper on `cra.loop_edges` (different algorithm — for experiments only):
+`--max-hops` is **clamped to 5**. Values above 5 are capped with a console warning. To use the DFS path on `cra.loop_edges` instead of `cra.loops` (still max 5 hops):
 
 ```bash
-node scripts/advanced/11-funding-loops.js --max-hops 15 --recompute-loops --candidate-pool 500 --max-computed-cycles 6000
+node scripts/advanced/11-funding-loops.js --recompute-loops --candidate-pool 500 --max-computed-cycles 6000
 ```
 
 Generate a privacy-safe public report:
@@ -57,6 +57,20 @@ node scripts/advanced/11-funding-loops.js --public-report
 ```
 
 Public report mode replaces organization names with pseudonyms (`ORG-00001` style), redacts direct identifiers, and buckets monetary values into ranges. Keep full-detail reports restricted to authorized analysts.
+
+## Refreshing the vendor dashboard pack
+
+After generating `funding-loops-report.json`, rebuild the static dashboard and `data-summary.json`:
+
+```bash
+node deliverables/build_vendor_brief.js
+```
+
+To re-filter an **existing** `deliverables/vendor_brief/data-summary.json` to the hop cap (no DB), use:
+
+```bash
+node deliverables/apply_hop_cap_to_summary.js
+```
 
 ## Practical note
 

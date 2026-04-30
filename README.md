@@ -8,6 +8,14 @@ This repository unifies four major sources of Canadian government open data into
 
 All data is redistributed under the original publishers' open-government licences — Canada Revenue Agency T3010 filings, federal Grants & Contributions disclosures, and Alberta open data. See [ATTRIBUTIONS.md](ATTRIBUTIONS.md) for data sources and third-party library credits.
 
+## Public site (Evidence)
+
+The root **`index.html`** is a tabbed documentation browser; the **Overview** tab embeds the interactive funding dashboard under `deliverables/vendor_brief/`. That public-facing view uses the **Evidence** title, ranking explainer, and credits suitable for GitHub Pages or static hosting on `main`.
+
+**Contributors:** Daniel Demoz, Kenneth Preston, Matthew Rocky, Ayesha Khalil — University of Ottawa.
+
+After changing loop logic or refreshing data, regenerate the vendor pack with `node deliverables/build_vendor_brief.js` (requires `general/data/reports/funding-loops-report.json` from `npm run analyze:funding-loops` in `general/`). To re-apply only the hop cap to an existing `data-summary.json` without a DB, run `node deliverables/apply_hop_cap_to_summary.js`.
+
 ## Prerequisites
 
 | Component | Version | Notes |
@@ -52,7 +60,7 @@ All four data modules share the same PostgreSQL database on Render (`cra`, `fed`
 
 **Schema:** `cra` · **Rows:** ~8.76M (7.3M T3010 raw + ~1.42M pre-computed analysis) · **Tables:** 49 + 3 views · **Years:** 2020–2024
 
-Annual filings from ~85,000 registered Canadian charities: financial statements, directors, gift flows between charities, program descriptions. Also includes pre-computed accountability-analysis tables (loop detection across 2–6 hops, SCC decomposition, overhead rollups, government-funding breakdown, T3010 data-quality violation flags, donee-name quality scoring).
+Annual filings from ~85,000 registered Canadian charities: financial statements, directors, gift flows between charities, program descriptions. Also includes pre-computed accountability-analysis tables (loop detection across 2–8 hops in the CRA detector, SCC decomposition, overhead rollups, government-funding breakdown, T3010 data-quality violation flags, donee-name quality scoring). The **`general` funding-loops report** (`npm run analyze:funding-loops`) intentionally **caps loops at 5 hops** for prioritization and dashboard consistency.
 
 ```bash
 cd CRA && npm install && npm run setup

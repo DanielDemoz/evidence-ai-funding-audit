@@ -256,7 +256,16 @@ def load_real_report() -> dict:
 
 
 def refresh_real_report() -> None:
-    command = ["node", "scripts/advanced/11-funding-loops.js", "--top", "25", "--network", "12"]
+    command = [
+        "node",
+        "scripts/advanced/11-funding-loops.js",
+        "--top",
+        "25",
+        "--network",
+        "12",
+        "--max-hops",
+        "5",
+    ]
     env = os.environ.copy()
     if REAL_DB_CONNECTION_STRING:
         env["DB_CONNECTION_STRING"] = REAL_DB_CONNECTION_STRING
