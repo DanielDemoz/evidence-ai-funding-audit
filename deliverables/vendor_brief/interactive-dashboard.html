@@ -165,8 +165,20 @@
         <label for="hopFilter">Hop count</label>
         <select id="hopFilter">
           <option value="">All</option>
-          <option value="2">2-hop only</option>
-          <option value="3">3-hop only</option>
+          <option value="2">2-hop</option>
+          <option value="3">3-hop</option>
+          <option value="4">4-hop</option>
+          <option value="5">5-hop</option>
+          <option value="6">6-hop</option>
+          <option value="7">7-hop</option>
+          <option value="8">8-hop</option>
+          <option value="9">9-hop</option>
+          <option value="10">10-hop</option>
+          <option value="11">11-hop</option>
+          <option value="12">12-hop</option>
+          <option value="13">13-hop</option>
+          <option value="14">14-hop</option>
+          <option value="15">15-hop</option>
         </select>
 
         <label for="sortBy">Sort by</label>
@@ -211,7 +223,20 @@
       loops: []
     };
 
+    function fundingRangeMidpointCad(label) {
+      if (label == null || label === "") return 0;
+      if (typeof label === "number" && Number.isFinite(label)) return label;
+      const s = String(label).trim();
+      const map = {
+        "$0": 0, "$0-$100k": 50000, "$100k-$250k": 175000, "$250k-$500k": 375000,
+        "$500k-$1M": 750000, "$1M-$5M": 3000000, "$5M-$10M": 7500000,
+        "$10M-$50M": 30000000, "$50M-$100M": 75000000, "$100M+": 150000000
+      };
+      return map[s] || 0;
+    }
+
     function formatCurrency(value) {
+      if (typeof value === "string" && value.startsWith("$")) return value;
       return new Intl.NumberFormat("en-CA", { style: "currency", currency: "CAD", maximumFractionDigits: 0 }).format(value || 0);
     }
 
@@ -235,19 +260,23 @@
     function fillHeader(data) {
       document.getElementById("insightText").textContent = data.insight || "No insight text found.";
       const dateText = data.generatedAt ? new Date(data.generatedAt).toLocaleString() : "Unknown time";
-      document.getElementById("metaText").textContent = "Generated: " + dateText + " | Topic: " + (data.topic || "N/A");
+      const pub = data.methodology && data.methodology.public_report_mode ? " | Public / pseudonymized report" : "";
+      document.getElementById("metaText").textContent = "Generated: " + dateText + " | Topic: " + (data.topic || "N/A") + pub;
     }
 
     function fillKpis(data) {
       const counts = data.counts || {};
+      const maxH = counts.maxHopsObserved != null ? formatNumber(counts.maxHopsObserved) : "—";
+      const expNote = data.methodology && data.methodology.public_report_mode ? " (approx.)" : "";
       const items = [
         { label: "Flagged loops", value: formatNumber(counts.flaggedLoops) },
         { label: "High-risk loops", value: formatNumber(counts.highRiskLoops) },
         { label: "Organizations involved", value: formatNumber(counts.totalOrganizations) },
+        { label: "Max hop depth", value: maxH },
         { label: "2-hop loops", value: formatNumber(counts.twoHopLoops) },
         { label: "3-hop loops", value: formatNumber(counts.threeHopLoops) },
         { label: "Same-year loops", value: formatNumber(counts.sameYearLoops) },
-        { label: "Funding exposure", value: formatCurrency(counts.governmentFundingExposure) }
+        { label: "Funding exposure" + expNote, value: formatCurrency(counts.governmentFundingExposure) }
       ];
 
       const root = document.getElementById("kpiGrid");
@@ -290,6 +319,8 @@
       if (typeof loop.total_public_funding === "number") return loop.total_public_funding;
       if (typeof loop.public_funding_exposure === "number") return loop.public_funding_exposure;
       if (typeof loop.total_funding === "number") return loop.total_funding;
+      if (typeof loop.cluster_total_funding === "number") return loop.cluster_total_funding;
+      if (typeof loop.cluster_total_funding === "string") return fundingRangeMidpointCad(loop.cluster_total_funding);
       return 0;
     }
 

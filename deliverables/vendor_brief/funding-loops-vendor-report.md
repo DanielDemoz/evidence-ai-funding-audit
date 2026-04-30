@@ -2,26 +2,26 @@
 
 ## Vendor Brief
 
-Generated: 2026-04-28T13:44:54.622Z
+Generated: 2026-04-30T21:58:28.997Z
 
 ## Executive Summary
 
-We identified a cluster of organizations that exchanged funding, shared connections, received public funds, and showed extra risk signals around activity and concentration. Cluster #141 links BOB RUMBALL CANADIAN CENTRE OF EXCELLENCE FOR THE DEAF, The Bob Rumball Camp of the Deaf in a 2-hop loop with $539,500 in circular flow and $89,257,445 in surrounding public-funding exposure. It scores 4/6 because entities are connected through shared directors; at least one organization is highly government-funded (max 80.3%).
+We identified a cluster of organizations that exchanged funding, shared connections, received public funds, and showed extra risk signals around activity and concentration. Cluster #900014 links ORG-00001, ORG-00002, ORG-00003 in a 15-hop loop with $5M-$10M in circular flow and $100M+ in surrounding public-funding exposure. It scores 6/6 because entities are connected through shared directors; at least one linked entity is currently non-active after receiving public funding. These are screening indicators for human review, not determinations of wrongdoing.
 
-- Flagged loops: 20
-- High-risk loops: 5
-- Organizations involved: 37
-- Public-funding exposure across flagged loops: $6,959,822,099
+- Flagged loops: 25
+- High-risk loops: 25
+- Organizations involved: 44
+- Public-funding exposure across flagged loops: $3,750,000,000
 
 ## Top Five Clusters
 
 | Rank | Cluster | Organizations | Total Funding | Score |
 | --- | --- | --- | --- | --- |
-| 1 | #141 | BOB RUMBALL CANADIAN CENTRE OF EXCELLENCE FOR THE DEAF -> The Bob Rumball Camp of the Deaf | $89,257,445 | 4/6 |
-| 2 | #336 | MORE THAN A ROOF MENNONITE HOUSING SOCIETY -> WEST END MENNONITE HOUSING SOCIETY | $49,987,739 | 4/6 |
-| 3 | #17 | COSMOPOLITAN INDUSTRIES LTD. -> THE STENSRUD FAMILY TOP OF THE ROCK FOUNDATION INC. | $43,467,018 | 4/6 |
-| 4 | #436 | AKOMA HOLDINGS INCORPORATED -> AKOMA FAMILY CENTRE INCORPORATED | $13,447,411 | 4/6 |
-| 5 | #231 | Prairie Theatre Exchange Inc -> PRAIRIE THEATRE EXCHANGE FOUNDATION TRUST | $8,978,314 | 4/6 |
+| 1 | #900014 | ORG-00001 -> ORG-00002 -> ORG-00003 -> ORG-00004 -> ORG-00005 -> ORG-00006 -> ORG-00007 -> ORG-00008 -> ORG-00009 -> ORG-00010 -> ORG-00011 -> ORG-00012 -> ORG-00013 -> ORG-00014 -> ORG-00015 | $NaN | 6/6 |
+| 2 | #900019 | ORG-00001 -> ORG-00002 -> ORG-00003 -> ORG-00004 -> ORG-00005 -> ORG-00006 -> ORG-00007 -> ORG-00008 -> ORG-00009 -> ORG-00010 -> ORG-00016 -> ORG-00017 -> ORG-00018 -> ORG-00014 -> ORG-00015 | $NaN | 6/6 |
+| 3 | #905955 | ORG-00001 -> ORG-00002 -> ORG-00003 -> ORG-00004 -> ORG-00005 -> ORG-00006 -> ORG-00007 -> ORG-00019 -> ORG-00020 -> ORG-00021 -> ORG-00022 -> ORG-00017 -> ORG-00018 -> ORG-00014 -> ORG-00015 | $NaN | 6/6 |
+| 4 | #902478 | ORG-00001 -> ORG-00002 -> ORG-00003 -> ORG-00004 -> ORG-00005 -> ORG-00006 -> ORG-00007 -> ORG-00019 -> ORG-00020 -> ORG-00021 -> ORG-00023 -> ORG-00017 -> ORG-00018 -> ORG-00014 -> ORG-00015 | $NaN | 6/6 |
+| 5 | #901284 | ORG-00001 -> ORG-00002 -> ORG-00003 -> ORG-00004 -> ORG-00005 -> ORG-00006 -> ORG-00007 -> ORG-00019 -> ORG-00020 -> ORG-00021 -> ORG-00024 -> ORG-00017 -> ORG-00018 -> ORG-00014 -> ORG-00015 | $NaN | 6/6 |
 
 ## Vendor Positioning
 
