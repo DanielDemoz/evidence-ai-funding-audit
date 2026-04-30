@@ -478,7 +478,7 @@ function buildHtml(summary) {
         <ul class="list">
           <li>Ingests messy CSV, Excel, JSONL, or linked files.</li>
           <li>Normalizes columns and resolves duplicate organizations.</li>
-          <li>Detects circular flows from 2-hop loops up to configurable deeper cycles (up to 15).</li>
+          <li>Uses CRA materialized loops in <code>cra.loops</code> (2–8 hops per detector settings). Optional <code>--recompute-loops</code> scans deeper on graph edges for experiments only.</li>
           <li>Enriches each loop with shared directors, inactivity, government dependency, repetition, and concentration signals.</li>
           <li>Ranks risky clusters and explains them in plain language for analysts.</li>
         </ul>

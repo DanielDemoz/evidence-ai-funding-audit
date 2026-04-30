@@ -5,7 +5,7 @@ This workflow keeps the analysis centered on one question: where does money appe
 ## What it uses
 
 - `cra.loops`, `cra.loop_participants`, and `cra.loop_edge_year_flows` as the default core circular-flow signal
-- `cra.loop_edges` for optional bounded cycle recomputation up to 15 hops
+- `cra.loop_edges` only when you pass `--recompute-loops` (experimental DFS, up to 15 hops). Normal runs use **`cra.loops` only** (2–8 hops as materialized by the CRA loop detector).
 - `cra.cra_financial_details` for revenue, total government funding, and dependency ratios
 - `cra.cra_directors` for shared-board overlap
 - `general.entity_golden_records` plus `general.vw_entity_funding` to carry CRA loop participants into FED and Alberta funding context
@@ -41,10 +41,10 @@ npm run analyze:funding-loops
 Optional flags:
 
 ```bash
-node scripts/advanced/11-funding-loops.js --top 25 --network 12 --candidate-pool 250 --max-hops 15
+node scripts/advanced/11-funding-loops.js --top 25 --network 12 --candidate-pool 250 --max-hops 8
 ```
 
-Compute loops from graph edges (instead of pre-materialized `cra.loops`) when you need deeper cycles:
+Values of `--max-hops` above **8** are capped to **8** unless you opt into recomputation (materialized `cra.loops` matches the CRA detector’s hop ceiling). To scan deeper on `cra.loop_edges` (different algorithm — for experiments only):
 
 ```bash
 node scripts/advanced/11-funding-loops.js --max-hops 15 --recompute-loops --candidate-pool 500 --max-computed-cycles 6000
