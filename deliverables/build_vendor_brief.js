@@ -490,7 +490,7 @@ function buildHtml(summary) {
         <ul class="list">
           <li>Ingests messy CSV, Excel, JSONL, or linked files.</li>
           <li>Normalizes columns and resolves duplicate organizations.</li>
-          <li>Uses CRA materialized loops in <code>cra.loops</code>, capped at <strong>5 hops</strong>. Optional <code>--recompute-loops</code> uses the same hop cap on aggregated <code>cra.loop_edges</code>.</li>
+          <li>Uses CRA materialized loops in <code>cra.loops</code>, capped at <strong>3 hops</strong> (2-hop and 3-hop cycles only). Optional <code>--recompute-loops</code> uses the same hop cap on aggregated <code>cra.loop_edges</code>.</li>
           <li>Enriches each loop with shared directors, inactivity, government dependency, repetition, and concentration signals.</li>
           <li>Ranks risky clusters and explains them in plain language for analysts.</li>
         </ul>

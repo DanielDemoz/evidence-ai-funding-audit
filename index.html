@@ -297,7 +297,7 @@
               <strong>Public funding.</strong> When the public report includes a cluster funding total (sometimes a range), charts and exposure use a consistent midpoint for ranges.
             </li>
             <li>
-              <strong>Loop depth.</strong> Clusters are limited to <strong>at most 5 hops</strong> on the charity gift-flow graph (from <code>cra.loops</code> by default). Shorter loops break ties when risk and funding signals are similar.
+              <strong>Loop depth.</strong> Clusters use <strong>2-hop and 3-hop</strong> charity gift-flow cycles from <code>cra.loops</code> (longer materialized paths are excluded in this report). Shorter loops break ties when risk and funding signals are similar.
             </li>
           </ol>
           <p class="rank-disclaimer">
@@ -307,9 +307,9 @@
 
         <div class="stat-grid">
           <div class="stat"><div class="number">~23M</div><div class="label">Total records (unified DB)</div></div>
-          <div class="stat"><div class="number">5</div><div class="label">Max hops (policy cap)</div></div>
-          <div class="stat"><div class="number">—</div><div class="label">Flagged clusters (see dashboard)</div></div>
-          <div class="stat"><div class="number">—</div><div class="label">Funding exposure (see dashboard)</div></div>
+          <div class="stat"><div class="number">3</div><div class="label">Max hops (2- and 3-hop)</div></div>
+          <div class="stat"><div class="number">20</div><div class="label">Flagged loops (vendor snapshot)</div></div>
+          <div class="stat"><div class="number">~$7.0B</div><div class="label">Public funding exposure (snapshot)</div></div>
         </div>
 
         <div class="overview-actions">

@@ -3,7 +3,7 @@
  * Funding Loops report
  *
  * Focus:
- * - Start from materialized CRA cycles in cra.loops (this report caps at 5 hops; DB may hold longer cycles)
+ * - Start from materialized CRA cycles in cra.loops (this report caps at 3 hops: 2- and 3-hop loops only)
  * - Enrich them with government-funding dependency, director overlap, and
  *   cross-dataset public-money exposure from FED and Alberta sources
  * - Produce:
@@ -23,7 +23,7 @@ const db = require('../../lib/db');
 const REPORT_DIR = path.join(__dirname, '..', '..', 'data', 'reports');
 
 /** Max hop length for this report (`cra.loops` reads and optional `--recompute-loops` DFS). */
-const MAX_LOOP_HOPS = 5;
+const MAX_LOOP_HOPS = 3;
 const MATERIALIZED_MAX_HOPS = MAX_LOOP_HOPS;
 
 function parseArgs() {

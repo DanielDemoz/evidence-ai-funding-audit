@@ -167,8 +167,6 @@
           <option value="">All</option>
           <option value="2">2-hop</option>
           <option value="3">3-hop</option>
-          <option value="4">4-hop</option>
-          <option value="5">5-hop</option>
         </select>
 
         <label for="sortBy">Sort by</label>
@@ -430,7 +428,7 @@
         const data = await res.json();
         state.data = data;
         const allLoops = getAllLoops(data);
-        const maxHopPolicy = 5;
+        const maxHopPolicy = 3;
         state.loops = allLoops.filter((l) => Number(l.hops) <= maxHopPolicy);
         if (allLoops.length && !state.loops.length) {
           showError(

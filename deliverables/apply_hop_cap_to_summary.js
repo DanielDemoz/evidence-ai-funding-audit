@@ -7,7 +7,7 @@ const fs = require("fs");
 const path = require("path");
 const { summarize, buildMarkdown, buildHtml } = require("./build_vendor_brief.js");
 
-const MAX_HOPS = 5;
+const MAX_HOPS = 3;
 const OUT_DIR = path.join(__dirname, "vendor_brief");
 const DATA_PATH = path.join(OUT_DIR, "data-summary.json");
 
@@ -31,7 +31,7 @@ function main() {
     insight =
       "No loops in this snapshot are within the " +
       MAX_HOPS +
-      "-hop cap (this bundle previously used longer experimental cycles). Regenerate from the database: " +
+      "-hop cap (2- and 3-hop only). Regenerate from the database: " +
       "`cd general && npm run analyze:funding-loops && cd .. && node deliverables/build_vendor_brief.js`.";
   } else {
     insight = shortInsight(loops[0]);
