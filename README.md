@@ -32,8 +32,19 @@ cd CRA && npm run verify    # read-only against shared DB with .env.public from 
 
 For local Postgres: see `.local-db/README.md`. Entity pipeline: `cd general && npm run entities:dashboard` (port 3800) and `npm run entities:dossier` (port 3801).
 
-## Screenshot / demo
+## Live demo
 
-**Public site:** open `index.html` locally or via GitHub Pages — tabbed docs browser with embedded interactive dashboard from `deliverables/vendor_brief/interactive-dashboard.html`.
+**Public site:** https://danieldemoz.github.io/evidence-ai-funding-audit/ (tabbed docs browser with the embedded interactive dashboard from `deliverables/vendor_brief/interactive-dashboard.html`). You can also open `index.html` locally.
+
+## Responsible AI, following the Reliable AI Adoption Framework
+
+1. **Business problem:** help accountability researchers find funding loops and concentration across datasets that do not share a common organization ID. Success means every flag can be traced back to source records.
+2. **Data readiness:** public CRA, federal and Alberta open data. Every proven defect is listed with a reproducible query in [KNOWN-DATA-ISSUES.md](KNOWN-DATA-ISSUES.md).
+3. **Governance and risk:** risk scores are screening indicators for human review, not findings of wrongdoing. Organization names are anonymized in the public dashboard and vendor brief.
+4. **Technology:** rules, trigram similarity, Splink and keyword overlap generate candidate pairs. An LLM then labels each pair SAME, RELATED or DIFFERENT, and every verdict is stored in `entity_merge_candidates` so it can be audited. SAME verdicts are merged automatically, so a wrong merge could join two organizations' funding. Check the entity dossier view before reporting any finding.
+5. **People and adoption:** findings are written for analysts and journalists who will check them against source filings before acting.
+6. **Outcomes and monitoring:** data-quality counts are re-run against the live database, and issue IDs stay stable so external references do not break.
+
+Third-party tools and data are credited in [ATTRIBUTIONS.md](ATTRIBUTIONS.md).
 
 Contributors: Daniel Demoz, Kenneth Preston, Matthew Rocky, Ayesha Khalil — University of Ottawa.
