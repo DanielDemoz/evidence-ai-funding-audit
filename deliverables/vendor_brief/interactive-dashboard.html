@@ -257,7 +257,7 @@
 
     function fillKpis(data) {
       const counts = data.counts || {};
-      const maxH = counts.maxHopsObserved != null ? formatNumber(counts.maxHopsObserved) : "—";
+      const maxH = counts.maxHopsObserved != null ? formatNumber(counts.maxHopsObserved) : "n/a";
       const expNote = data.methodology && data.methodology.public_report_mode ? " (approx.)" : "";
       const items = [
         { label: "Flagged loops", value: formatNumber(counts.flaggedLoops) },

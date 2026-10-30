@@ -4,7 +4,7 @@ Multi-dataset platform for Canadian government transparency research, built for 
 
 ## Problem
 
-Canadian accountability research spans CRA charity filings, federal grants, and Alberta contracts—but the same organization appears under dozens of name variants across datasets, blocking cross-source funding analysis.
+Canadian accountability research spans CRA charity filings, federal grants, and Alberta contracts, but the same organization appears under dozens of name variants across datasets, blocking cross-source funding analysis.
 
 ## Approach
 
@@ -47,4 +47,4 @@ For local Postgres: see `.local-db/README.md`. Entity pipeline: `cd general && n
 
 Third-party tools and data are credited in [ATTRIBUTIONS.md](ATTRIBUTIONS.md).
 
-Contributors: Daniel Demoz, Kenneth Preston, Matthew Rocky, Ayesha Khalil — University of Ottawa.
+Contributors: Daniel Demoz, Kenneth Preston, Matthew Rocky, Ayesha Khalil, University of Ottawa.
